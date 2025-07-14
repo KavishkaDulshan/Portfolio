@@ -5,6 +5,7 @@ const Search = ({searchTerm, setSearchTerm}) => {
     <div className='search'>
         <div>
             <h1>Enter something here</h1>
+            <br />
             <input type="text" 
             placeholder='Enter something' 
             value={searchTerm}
