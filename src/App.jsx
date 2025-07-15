@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState } from 'react';
 import Search from './assets/components/Search'
+import NavBar from './assets/components/NavBar'
 
 const App = () => {
 
