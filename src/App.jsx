@@ -8,7 +8,10 @@ const App = () => {
   const [searchTerm,setSearchTerm] = useState('');
 
   return (
-    <div><Search searchTerm={searchTerm} setSearchTerm={setSearchTerm}/></div>
+    <div>
+      <Search searchTerm={searchTerm} setSearchTerm={setSearchTerm}/>
+      <NavBar />
+    </div>
   )
 }
 
