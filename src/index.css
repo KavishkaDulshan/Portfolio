@@ -1,1 +1,22 @@
 @import "tailwindcss";
+
+/* Custom spotlight effect */
+.spotlight {
+  background: radial-gradient(300px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(59, 130, 246, 0.1) 0%, transparent 50%);
+}
+
+/* Track mouse position for spotlight effect */
+nav:hover .spotlight {
+  animation: spotlight 0.3s ease-out;
+}
+
+@keyframes spotlight {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
