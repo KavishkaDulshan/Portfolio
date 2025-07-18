@@ -28,9 +28,9 @@ const NavBar = () => {
   }, [])
 
   return (
-    <nav className="bg-white shadow-lg fixed w-full top-0 z-50 overflow-hidden group">
+    <nav className="bg-white shadow-lg fixed w-full top-0 z-50 overflow-hidden">
       {/* Spotlight effect */}
-      <div className="absolute inset-0 bg-gradient-radial from-blue-100/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none spotlight"></div>
+      <div className="absolute inset-0 bg-gradient-radial from-blue-100/30 via-transparent to-transparent opacity-0 hover:opacity-100 transition-opacity duration-500 pointer-events-none spotlight"></div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="flex justify-between items-center h-20">
