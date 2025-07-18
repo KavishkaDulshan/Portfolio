@@ -28,15 +28,15 @@ const NavBar = () => {
   }, [])
 
   return (
-    <nav className="bg-white shadow-lg fixed w-full top-0 z-50 overflow-hidden">
+    <nav className="bg-white shadow-lg fixed w-full top-0 z-50 overflow-hidden group">
       {/* Spotlight effect */}
-      <div className="absolute inset-0 bg-gradient-radial from-blue-100/30 via-transparent to-transparent opacity-0 hover:opacity-100 transition-opacity duration-500 pointer-events-none spotlight"></div>
+      <div className="absolute inset-0 bg-gradient-radial from-blue-100/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none spotlight"></div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="flex justify-between items-center h-20">
           {/* Logo/Brand */}
           <div className="flex-shrink-0">
-            <a href="#" className="text-4xl font-black text-transparent bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 bg-clip-text hover:from-purple-600 hover:via-blue-600 hover:to-purple-800 transition-all duration-500 tracking-tight">
+            <a href="#" className="text-3xl font-bold text-gray-800 hover:text-blue-600 transition duration-300">
               Portfolio
             </a>
           </div>
@@ -44,25 +44,20 @@ const NavBar = () => {
           {/* Desktop Menu */}
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-8">
-              <a href="#home" className="relative text-gray-800 px-4 py-2 rounded-lg text-xl font-bold transition-all duration-300 tracking-wide overflow-hidden group">
-                <span className="relative z-10 group-hover:text-white transition-colors duration-500">Home</span>
-                <div className="absolute inset-0 bg-gradient-to-t from-blue-500 to-purple-600 transform translate-y-full group-hover:translate-y-0 transition-transform duration-700 ease-out"></div>
+              <a href="#home" className="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-lg font-medium transition duration-300">
+                Home
               </a>
-              <a href="#about" className="relative text-gray-800 px-4 py-2 rounded-lg text-xl font-bold transition-all duration-300 tracking-wide overflow-hidden group">
-                <span className="relative z-10 group-hover:text-white transition-colors duration-500">About</span>
-                <div className="absolute inset-0 bg-gradient-to-t from-blue-500 to-purple-600 transform translate-y-full group-hover:translate-y-0 transition-transform duration-700 ease-out"></div>
+              <a href="#about" className="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-lg font-medium transition duration-300">
+                About
               </a>
-              <a href="#skills" className="relative text-gray-800 px-4 py-2 rounded-lg text-xl font-bold transition-all duration-300 tracking-wide overflow-hidden group">
-                <span className="relative z-10 group-hover:text-white transition-colors duration-500">Skills</span>
-                <div className="absolute inset-0 bg-gradient-to-t from-blue-500 to-purple-600 transform translate-y-full group-hover:translate-y-0 transition-transform duration-700 ease-out"></div>
+              <a href="#skills" className="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-lg font-medium transition duration-300">
+                Skills
               </a>
-              <a href="#projects" className="relative text-gray-800 px-4 py-2 rounded-lg text-xl font-bold transition-all duration-300 tracking-wide overflow-hidden group">
-                <span className="relative z-10 group-hover:text-white transition-colors duration-500">Projects</span>
-                <div className="absolute inset-0 bg-gradient-to-t from-blue-500 to-purple-600 transform translate-y-full group-hover:translate-y-0 transition-transform duration-700 ease-out"></div>
+              <a href="#projects" className="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-lg font-medium transition duration-300">
+                Projects
               </a>
-              <a href="#contact" className="relative text-gray-800 px-4 py-2 rounded-lg text-xl font-bold transition-all duration-300 tracking-wide overflow-hidden group">
-                <span className="relative z-10 group-hover:text-white transition-colors duration-500">Contact</span>
-                <div className="absolute inset-0 bg-gradient-to-t from-blue-500 to-purple-600 transform translate-y-full group-hover:translate-y-0 transition-transform duration-700 ease-out"></div>
+              <a href="#contact" className="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-lg font-medium transition duration-300">
+                Contact
               </a>
             </div>
           </div>
@@ -71,27 +66,27 @@ const NavBar = () => {
           <div className="md:hidden">
             <button
               onClick={toggleMenu}
-              className="inline-flex items-center justify-center p-3 rounded-lg text-gray-700 hover:text-blue-600 hover:bg-blue-50 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500 transition-all duration-300 shadow-sm hover:shadow-md"
+              className="inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-blue-600 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500 transition-all duration-300"
             >
               <span className="sr-only">Open main menu</span>
-              <div className="relative w-7 h-7">
+              <div className="relative w-6 h-6">
                 <svg 
-                  className={`absolute inset-0 w-7 h-7 transition-all duration-300 ${isMenuOpen ? 'rotate-180 opacity-0' : 'rotate-0 opacity-100'}`} 
+                  className={`absolute inset-0 w-6 h-6 transition-all duration-300 ${isMenuOpen ? 'rotate-180 opacity-0' : 'rotate-0 opacity-100'}`} 
                   xmlns="http://www.w3.org/2000/svg" 
                   fill="none" 
                   viewBox="0 0 24 24" 
                   stroke="currentColor"
                 >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M4 6h16M4 12h16M4 18h16" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
                 </svg>
                 <svg 
-                  className={`absolute inset-0 w-7 h-7 transition-all duration-300 ${isMenuOpen ? 'rotate-0 opacity-100' : 'rotate-180 opacity-0'}`} 
+                  className={`absolute inset-0 w-6 h-6 transition-all duration-300 ${isMenuOpen ? 'rotate-0 opacity-100' : 'rotate-180 opacity-0'}`} 
                   xmlns="http://www.w3.org/2000/svg" 
                   fill="none" 
                   viewBox="0 0 24 24" 
                   stroke="currentColor"
                 >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M6 18L18 6M6 6l12 12" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                 </svg>
               </div>
             </button>
@@ -100,47 +95,42 @@ const NavBar = () => {
       </div>
 
       {/* Mobile Menu */}
-      <div className={`md:hidden transition-all duration-500 ease-in-out ${isMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'} overflow-hidden`}>
-        <div className="px-3 pt-3 pb-4 space-y-2 sm:px-4 bg-gradient-to-b from-white to-gray-50 shadow-xl border-t border-gray-100">
+      <div className={`md:hidden transition-all duration-300 ease-in-out ${isMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'} overflow-hidden`}>
+        <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white shadow-lg">
           <a
             href="#home"
-            className="relative text-gray-800 block px-4 py-3 rounded-lg text-lg font-bold transition-all duration-300 tracking-wide overflow-hidden group"
+            className="text-gray-700 hover:text-blue-600 hover:bg-gray-100 block px-3 py-2 rounded-md text-base font-medium transition duration-300 transform hover:scale-105"
             onClick={toggleMenu}
           >
-            <span className="relative z-10 group-hover:text-white transition-colors duration-500">Home</span>
-            <div className="absolute inset-0 bg-gradient-to-t from-blue-500 to-purple-600 transform translate-y-full group-hover:translate-y-0 transition-transform duration-700 ease-out"></div>
+            Home
           </a>
           <a
             href="#about"
-            className="relative text-gray-800 block px-4 py-3 rounded-lg text-lg font-bold transition-all duration-300 tracking-wide overflow-hidden group"
+            className="text-gray-700 hover:text-blue-600 hover:bg-gray-100 block px-3 py-2 rounded-md text-base font-medium transition duration-300 transform hover:scale-105"
             onClick={toggleMenu}
           >
-            <span className="relative z-10 group-hover:text-white transition-colors duration-500">About</span>
-            <div className="absolute inset-0 bg-gradient-to-t from-blue-500 to-purple-600 transform translate-y-full group-hover:translate-y-0 transition-transform duration-700 ease-out"></div>
+            About
           </a>
           <a
             href="#skills"
-            className="relative text-gray-800 block px-4 py-3 rounded-lg text-lg font-bold transition-all duration-300 tracking-wide overflow-hidden group"
+            className="text-gray-700 hover:text-blue-600 hover:bg-gray-100 block px-3 py-2 rounded-md text-base font-medium transition duration-300 transform hover:scale-105"
             onClick={toggleMenu}
           >
-            <span className="relative z-10 group-hover:text-white transition-colors duration-500">Skills</span>
-            <div className="absolute inset-0 bg-gradient-to-t from-blue-500 to-purple-600 transform translate-y-full group-hover:translate-y-0 transition-transform duration-700 ease-out"></div>
+            Skills
           </a>
           <a
             href="#projects"
-            className="relative text-gray-800 block px-4 py-3 rounded-lg text-lg font-bold transition-all duration-300 tracking-wide overflow-hidden group"
+            className="text-gray-700 hover:text-blue-600 hover:bg-gray-100 block px-3 py-2 rounded-md text-base font-medium transition duration-300 transform hover:scale-105"
             onClick={toggleMenu}
           >
-            <span className="relative z-10 group-hover:text-white transition-colors duration-500">Projects</span>
-            <div className="absolute inset-0 bg-gradient-to-t from-blue-500 to-purple-600 transform translate-y-full group-hover:translate-y-0 transition-transform duration-700 ease-out"></div>
+            Projects
           </a>
           <a
             href="#contact"
-            className="relative text-gray-800 block px-4 py-3 rounded-lg text-lg font-bold transition-all duration-300 tracking-wide overflow-hidden group"
+            className="text-gray-700 hover:text-blue-600 hover:bg-gray-100 block px-3 py-2 rounded-md text-base font-medium transition duration-300 transform hover:scale-105"
             onClick={toggleMenu}
           >
-            <span className="relative z-10 group-hover:text-white transition-colors duration-500">Contact</span>
-            <div className="absolute inset-0 bg-gradient-to-t from-blue-500 to-purple-600 transform translate-y-full group-hover:translate-y-0 transition-transform duration-700 ease-out"></div>
+            Contact
           </a>
         </div>
       </div>
