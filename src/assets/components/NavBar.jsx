@@ -44,20 +44,25 @@ const NavBar = () => {
           {/* Desktop Menu */}
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-8">
-              <a href="#home" className="text-gray-800 hover:text-blue-600 px-4 py-2 rounded-lg text-xl font-bold transition-all duration-300 hover:bg-blue-50 hover:shadow-md tracking-wide">
-                Home
+              <a href="#home" className="relative text-gray-800 px-4 py-2 rounded-lg text-xl font-bold transition-all duration-300 tracking-wide overflow-hidden group">
+                <span className="relative z-10 group-hover:text-white transition-colors duration-500">Home</span>
+                <div className="absolute inset-0 bg-gradient-to-t from-blue-500 to-purple-600 transform translate-y-full group-hover:translate-y-0 transition-transform duration-700 ease-out"></div>
               </a>
-              <a href="#about" className="text-gray-800 hover:text-blue-600 px-4 py-2 rounded-lg text-xl font-bold transition-all duration-300 hover:bg-blue-50 hover:shadow-md tracking-wide">
-                About
+              <a href="#about" className="relative text-gray-800 px-4 py-2 rounded-lg text-xl font-bold transition-all duration-300 tracking-wide overflow-hidden group">
+                <span className="relative z-10 group-hover:text-white transition-colors duration-500">About</span>
+                <div className="absolute inset-0 bg-gradient-to-t from-blue-500 to-purple-600 transform translate-y-full group-hover:translate-y-0 transition-transform duration-700 ease-out"></div>
               </a>
-              <a href="#skills" className="text-gray-800 hover:text-blue-600 px-4 py-2 rounded-lg text-xl font-bold transition-all duration-300 hover:bg-blue-50 hover:shadow-md tracking-wide">
-                Skills
+              <a href="#skills" className="relative text-gray-800 px-4 py-2 rounded-lg text-xl font-bold transition-all duration-300 tracking-wide overflow-hidden group">
+                <span className="relative z-10 group-hover:text-white transition-colors duration-500">Skills</span>
+                <div className="absolute inset-0 bg-gradient-to-t from-blue-500 to-purple-600 transform translate-y-full group-hover:translate-y-0 transition-transform duration-700 ease-out"></div>
               </a>
-              <a href="#projects" className="text-gray-800 hover:text-blue-600 px-4 py-2 rounded-lg text-xl font-bold transition-all duration-300 hover:bg-blue-50 hover:shadow-md tracking-wide">
-                Projects
+              <a href="#projects" className="relative text-gray-800 px-4 py-2 rounded-lg text-xl font-bold transition-all duration-300 tracking-wide overflow-hidden group">
+                <span className="relative z-10 group-hover:text-white transition-colors duration-500">Projects</span>
+                <div className="absolute inset-0 bg-gradient-to-t from-blue-500 to-purple-600 transform translate-y-full group-hover:translate-y-0 transition-transform duration-700 ease-out"></div>
               </a>
-              <a href="#contact" className="text-gray-800 hover:text-blue-600 px-4 py-2 rounded-lg text-xl font-bold transition-all duration-300 hover:bg-blue-50 hover:shadow-md tracking-wide">
-                Contact
+              <a href="#contact" className="relative text-gray-800 px-4 py-2 rounded-lg text-xl font-bold transition-all duration-300 tracking-wide overflow-hidden group">
+                <span className="relative z-10 group-hover:text-white transition-colors duration-500">Contact</span>
+                <div className="absolute inset-0 bg-gradient-to-t from-blue-500 to-purple-600 transform translate-y-full group-hover:translate-y-0 transition-transform duration-700 ease-out"></div>
               </a>
             </div>
           </div>
@@ -99,38 +104,43 @@ const NavBar = () => {
         <div className="px-3 pt-3 pb-4 space-y-2 sm:px-4 bg-gradient-to-b from-white to-gray-50 shadow-xl border-t border-gray-100">
           <a
             href="#home"
-            className="text-gray-800 hover:text-blue-600 hover:bg-blue-50 block px-4 py-3 rounded-lg text-lg font-bold transition-all duration-300 transform hover:scale-105 hover:shadow-md tracking-wide"
+            className="relative text-gray-800 block px-4 py-3 rounded-lg text-lg font-bold transition-all duration-300 tracking-wide overflow-hidden group"
             onClick={toggleMenu}
           >
-            Home
+            <span className="relative z-10 group-hover:text-white transition-colors duration-500">Home</span>
+            <div className="absolute inset-0 bg-gradient-to-t from-blue-500 to-purple-600 transform translate-y-full group-hover:translate-y-0 transition-transform duration-700 ease-out"></div>
           </a>
           <a
             href="#about"
-            className="text-gray-800 hover:text-blue-600 hover:bg-blue-50 block px-4 py-3 rounded-lg text-lg font-bold transition-all duration-300 transform hover:scale-105 hover:shadow-md tracking-wide"
+            className="relative text-gray-800 block px-4 py-3 rounded-lg text-lg font-bold transition-all duration-300 tracking-wide overflow-hidden group"
             onClick={toggleMenu}
           >
-            About
+            <span className="relative z-10 group-hover:text-white transition-colors duration-500">About</span>
+            <div className="absolute inset-0 bg-gradient-to-t from-blue-500 to-purple-600 transform translate-y-full group-hover:translate-y-0 transition-transform duration-700 ease-out"></div>
           </a>
           <a
             href="#skills"
-            className="text-gray-800 hover:text-blue-600 hover:bg-blue-50 block px-4 py-3 rounded-lg text-lg font-bold transition-all duration-300 transform hover:scale-105 hover:shadow-md tracking-wide"
+            className="relative text-gray-800 block px-4 py-3 rounded-lg text-lg font-bold transition-all duration-300 tracking-wide overflow-hidden group"
             onClick={toggleMenu}
           >
-            Skills
+            <span className="relative z-10 group-hover:text-white transition-colors duration-500">Skills</span>
+            <div className="absolute inset-0 bg-gradient-to-t from-blue-500 to-purple-600 transform translate-y-full group-hover:translate-y-0 transition-transform duration-700 ease-out"></div>
           </a>
           <a
             href="#projects"
-            className="text-gray-800 hover:text-blue-600 hover:bg-blue-50 block px-4 py-3 rounded-lg text-lg font-bold transition-all duration-300 transform hover:scale-105 hover:shadow-md tracking-wide"
+            className="relative text-gray-800 block px-4 py-3 rounded-lg text-lg font-bold transition-all duration-300 tracking-wide overflow-hidden group"
             onClick={toggleMenu}
           >
-            Projects
+            <span className="relative z-10 group-hover:text-white transition-colors duration-500">Projects</span>
+            <div className="absolute inset-0 bg-gradient-to-t from-blue-500 to-purple-600 transform translate-y-full group-hover:translate-y-0 transition-transform duration-700 ease-out"></div>
           </a>
           <a
             href="#contact"
-            className="text-gray-800 hover:text-blue-600 hover:bg-blue-50 block px-4 py-3 rounded-lg text-lg font-bold transition-all duration-300 transform hover:scale-105 hover:shadow-md tracking-wide"
+            className="relative text-gray-800 block px-4 py-3 rounded-lg text-lg font-bold transition-all duration-300 tracking-wide overflow-hidden group"
             onClick={toggleMenu}
           >
-            Contact
+            <span className="relative z-10 group-hover:text-white transition-colors duration-500">Contact</span>
+            <div className="absolute inset-0 bg-gradient-to-t from-blue-500 to-purple-600 transform translate-y-full group-hover:translate-y-0 transition-transform duration-700 ease-out"></div>
           </a>
         </div>
       </div>
