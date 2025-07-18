@@ -28,7 +28,7 @@ const NavBar = () => {
   }, [])
 
   return (
-    <nav className="bg-white shadow-lg fixed w-full top-0 z-50 overflow-hidden group">
+    <nav className="bg-white shadow-lg fixed w-full top-0 z-50 overflow-hidden group font-inter">
       {/* Spotlight effect */}
       <div className="absolute inset-0 bg-gradient-radial from-blue-100/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none spotlight"></div>
       
@@ -36,7 +36,7 @@ const NavBar = () => {
         <div className="flex justify-between items-center h-20">
           {/* Logo/Brand */}
           <div className="flex-shrink-0">
-            <a href="#" className="text-3xl font-bold text-gray-800 hover:text-blue-600 transition duration-300">
+            <a href="#" className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent hover:from-purple-600 hover:to-blue-600 transition-all duration-300 tracking-tight">
               Portfolio
             </a>
           </div>
@@ -44,19 +44,19 @@ const NavBar = () => {
           {/* Desktop Menu */}
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-8">
-              <a href="#home" className="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-lg font-medium transition duration-300">
+              <a href="#home" className="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-lg font-semibold tracking-wide transition-all duration-300 hover:scale-105 relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-blue-600 after:transition-all after:duration-300 hover:after:w-full">
                 Home
               </a>
-              <a href="#about" className="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-lg font-medium transition duration-300">
+              <a href="#about" className="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-lg font-semibold tracking-wide transition-all duration-300 hover:scale-105 relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-blue-600 after:transition-all after:duration-300 hover:after:w-full">
                 About
               </a>
-              <a href="#skills" className="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-lg font-medium transition duration-300">
+              <a href="#skills" className="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-lg font-semibold tracking-wide transition-all duration-300 hover:scale-105 relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-blue-600 after:transition-all after:duration-300 hover:after:w-full">
                 Skills
               </a>
-              <a href="#projects" className="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-lg font-medium transition duration-300">
+              <a href="#projects" className="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-lg font-semibold tracking-wide transition-all duration-300 hover:scale-105 relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-blue-600 after:transition-all after:duration-300 hover:after:w-full">
                 Projects
               </a>
-              <a href="#contact" className="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-lg font-medium transition duration-300">
+              <a href="#contact" className="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-lg font-semibold tracking-wide transition-all duration-300 hover:scale-105 relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-blue-600 after:transition-all after:duration-300 hover:after:w-full">
                 Contact
               </a>
             </div>
@@ -99,35 +99,35 @@ const NavBar = () => {
         <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white shadow-lg">
           <a
             href="#home"
-            className="text-gray-700 hover:text-blue-600 hover:bg-gray-100 block px-3 py-2 rounded-md text-base font-medium transition duration-300 transform hover:scale-105"
+            className="text-gray-700 hover:text-blue-600 hover:bg-gray-100 block px-3 py-2 rounded-md text-base font-semibold tracking-wide transition-all duration-300 transform hover:scale-105 hover:translate-x-2"
             onClick={toggleMenu}
           >
             Home
           </a>
           <a
             href="#about"
-            className="text-gray-700 hover:text-blue-600 hover:bg-gray-100 block px-3 py-2 rounded-md text-base font-medium transition duration-300 transform hover:scale-105"
+            className="text-gray-700 hover:text-blue-600 hover:bg-gray-100 block px-3 py-2 rounded-md text-base font-semibold tracking-wide transition-all duration-300 transform hover:scale-105 hover:translate-x-2"
             onClick={toggleMenu}
           >
             About
           </a>
           <a
             href="#skills"
-            className="text-gray-700 hover:text-blue-600 hover:bg-gray-100 block px-3 py-2 rounded-md text-base font-medium transition duration-300 transform hover:scale-105"
+            className="text-gray-700 hover:text-blue-600 hover:bg-gray-100 block px-3 py-2 rounded-md text-base font-semibold tracking-wide transition-all duration-300 transform hover:scale-105 hover:translate-x-2"
             onClick={toggleMenu}
           >
             Skills
           </a>
           <a
             href="#projects"
-            className="text-gray-700 hover:text-blue-600 hover:bg-gray-100 block px-3 py-2 rounded-md text-base font-medium transition duration-300 transform hover:scale-105"
+            className="text-gray-700 hover:text-blue-600 hover:bg-gray-100 block px-3 py-2 rounded-md text-base font-semibold tracking-wide transition-all duration-300 transform hover:scale-105 hover:translate-x-2"
             onClick={toggleMenu}
           >
             Projects
           </a>
           <a
             href="#contact"
-            className="text-gray-700 hover:text-blue-600 hover:bg-gray-100 block px-3 py-2 rounded-md text-base font-medium transition duration-300 transform hover:scale-105"
+            className="text-gray-700 hover:text-blue-600 hover:bg-gray-100 block px-3 py-2 rounded-md text-base font-semibold tracking-wide transition-all duration-300 transform hover:scale-105 hover:translate-x-2"
             onClick={toggleMenu}
           >
             Contact
