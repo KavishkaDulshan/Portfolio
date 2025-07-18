@@ -44,19 +44,19 @@ const NavBar = () => {
           {/* Desktop Menu */}
           <div className="hidden md:block">
             <div className="flex items-center space-x-3">
-              <a href="#home" className="text-gray-800 hover:text-yellow-300 hover:bg-gradient-to-r hover:from-blue-500 hover:to-purple-500 bg-gray-100/60 hover:bg-none px-7 py-3 rounded-full text-base font-semibold tracking-wide transition-all duration-300 hover:shadow-lg hover:scale-105 active:scale-95">
+              <a href="#home" className="text-gray-800 hover:text-cyan-300 hover:bg-gradient-to-r hover:from-blue-500 hover:to-purple-500 bg-gray-100/60 hover:bg-none px-7 py-3 rounded-full text-base font-semibold tracking-wide transition-all duration-300 hover:shadow-lg hover:scale-105 active:scale-95">
                 Home
               </a>
-              <a href="#about" className="text-gray-800 hover:text-yellow-300 hover:bg-gradient-to-r hover:from-blue-500 hover:to-purple-500 bg-gray-100/60 hover:bg-none px-7 py-3 rounded-full text-base font-semibold tracking-wide transition-all duration-300 hover:shadow-lg hover:scale-105 active:scale-95">
+              <a href="#about" className="text-gray-800 hover:text-emerald-300 hover:bg-gradient-to-r hover:from-blue-500 hover:to-purple-500 bg-gray-100/60 hover:bg-none px-7 py-3 rounded-full text-base font-semibold tracking-wide transition-all duration-300 hover:shadow-lg hover:scale-105 active:scale-95">
                 About
               </a>
-              <a href="#skills" className="text-gray-800 hover:text-yellow-300 hover:bg-gradient-to-r hover:from-blue-500 hover:to-purple-500 bg-gray-100/60 hover:bg-none px-7 py-3 rounded-full text-base font-semibold tracking-wide transition-all duration-300 hover:shadow-lg hover:scale-105 active:scale-95">
+              <a href="#skills" className="text-gray-800 hover:text-amber-300 hover:bg-gradient-to-r hover:from-blue-500 hover:to-purple-500 bg-gray-100/60 hover:bg-none px-7 py-3 rounded-full text-base font-semibold tracking-wide transition-all duration-300 hover:shadow-lg hover:scale-105 active:scale-95">
                 Skills
               </a>
-              <a href="#projects" className="text-gray-800 hover:text-yellow-300 hover:bg-gradient-to-r hover:from-blue-500 hover:to-purple-500 bg-gray-100/60 hover:bg-none px-7 py-3 rounded-full text-base font-semibold tracking-wide transition-all duration-300 hover:shadow-lg hover:scale-105 active:scale-95">
+              <a href="#projects" className="text-gray-800 hover:text-rose-300 hover:bg-gradient-to-r hover:from-blue-500 hover:to-purple-500 bg-gray-100/60 hover:bg-none px-7 py-3 rounded-full text-base font-semibold tracking-wide transition-all duration-300 hover:shadow-lg hover:scale-105 active:scale-95">
                 Projects
               </a>
-              <a href="#contact" className="text-gray-800 hover:text-yellow-300 hover:bg-gradient-to-r hover:from-blue-500 hover:to-purple-500 bg-gray-100/60 hover:bg-none px-7 py-3 rounded-full text-base font-semibold tracking-wide transition-all duration-300 hover:shadow-lg hover:scale-105 active:scale-95">
+              <a href="#contact" className="text-gray-800 hover:text-violet-300 hover:bg-gradient-to-r hover:from-blue-500 hover:to-purple-500 bg-gray-100/60 hover:bg-none px-7 py-3 rounded-full text-base font-semibold tracking-wide transition-all duration-300 hover:shadow-lg hover:scale-105 active:scale-95">
                 Contact
               </a>
             </div>
@@ -66,7 +66,7 @@ const NavBar = () => {
           <div className="md:hidden">
             <button
               onClick={toggleMenu}
-              className="inline-flex items-center justify-center w-12 h-12 rounded-full text-gray-700 hover:text-yellow-300 hover:bg-gradient-to-r hover:from-blue-500 hover:to-purple-500 bg-gray-100/60 hover:bg-none focus:outline-none focus:ring-4 focus:ring-blue-200 transition-all duration-300 hover:shadow-lg active:scale-95"
+              className="inline-flex items-center justify-center w-12 h-12 rounded-full text-gray-700 hover:text-cyan-300 hover:bg-gradient-to-r hover:from-blue-500 hover:to-purple-500 bg-gray-100/60 hover:bg-none focus:outline-none focus:ring-4 focus:ring-blue-200 transition-all duration-300 hover:shadow-lg active:scale-95"
             >
               <span className="sr-only">Open main menu</span>
               <div className="relative w-6 h-6">
@@ -99,35 +99,35 @@ const NavBar = () => {
         <div className="px-6 pt-4 pb-6 space-y-3 bg-white/95 backdrop-blur-md shadow-lg border-t border-gray-200/50">
           <a
             href="#home"
-            className="text-gray-800 hover:text-yellow-300 hover:bg-gradient-to-r hover:from-blue-500 hover:to-purple-500 bg-gray-100/60 hover:bg-none block px-6 py-4 rounded-full text-lg font-semibold tracking-wide transition-all duration-300 transform hover:scale-105 hover:shadow-lg active:scale-95"
+            className="text-gray-800 hover:text-cyan-300 hover:bg-gradient-to-r hover:from-blue-500 hover:to-purple-500 bg-gray-100/60 hover:bg-none block px-6 py-4 rounded-full text-lg font-semibold tracking-wide transition-all duration-300 transform hover:scale-105 hover:shadow-lg active:scale-95"
             onClick={toggleMenu}
           >
             Home
           </a>
           <a
             href="#about"
-            className="text-gray-800 hover:text-yellow-300 hover:bg-gradient-to-r hover:from-blue-500 hover:to-purple-500 bg-gray-100/60 hover:bg-none block px-6 py-4 rounded-full text-lg font-semibold tracking-wide transition-all duration-300 transform hover:scale-105 hover:shadow-lg active:scale-95"
+            className="text-gray-800 hover:text-emerald-300 hover:bg-gradient-to-r hover:from-blue-500 hover:to-purple-500 bg-gray-100/60 hover:bg-none block px-6 py-4 rounded-full text-lg font-semibold tracking-wide transition-all duration-300 transform hover:scale-105 hover:shadow-lg active:scale-95"
             onClick={toggleMenu}
           >
             About
           </a>
           <a
             href="#skills"
-            className="text-gray-800 hover:text-yellow-300 hover:bg-gradient-to-r hover:from-blue-500 hover:to-purple-500 bg-gray-100/60 hover:bg-none block px-6 py-4 rounded-full text-lg font-semibold tracking-wide transition-all duration-300 transform hover:scale-105 hover:shadow-lg active:scale-95"
+            className="text-gray-800 hover:text-amber-300 hover:bg-gradient-to-r hover:from-blue-500 hover:to-purple-500 bg-gray-100/60 hover:bg-none block px-6 py-4 rounded-full text-lg font-semibold tracking-wide transition-all duration-300 transform hover:scale-105 hover:shadow-lg active:scale-95"
             onClick={toggleMenu}
           >
             Skills
           </a>
           <a
             href="#projects"
-            className="text-gray-800 hover:text-yellow-300 hover:bg-gradient-to-r hover:from-blue-500 hover:to-purple-500 bg-gray-100/60 hover:bg-none block px-6 py-4 rounded-full text-lg font-semibold tracking-wide transition-all duration-300 transform hover:scale-105 hover:shadow-lg active:scale-95"
+            className="text-gray-800 hover:text-rose-300 hover:bg-gradient-to-r hover:from-blue-500 hover:to-purple-500 bg-gray-100/60 hover:bg-none block px-6 py-4 rounded-full text-lg font-semibold tracking-wide transition-all duration-300 transform hover:scale-105 hover:shadow-lg active:scale-95"
             onClick={toggleMenu}
           >
             Projects
           </a>
           <a
             href="#contact"
-            className="text-gray-800 hover:text-yellow-300 hover:bg-gradient-to-r hover:from-blue-500 hover:to-purple-500 bg-gray-100/60 hover:bg-none block px-6 py-4 rounded-full text-lg font-semibold tracking-wide transition-all duration-300 transform hover:scale-105 hover:shadow-lg active:scale-95"
+            className="text-gray-800 hover:text-violet-300 hover:bg-gradient-to-r hover:from-blue-500 hover:to-purple-500 bg-gray-100/60 hover:bg-none block px-6 py-4 rounded-full text-lg font-semibold tracking-wide transition-all duration-300 transform hover:scale-105 hover:shadow-lg active:scale-95"
             onClick={toggleMenu}
           >
             Contact
