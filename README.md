@@ -1,6 +1,4 @@
 #added search component
 search function is implemented as a seperate componnent
 
-should add tailwind css styles
-
-finalized for 14th
+Updated the navigation bar to feel as android ui by adding round elements and naked colours.
