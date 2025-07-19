@@ -1,6 +1,127 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 @import "tailwindcss";
 
+/* Root variables for viewport units */
+:root {
+  --vh: 1vh;
+}
+
+/* iPhone Safe Area Support */
+.safe-area-top {
+  padding-top: env(safe-area-inset-top);
+}
+
+.safe-area-bottom {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.pb-safe {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+/* iPhone Viewport Fix */
+.min-h-screen {
+  min-height: 100vh;
+  min-height: calc(var(--vh, 1vh) * 100);
+}
+
+html {
+  /* Prevent zoom on input focus */
+  -webkit-text-size-adjust: 100%;
+  /* Better font rendering on mobile */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html, body {
+  height: -webkit-fill-available;
+  /* Prevent rubber band scrolling on iOS */
+  overscroll-behavior: none;
+}
+
+/* Performance optimizations */
+* {
+  /* GPU acceleration for better performance */
+  will-change: auto;
+  /* Better scrolling on iOS */
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Touch Optimization for iPhone */
+.touch-manipulation {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  /* Prevent text selection on mobile */
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Focus visible for accessibility */
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid #3B82F6;
+  outline-offset: 2px;
+}
+
+/* Custom breakpoint for iPhone SE and similar */
+@media (max-width: 375px) {
+  .xs\:text-3xl {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+  }
+  
+  .xs\:text-base {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+  
+  .xs\:w-40 {
+    width: 10rem;
+  }
+  
+  .xs\:h-40 {
+    height: 10rem;
+  }
+  
+  .xs\:w-20 {
+    width: 5rem;
+  }
+  
+  .xs\:h-20 {
+    height: 5rem;
+  }
+}
+
+/* Battery-conscious animations */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Low power mode optimizations */
+@media (max-resolution: 150dpi) and (max-width: 768px) {
+  video {
+    display: none !important;
+  }
+  
+  .animate-bounce,
+  .animate-pulse,
+  .animate-spin,
+  .animate-gradient-x {
+    animation: none !important;
+  }
+}
+
 /* Custom spotlight effect */
 .spotlight {
   background: radial-gradient(300px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(59, 130, 246, 0.1) 0%, transparent 50%);
@@ -74,4 +195,69 @@ nav:hover .spotlight {
 
 .shadow-elevation-3 {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+}
+
+/* iPhone specific optimizations */
+@supports (-webkit-touch-callout: none) {
+  /* iPhone specific styles */
+  .touch-manipulation {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  /* Fix for iPhone Safari address bar */
+  .min-h-screen {
+    min-height: calc(100vh - env(safe-area-inset-top) - env(safe-area-inset-bottom));
+    min-height: calc(var(--vh, 1vh) * 100);
+  }
+}
+
+/* Network-aware loading */
+@media (prefers-reduced-data: reduce) {
+  video {
+    display: none !important;
+  }
+  
+  img {
+    filter: none !important;
+  }
+  
+  .animate-gradient-x {
+    animation: none !important;
+    background: linear-gradient(to right, #18181b, #0891b2, #374151) !important;
+  }
+}
+
+/* Dark mode support for better battery life */
+@media (prefers-color-scheme: dark) {
+  /* Dark mode styles can be added here for future implementation */
+}
+
+/* Print optimizations */
+@media print {
+  video,
+  .animate-bounce,
+  .animate-pulse,
+  .animate-spin,
+  .animate-gradient-x {
+    display: none !important;
+  }
+}
+
+/* Image optimization */
+img {
+  /* Better image rendering on mobile */
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: optimize-contrast;
+}
+
+/* Smooth scrolling with performance consideration */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
 }
