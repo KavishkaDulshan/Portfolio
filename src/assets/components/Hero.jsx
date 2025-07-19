@@ -64,11 +64,19 @@ const Hero = () => {
               </div>
 
               {/* Profile Image - Between title and subtitle */}
-              <div className={`flex justify-center lg:justify-center transform transition-all duration-1000 delay-300 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
+              <div className={`flex justify-center lg:justify-start items-center gap-6 transform transition-all duration-1000 delay-300 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
                 <img 
                   src="/man.png" 
                   alt="Profile" 
                   className="w-40 h-40 sm:w-48 sm:h-48 md:w-56 md:h-56 lg:w-64 lg:h-64 object-contain transition-all duration-500 hover:scale-110 hover:rotate-3 filter drop-shadow-lg"
+                />
+                <video 
+                  src="/brain.webm" 
+                  autoPlay 
+                  loop 
+                  muted 
+                  playsInline
+                  className="w-40 h-40 sm:w-48 sm:h-48 md:w-56 md:h-56 lg:w-64 lg:h-64 object-contain transition-all duration-500 hover:scale-110 hover:-rotate-3 filter drop-shadow-lg"
                 />
               </div>
 
