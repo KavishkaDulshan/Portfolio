@@ -3,6 +3,12 @@ import SocialWindow from './SocialWindow'
 import Step from './Step'
 import Typewriter from './Typewriter'
 
+// Import assets
+import profileImage from '../images/profileImage.jpeg'
+import manImage from '../images/man.png'
+import brainVideo from '../videos/brain.webm'
+import socialVideo from '../videos/social.webm'
+
 const Hero = () => {
   const [isVisible, setIsVisible] = useState(false)
   const [hoveredSocial, setHoveredSocial] = useState(null)
@@ -75,7 +81,7 @@ const Hero = () => {
                   <div className="w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 rounded-full bg-gradient-to-r from-zinc-950 via-cyan-900 to-gray-900 p-2">
                     <div className="w-full h-full rounded-full bg-gray-200 flex items-center justify-center overflow-hidden">
                       <img 
-                        src="/profileImage.jpeg" 
+                        src={profileImage}
                         alt="Profile" 
                         className="w-full h-full object-cover rounded-full transition-all duration-500 hover:scale-110"
                       />
@@ -86,12 +92,12 @@ const Hero = () => {
                 {/* Man and Brain images - Mobile - Under profile image */}
                 <div className={`flex justify-center items-center gap-4 mt-4 transform transition-all duration-1000 delay-500 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
                   <img 
-                    src="/man.png" 
+                    src={manImage}
                     alt="Profile" 
                     className="w-24 h-24 sm:w-32 sm:h-32 md:w-36 md:h-36 object-contain transition-all duration-500 hover:scale-110 hover:rotate-3 filter drop-shadow-lg"
                   />
                   <video 
-                    src="/brain.webm" 
+                    src={brainVideo}
                     autoPlay 
                     loop 
                     muted 
@@ -160,7 +166,7 @@ const Hero = () => {
                 {/* Social Video - Mobile - Under social links */}
                 <div className={`flex justify-center mt-4 transform transition-all duration-1000 delay-1200 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'} relative z-5`}>
                   <video 
-                    src="/social.webm" 
+                    src={socialVideo}
                     autoPlay 
                     loop 
                     muted 
@@ -173,12 +179,12 @@ const Hero = () => {
               {/* Profile Image - Desktop - Between title and subtitle */}
               <div className={`hidden lg:flex justify-center lg:justify-start items-center gap-6 transform transition-all duration-1000 delay-300 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
                 <img 
-                  src="/man.png" 
+                  src={manImage}
                   alt="Profile" 
                   className="w-40 h-40 sm:w-48 sm:h-48 md:w-56 md:h-56 lg:w-64 lg:h-64 object-contain transition-all duration-500 hover:scale-110 hover:rotate-3 filter drop-shadow-lg"
                 />
                 <video 
-                  src="/brain.webm" 
+                  src={brainVideo}
                   autoPlay 
                   loop 
                   muted 
@@ -224,7 +230,7 @@ const Hero = () => {
                 <div className="w-80 h-80 xl:w-96 xl:h-96 rounded-full bg-gradient-to-r from-zinc-900 via-cyan-700 to-gray-900 p-2">
                   <div className="w-full h-full rounded-full bg-gray-200 flex items-center justify-center overflow-hidden">
                     <img 
-                      src="/profileImage.jpeg" 
+                      src={profileImage}
                       alt="Profile" 
                       className="w-full h-full object-cover rounded-full transition-all duration-500 hover:scale-110"
                     />
@@ -292,7 +298,7 @@ const Hero = () => {
               {/* Social Video - Desktop - Under social links */}
               <div className={`flex justify-center mt-4 transform transition-all duration-1000 delay-1200 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'} relative z-5`}>
                 <video 
-                  src="/social.webm" 
+                  src={socialVideo}
                   autoPlay 
                   loop 
                   muted 
