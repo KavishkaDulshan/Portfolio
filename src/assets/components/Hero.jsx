@@ -42,58 +42,92 @@ const Hero = () => {
       </div>
 
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10 relative z-10">
-        <div className="flex flex-col lg:flex-row items-center justify-between min-h-screen gap-8 lg:gap-12">
-          {/* Left Content */}
-          <div className="flex-1 space-y-6 lg:space-y-8 text-center lg:text-left">
-            {/* Greeting */}
-            <div className={`transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-              <p className="text-lg text-gray-600 font-medium tracking-wide">
-                👋 Hello, I'm
-              </p>
-            </div>
+        <div className="min-h-screen flex flex-col justify-center gap-8 lg:gap-12">
+          {/* Top Section - Name and Desktop Profile Image */}
+          <div className="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12">
+            {/* Left Content */}
+            <div className="flex-1 space-y-6 lg:space-y-8 text-center lg:text-left lg:max-w-3xl">
+              {/* Greeting */}
+              <div className={`transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
+                <p className="text-lg text-gray-600 font-medium tracking-wide">
+                  👋 Hello, I'm
+                </p>
+              </div>
 
-            {/* Main Title */}
-            <div className={`transform transition-all duration-1000 delay-200 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-tight">
-                <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-cyan-600 bg-clip-text text-transparent animate-gradient-x">
-                  Your Name
-                </span>
-              </h1>
-            </div>
+              {/* Main Title - Removed small image from here */}
+              <div className={`transform transition-all duration-1000 delay-200 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
+                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight">
+                  <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-cyan-600 bg-clip-text text-transparent animate-gradient-x">
+                    Kavishka Dulshan
+                  </span>
+                </h1>
+              </div>
 
-            {/* Profile Image - Mobile/Small screens only */}
-            <div className={`lg:hidden flex justify-center transform transition-all duration-1000 delay-300 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-              <div className="relative">
-                <div className="w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 p-2">
-                  <div className="w-full h-full rounded-full bg-gray-200 flex items-center justify-center">
-                    <svg className="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 text-gray-400" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
-                    </svg>
-                  </div>
-                </div>
-                <div className="absolute -top-2 -right-2 w-5 h-5 sm:w-6 sm:h-6 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full animate-bounce" />
-                <div className="absolute -bottom-2 -left-2 w-4 h-4 sm:w-5 sm:h-5 bg-gradient-to-r from-purple-400 to-pink-500 rounded-full animate-pulse" />
+              {/* Profile Image - Between title and subtitle */}
+              <div className={`flex justify-center lg:justify-center transform transition-all duration-1000 delay-300 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
+                <img 
+                  src="/man.png" 
+                  alt="Profile" 
+                  className="w-40 h-40 sm:w-48 sm:h-48 md:w-56 md:h-56 lg:w-64 lg:h-64 object-contain transition-all duration-500 hover:scale-110 hover:rotate-3 filter drop-shadow-lg"
+                />
+              </div>
+
+              {/* Subtitle */}
+              <div className={`transform transition-all duration-1000 delay-400 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
+                <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-semibold text-gray-700 leading-relaxed">
+                  Full Stack Developer &{' '}
+                  <span className="bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">
+                    UI/UX Designer
+                  </span>
+                </h2>
+              </div>
+
+              {/* Description */}
+              <div className={`transform transition-all duration-1000 delay-600 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
+                <p className="text-sm sm:text-base lg:text-lg text-gray-600 max-w-2xl leading-relaxed mx-auto lg:mx-0">
+                  I create beautiful, responsive web applications with modern technologies. 
+                  Passionate about crafting exceptional user experiences and bringing ideas to life through code.
+                </p>
               </div>
             </div>
 
-            {/* Subtitle */}
-            <div className={`transform transition-all duration-1000 delay-400 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-              <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold text-gray-700 leading-relaxed">
-                Full Stack Developer &{' '}
-                <span className="bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">
-                  UI/UX Designer
-                </span>
-              </h2>
+            {/* Right Content - Large Profile Image - Desktop only - Now positioned at top right */}
+            <div className={`hidden lg:flex flex-shrink-0 transform transition-all duration-1000 delay-300 ${isVisible ? 'translate-x-0 opacity-100' : 'translate-x-10 opacity-0'}`}>
+              <div className="relative">
+                <div className="w-80 h-80 xl:w-96 xl:h-96 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 p-2">
+                  <div className="w-full h-full rounded-full bg-gray-200 flex items-center justify-center overflow-hidden">
+                    <img 
+                      src="/profileImage.jpeg" 
+                      alt="Profile" 
+                      className="w-full h-full object-cover rounded-full transition-all duration-500 hover:scale-110"
+                    />
+                  </div>
+                </div>
+                <div className="absolute -top-4 -right-4 w-8 h-8 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full animate-bounce" />
+                <div className="absolute -bottom-4 -left-4 w-6 h-6 bg-gradient-to-r from-purple-400 to-pink-500 rounded-full animate-pulse" />
+              </div>
             </div>
+          </div>
 
-            {/* Description */}
-            <div className={`transform transition-all duration-1000 delay-600 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-              <p className="text-base lg:text-lg text-gray-600 max-w-2xl leading-relaxed mx-auto lg:mx-0">
-                I create beautiful, responsive web applications with modern technologies. 
-                Passionate about crafting exceptional user experiences and bringing ideas to life through code.
-              </p>
+          {/* Profile Image - Mobile/Small screens only - Moved after main title */}
+          <div className={`lg:hidden flex justify-center transform transition-all duration-1000 delay-300 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
+            <div className="relative">
+              <div className="w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 p-2">
+                <div className="w-full h-full rounded-full bg-gray-200 flex items-center justify-center overflow-hidden">
+                  <img 
+                    src="/profileImage.jpeg" 
+                    alt="Profile" 
+                    className="w-full h-full object-cover rounded-full transition-all duration-500 hover:scale-110"
+                  />
+                </div>
+              </div>
+              <div className="absolute -top-2 -right-2 w-5 h-5 sm:w-6 sm:h-6 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full animate-bounce" />
+              <div className="absolute -bottom-2 -left-2 w-4 h-4 sm:w-5 sm:h-5 bg-gradient-to-r from-purple-400 to-pink-500 rounded-full animate-pulse" />
             </div>
+          </div>
 
+          {/* Bottom Section - CTA Buttons and Social Links */}
+          <div className="flex flex-col items-center lg:items-start space-y-6">
             {/* CTA Buttons */}
             <div className={`flex flex-col sm:flex-row flex-wrap gap-4 justify-center lg:justify-start transform transition-all duration-1000 delay-800 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
               <button className="px-6 lg:px-8 py-3 lg:py-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold rounded-full text-base lg:text-lg tracking-wide transition-all duration-300 hover:shadow-lg hover:scale-105 active:scale-95 flex items-center justify-center gap-3 group">
@@ -128,21 +162,6 @@ const Hero = () => {
                   <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
                 </svg>
               </a>
-            </div>
-          </div>
-
-          {/* Right Content - Profile Image - Desktop only */}
-          <div className={`hidden lg:flex flex-1 justify-center items-center transform transition-all duration-1000 delay-400 ${isVisible ? 'translate-x-0 opacity-100' : 'translate-x-10 opacity-0'}`}>
-            <div className="relative">
-              <div className="w-96 h-96 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 p-2">
-                <div className="w-full h-full rounded-full bg-gray-200 flex items-center justify-center">
-                  <svg className="w-48 h-48 text-gray-400" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
-                  </svg>
-                </div>
-              </div>
-              <div className="absolute -top-4 -right-4 w-8 h-8 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full animate-bounce" />
-              <div className="absolute -bottom-4 -left-4 w-6 h-6 bg-gradient-to-r from-purple-400 to-pink-500 rounded-full animate-pulse" />
             </div>
           </div>
         </div>
