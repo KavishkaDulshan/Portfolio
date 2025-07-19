@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import SocialWindow from './SocialWindow'
+import Step from './Step'
+import Typewriter from './Typewriter'
 
 const Hero = () => {
   const [isVisible, setIsVisible] = useState(false)
@@ -51,21 +53,28 @@ const Hero = () => {
           <div className="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12">
             {/* Left Content */}
             <div className="flex-1 space-y-6 lg:space-y-8 text-center lg:text-left lg:max-w-3xl">
-              {/* Greeting */}
-              <div className={`transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-                <p className="text-lg text-gray-600 font-medium tracking-wide">
-                  👋 Hello, I'm
-                </p>
-              </div>
 
-              {/* Main Title */}
-              <div className={`transform transition-all duration-1000 delay-200 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight">
-                  <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-cyan-600 bg-clip-text text-transparent animate-gradient-x">
-                    Kavishka Dulshan
-                  </span>
+              {/* Main Title with Typewriter Effect */}
+              {/* <Step 
+                delay={200} 
+                className={`transform transition-all duration-1000 delay-200 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}
+                padding="p-6"
+                shadow="shadow-2xl"
+              > */}
+                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight min-h-[1.2em] relative z-10 text-center mt-4">
+                  <Typewriter 
+                    texts={[
+                      "Hello there!",
+                      "Glad To See You",
+                      "Kavishka Dulshan"
+                    ]}
+                    speed={80}
+                    deleteSpeed={40}
+                    pauseTime={1500}
+                    className="bg-gradient-to-r from-zinc-900 via-cyan-700 to-gray-900 bg-clip-text text-transparent animate-gradient-x"
+                  />
                 </h1>
-              </div>
+              {/* </Step> */}
 
               {/* Profile Image - Between title and subtitle */}
               <div className={`flex justify-center lg:justify-start items-center gap-6 transform transition-all duration-1000 delay-300 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
@@ -84,32 +93,41 @@ const Hero = () => {
                 />
               </div>
 
-              {/* Subtitle */}
-              <div className={`transform transition-all duration-1000 delay-400 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
+              {/* Subtitle with Step Effect */}
+              <Step 
+                delay={400} 
+                className={`transform transition-all duration-1000 delay-400 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}
+                padding="p-5"
+                shadow="shadow-xl"
+              >
                 <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-semibold text-gray-700 leading-relaxed">
                   Software Engineering Undergraduate |{' '}
                   <span className="bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">
                     Knowledge Seeker &{' '}
                   </span>
-                <span className="bg-gradient-to-r from-pink-600 to-purple-600 bg-clip-text text-transparent">
+                  <span className="bg-gradient-to-r from-pink-600 to-purple-600 bg-clip-text text-transparent">
                     IoT Enthusiast...
                   </span>
                 </h2>
-              </div>
+              </Step>
 
-              {/* Description */}
-              <div className={`transform transition-all duration-1000 delay-600 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-                <p className="text-sm sm:text-base lg:text-lg text-gray-600 max-w-2xl leading-relaxed mx-auto lg:mx-0">
-                  I create beautiful, responsive web applications with modern technologies. 
-                  Passionate about crafting exceptional user experiences and bringing ideas to life through code.
+              {/* Description with Step Effect */}
+              <Step 
+                delay={600} 
+                className={`transform transition-all duration-1000 delay-600 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}
+                padding="p-5"
+                shadow="shadow-lg"
+              >
+                <p className="text-sm sm:text-base lg:text-lg text-gray-600 max-w-2xl leading-relaxed mx-auto lg:mx-0 font-bold">
+                  I am a Software Engineering undergraduate at NSBM Green University with a strong passion for web application development, computer network and security, robotics and IoT. I am always eager to explore new technologies and expand my knowledge. With a curious mindset and a drive to understand how things work, I constantly seek opportunities to learn, build, and innovate in the tech world. And also I like to share my knowledge with others and be helpful for someone. 
                 </p>
-              </div>
+              </Step>
             </div>
 
             {/* Right Content - Large Profile Image with Social Links - Desktop only */}
             <div className={`hidden lg:flex flex-col items-center flex-shrink-0 transform transition-all duration-1000 delay-300 ${isVisible ? 'translate-x-0 opacity-100' : 'translate-x-10 opacity-0'}`}>
               <div className="relative z-10">
-                <div className="w-80 h-80 xl:w-96 xl:h-96 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 p-2">
+                <div className="w-80 h-80 xl:w-96 xl:h-96 rounded-full bg-gradient-to-r from-zinc-900 via-cyan-700 to-gray-900 p-2">
                   <div className="w-full h-full rounded-full bg-gray-200 flex items-center justify-center overflow-hidden">
                     <img 
                       src="/profileImage.jpeg" 
@@ -171,7 +189,7 @@ const Hero = () => {
                     className="w-16 h-16 bg-gray-100/60 hover:bg-gray-800 text-gray-700 hover:text-white rounded-full flex items-center justify-center transition-all duration-300 hover:shadow-lg hover:scale-110 active:scale-95 group"
                   >
                     <svg className="w-8 h-8 group-hover:scale-110 transition-transform duration-300" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.30 3.297-1.30.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                      <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.30.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.30 3.297-1.30.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
                     </svg>
                   </a>
                 </SocialWindow>
@@ -185,7 +203,7 @@ const Hero = () => {
                   loop 
                   muted 
                   playsInline
-                  className="w-32 h-32 xl:w-40 xl:h-40 object-contain filter drop-shadow-lg transition-all duration-500 hover:scale-110"
+                  className="w-42 h-42 xl:w-60 xl:h-60 object-contain filter drop-shadow-lg transition-all duration-500 hover:scale-110"
                 />
               </div>
             </div>
@@ -194,7 +212,7 @@ const Hero = () => {
           {/* Profile Image with Social Links - Mobile/Small screens only */}
           <div className={`lg:hidden flex flex-col items-center transform transition-all duration-1000 delay-300 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
             <div className="relative z-10">
-              <div className="w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 p-2">
+              <div className="w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 rounded-full bg-gradient-to-r from-zinc-950 via-cyan-900 to-gray-900 p-2">
                 <div className="w-full h-full rounded-full bg-gray-200 flex items-center justify-center overflow-hidden">
                   <img 
                     src="/profileImage.jpeg" 
@@ -275,24 +293,31 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* Bottom Section - CTA Buttons only */}
+          {/* Bottom Section - CTA Buttons with Step Effect */}
           <div className="flex flex-col items-center lg:items-start space-y-6">
             {/* CTA Buttons */}
-            <div className={`flex flex-col sm:flex-row flex-wrap gap-4 justify-center lg:justify-start transform transition-all duration-1000 delay-800 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-              <button className="px-6 lg:px-8 py-3 lg:py-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold rounded-full text-base lg:text-lg tracking-wide transition-all duration-300 hover:shadow-lg hover:scale-105 active:scale-95 flex items-center justify-center gap-3 group">
-                <svg className="w-5 lg:w-6 h-5 lg:h-6 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-12" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
-                </svg>
-                Get In Touch
-              </button>
-              
-              <button className="px-6 lg:px-8 py-3 lg:py-4 bg-gray-100/60 hover:bg-gradient-to-r hover:from-blue-500 hover:to-purple-600 text-gray-800 hover:text-white font-semibold rounded-full text-base lg:text-lg tracking-wide transition-all duration-300 hover:shadow-lg hover:scale-105 active:scale-95 flex items-center justify-center gap-3 group backdrop-blur-sm">
-                <svg className="w-5 lg:w-6 h-5 lg:h-6 transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-12" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M20 6h-2.18c.11-.31.18-.65.18-1a2.996 2.996 0 0 0-5.5-1.65l-.5.67-.5-.68C10.96 2.54 10.05 2 9 2 7.34 2 6 3.34 6 5c0 .35.07.69.18 1H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-5-2c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zM9 4c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1z"/>
-                </svg>
-                View Projects
-              </button>
-            </div>
+            <Step 
+              delay={800} 
+              className={`transform transition-all duration-1000 delay-800 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}
+              padding="p-4"
+              shadow="shadow-lg"
+            >
+              <div className="flex flex-col sm:flex-row flex-wrap gap-4 justify-center lg:justify-start">
+                <button className="px-6 lg:px-8 py-3 lg:py-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold rounded-full text-base lg:text-lg tracking-wide transition-all duration-300 hover:shadow-lg hover:scale-105 active:scale-95 flex items-center justify-center gap-3 group">
+                  <svg className="w-5 lg:w-6 h-5 lg:h-6 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-12" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                  </svg>
+                  Get In Touch
+                </button>
+                
+                <button className="px-6 lg:px-8 py-3 lg:py-4 bg-gray-100/60 hover:bg-gradient-to-r hover:from-blue-500 hover:to-purple-600 text-gray-800 hover:text-white font-semibold rounded-full text-base lg:text-lg tracking-wide transition-all duration-300 hover:shadow-lg hover:scale-105 active:scale-95 flex items-center justify-center gap-3 group backdrop-blur-sm">
+                  <svg className="w-5 lg:w-6 h-5 lg:h-6 transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-12" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M20 6h-2.18c.11-.31.18-.65.18-1a2.996 2.996 0 0 0-5.5-1.65l-.5.67-.5-.68C10.96 2.54 10.05 2 9 2 7.34 2 6 3.34 6 5c0 .35.07.69.18 1H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-5-2c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zM9 4c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1z"/>
+                  </svg>
+                  View Projects
+                </button>
+              </div>
+            </Step>
           </div>
         </div>
 

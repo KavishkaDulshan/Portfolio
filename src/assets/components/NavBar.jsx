@@ -36,7 +36,7 @@ const NavBar = () => {
         <div className="flex justify-between items-center h-18">
           {/* Logo/Brand */}
           <div className="flex-shrink-0">
-            <a href="#" className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent hover:from-purple-600 hover:to-blue-600 transition-all duration-300 tracking-tight">
+            <a href="#" className="text-3xl font-bold bg-gradient-to-r from-zinc-950 via-cyan-900 to-gray-900 bg-clip-text text-transparent hover:from-cyan-700 hover:to-zinc-700 transition-all duration-300 tracking-tight">
               Portfolio
             </a>
           </div>
