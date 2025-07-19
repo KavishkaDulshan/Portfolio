@@ -270,7 +270,7 @@ const Hero = () => {
             <div className="flex-1 space-y-4 sm:space-y-6 lg:space-y-8 text-center lg:text-left lg:max-w-3xl">
 
               {/* Main Title with Typewriter Effect */}
-              <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight min-h-[1.2em] relative z-10 text-center px-2">
+              <h1 className="mt-30 text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight min-h-[1.2em] relative z-10 text-center px-2">
                 <Typewriter 
                   texts={[
                     "Hello there!",
