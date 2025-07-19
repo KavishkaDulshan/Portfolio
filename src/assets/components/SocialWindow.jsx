@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useGitHubData } from '../../hooks/useGitHubData.js';
 
-const SocialWindow = ({ children, platform, username, followers, description, isVisible, onMouseEnter, onMouseLeave }) => {
+const SocialWindow = ({ children, platform, username, followers, description, isVisible, onMouseEnter, onMouseLeave, phoneNumber}) => {
   const [isLargeScreen, setIsLargeScreen] = useState(false);
   
   // Fetch GitHub data only for GitHub platform
@@ -48,6 +48,38 @@ const SocialWindow = ({ children, platform, username, followers, description, is
         },
         actionUrl: githubData.htmlUrl,
         isLive: !githubData.error
+      };
+    }
+    
+    if (platform === 'linkedin') {
+      return {
+        username,
+        followers,
+        description,
+        stats: {
+          primary: followers,
+          secondary: 'Active',
+          primaryLabel: 'Connections',
+          secondaryLabel: 'Status'
+        },
+        actionUrl: `https://linkedin.com/in/${username}`,
+        isLive: false
+      };
+    }
+
+    if (platform === 'whatsapp') {
+      return {
+        username,
+        followers,
+        description,
+        stats: {
+          primary: followers,
+          secondary: 'Available',
+          primaryLabel: 'Contacts',
+          secondaryLabel: 'Status'
+        },
+        actionUrl: `https://wa.me/${phoneNumber || '9485826121'}?text=Hello%20Kavishka!%20I'd%20like%20to%20discuss%20a%20project%20with%20you.`,
+        isLive: false
       };
     }
     
