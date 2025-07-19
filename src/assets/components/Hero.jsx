@@ -8,6 +8,9 @@ import profileImage from '../images/profileImage.jpeg'
 import manImage from '../images/man.png'
 import brainVideo from '../videos/brain.webm'
 import socialVideo from '../videos/social.webm'
+// Add fallback images for mobile
+import brainImage from '../images/brain.png' // Create this transparent PNG
+import socialImage from '../images/social.png' // Create this transparent PNG
 
 const Hero = () => {
   const [isVisible, setIsVisible] = useState(false)
@@ -15,9 +18,12 @@ const Hero = () => {
   const [isMobile, setIsMobile] = useState(false)
   const [isReducedMotion, setIsReducedMotion] = useState(false)
   const [isLowPowerMode, setIsLowPowerMode] = useState(false)
+  const [supportsTransparentVideo, setSupportsTransparentVideo] = useState(true)
 
   // Detect mobile devices and preferences
   useEffect(() => {
+    let prefersReducedMotionMediaQuery = null;
+
     // Detect mobile device
     const checkMobile = () => {
       const isMobileDevice = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ||
@@ -25,29 +31,50 @@ const Hero = () => {
                             ('ontouchstart' in window) ||
                             (navigator.maxTouchPoints > 0)
       setIsMobile(isMobileDevice)
+      return isMobileDevice
+    }
+
+    // Check for transparent video support
+    const checkTransparentVideoSupport = (isMobileDevice) => {
+      // Most mobile browsers don't support transparent WebM properly
+      const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent)
+      const isMobileBrowser = isMobileDevice || isIOS
+      
+      // Disable transparent video on mobile browsers
+      setSupportsTransparentVideo(!isMobileBrowser)
     }
 
     // Detect reduced motion preference
     const checkReducedMotion = () => {
       if (window.matchMedia) {
-        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)')
-        setIsReducedMotion(prefersReducedMotion.matches)
+        prefersReducedMotionMediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)')
+        setIsReducedMotion(prefersReducedMotionMediaQuery.matches)
         
-        prefersReducedMotion.addEventListener('change', (e) => {
+        const handleReducedMotionChange = (e) => {
           setIsReducedMotion(e.matches)
-        })
+        }
+        
+        prefersReducedMotionMediaQuery.addEventListener('change', handleReducedMotionChange)
+        
+        // Return cleanup function
+        return () => {
+          if (prefersReducedMotionMediaQuery) {
+            prefersReducedMotionMediaQuery.removeEventListener('change', handleReducedMotionChange)
+          }
+        }
       }
+      return null
     }
 
     // Detect low power mode (battery optimization)
-    const checkLowPowerMode = () => {
+    const checkLowPowerMode = (isMobileDevice) => {
       if ('getBattery' in navigator) {
         navigator.getBattery().then((battery) => {
           const isLowBattery = battery.level <= 0.2 || battery.charging === false
           setIsLowPowerMode(isLowBattery)
         }).catch(() => {
-          // Fallback: assume low power mode if battery API fails
-          setIsLowPowerMode(isMobile)
+          // Fallback: assume low power mode if battery API fails on mobile
+          setIsLowPowerMode(isMobileDevice)
         })
       } else {
         // Fallback for browsers without battery API
@@ -55,15 +82,18 @@ const Hero = () => {
       }
     }
 
-    checkMobile()
-    checkReducedMotion()
-    checkLowPowerMode()
+    // Execute checks
+    const isMobileDevice = checkMobile()
+    checkTransparentVideoSupport(isMobileDevice)
+    const cleanupReducedMotion = checkReducedMotion()
+    checkLowPowerMode(isMobileDevice)
     
     // Add resize listener for orientation changes
     const handleResize = () => {
-      checkMobile()
-      // Force viewport height recalculation on mobile
-      if (isMobile) {
+      const newIsMobile = checkMobile()
+      checkTransparentVideoSupport(newIsMobile)
+      
+      if (newIsMobile) {
         document.documentElement.style.setProperty('--vh', `${window.innerHeight * 0.01}px`)
       }
     }
@@ -71,18 +101,22 @@ const Hero = () => {
     window.addEventListener('resize', handleResize)
     window.addEventListener('orientationchange', handleResize)
     
-    // Initial viewport height calculation
+    // Initial setup
     handleResize()
-    
-    // Delayed visibility for better perceived performance
     const timer = setTimeout(() => setIsVisible(true), 100)
     
+    // Cleanup function
     return () => {
       window.removeEventListener('resize', handleResize)
       window.removeEventListener('orientationchange', handleResize)
       clearTimeout(timer)
+      
+      // Clean up reduced motion listener
+      if (cleanupReducedMotion) {
+        cleanupReducedMotion()
+      }
     }
-  }, [isMobile])
+  }, []) // Remove isMobile from dependencies to prevent infinite loops
 
   // Memoized social media data to prevent unnecessary re-renders
   const socialData = useMemo(() => ({
@@ -151,11 +185,74 @@ const Hero = () => {
   }, [isMobile])
 
   // Dynamic animation classes based on device capabilities
-  const getAnimationClass = (baseClass) => {
+  const getAnimationClass = useCallback((baseClass) => {
     if (isReducedMotion) return ''
     if (isLowPowerMode) return `${baseClass} duration-150` // Faster animations for low power
     return baseClass
-  }
+  }, [isReducedMotion, isLowPowerMode])
+
+  // Component for rendering brain media (video or image)
+  const BrainMedia = useCallback(({ className, ...props }) => {
+    if (isLowPowerMode) return null
+    
+    return supportsTransparentVideo ? (
+      <video 
+        src={brainVideo}
+        autoPlay 
+        loop 
+        muted 
+        playsInline
+        preload={isMobile ? "none" : "auto"}
+        className={className}
+        poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='112' height='112'%3E%3Crect width='100%25' height='100%25' fill='transparent'/%3E%3C/svg%3E"
+        onError={() => {
+          // Fallback to image if video fails to load
+          setSupportsTransparentVideo(false)
+        }}
+        {...props}
+      />
+    ) : (
+      <img 
+        src={brainImage}
+        alt="Brain illustration"
+        className={className}
+        loading="lazy"
+        decoding="async"
+        {...props}
+      />
+    )
+  }, [isLowPowerMode, supportsTransparentVideo, isMobile, brainVideo, brainImage])
+
+  // Component for rendering social media (video or image)
+  const SocialMedia = useCallback(({ className, ...props }) => {
+    if (isLowPowerMode) return null
+    
+    return supportsTransparentVideo ? (
+      <video 
+        src={socialVideo}
+        autoPlay 
+        loop 
+        muted 
+        playsInline
+        preload={isMobile ? "none" : "auto"}
+        className={className}
+        onError={() => {
+          // Fallback to image if video fails to load
+          setSupportsTransparentVideo(false)
+        }}
+        {...props}
+      />
+    ) : (
+      <img 
+        src={socialImage}
+        alt="Social media illustration"
+        className={className}
+        loading="lazy"
+        decoding="async"
+        {...props}
+      />
+    )
+  }, [isLowPowerMode, supportsTransparentVideo, isMobile, socialVideo, socialImage])
 
   return (
     <section 
@@ -173,7 +270,7 @@ const Hero = () => {
             <div className="flex-1 space-y-4 sm:space-y-6 lg:space-y-8 text-center lg:text-left lg:max-w-3xl">
 
               {/* Main Title with Typewriter Effect */}
-              <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight min-h-[1.2em] relative z-10 text-center px-2 mt-30">
+              <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight min-h-[1.2em] relative z-10 text-center px-2">
                 <Typewriter 
                   texts={[
                     "Hello there!",
@@ -206,7 +303,7 @@ const Hero = () => {
                   </div>
                 </div>
 
-                {/* Man and Brain images - Mobile - Under profile image */}
+                {/* Man and Brain Media - Mobile */}
                 <div className={`flex justify-center items-center gap-3 sm:gap-4 mt-3 sm:mt-4 transform transition-all ${getAnimationClass('duration-1000 delay-500')} ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
                   <img 
                     src={manImage}
@@ -217,21 +314,14 @@ const Hero = () => {
                     width="112"
                     height="112"
                   />
-                  {!isLowPowerMode && (
-                    <video 
-                      src={brainVideo}
-                      autoPlay 
-                      loop 
-                      muted 
-                      playsInline
-                      preload={isMobile ? "none" : "auto"} // Don't preload on mobile to save data
-                      className={`w-16 h-16 xs:w-20 xs:h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 object-contain transition-all ${getAnimationClass('duration-500 hover:scale-110 hover:-rotate-3')} filter drop-shadow-lg touch-manipulation`}
-                      poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='112' height='112'%3E%3Crect width='100%25' height='100%25' fill='%23f3f4f6'/%3E%3C/svg%3E"
-                    />
-                  )}
+                  <BrainMedia 
+                    className={`w-16 h-16 xs:w-20 xs:h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 object-contain transition-all ${getAnimationClass('duration-500 hover:scale-110 hover:-rotate-3')} filter drop-shadow-lg touch-manipulation`}
+                    width="112"
+                    height="112"
+                  />
                 </div>
                 
-                {/* Social Links under images - Mobile */}
+                {/* Social Links - Mobile */}
                 <div className={`flex gap-3 sm:gap-4 mt-4 sm:mt-6 transform transition-all ${getAnimationClass('duration-1000 delay-1000')} ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'} relative z-20`}>
                   <SocialWindow
                     {...socialData.whatsapp}
@@ -291,21 +381,14 @@ const Hero = () => {
                   </SocialWindow>
                 </div>
 
-                {/* Social Video - Mobile - Under social links - Only show if not in low power mode */}
-                {!isLowPowerMode && (
-                  <div className={`flex justify-center mt-3 sm:mt-4 transform transition-all ${getAnimationClass('duration-1000 delay-1200')} ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'} relative z-5`}>
-                    <video 
-                      src={socialVideo}
-                      autoPlay 
-                      loop 
-                      muted 
-                      playsInline
-                      preload="none"
-                      className={`w-16 h-16 xs:w-20 xs:h-20 sm:w-24 sm:h-24 object-contain filter drop-shadow-lg transition-all ${getAnimationClass('duration-500 hover:scale-110')} touch-manipulation`}
-                      poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='96'%3E%3Crect width='100%25' height='100%25' fill='%23f3f4f6'/%3E%3C/svg%3E"
-                    />
-                  </div>
-                )}
+                {/* Social Media - Mobile */}
+                <div className={`flex justify-center mt-3 sm:mt-4 transform transition-all ${getAnimationClass('duration-1000 delay-1200')} ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'} relative z-5`}>
+                  <SocialMedia 
+                    className={`w-16 h-16 xs:w-20 xs:h-20 sm:w-24 sm:h-24 object-contain filter drop-shadow-lg transition-all ${getAnimationClass('duration-500 hover:scale-110')} touch-manipulation`}
+                    width="96"
+                    height="96"
+                  />
+                </div>
               </div>
 
               {/* Profile Image - Desktop - Between title and subtitle */}
@@ -319,17 +402,11 @@ const Hero = () => {
                   width="256"
                   height="256"
                 />
-                {!isLowPowerMode && (
-                  <video 
-                    src={brainVideo}
-                    autoPlay 
-                    loop 
-                    muted 
-                    playsInline
-                    preload="auto"
-                    className={`w-40 h-40 sm:w-48 sm:h-48 md:w-56 md:h-56 lg:w-64 lg:h-64 object-contain transition-all ${getAnimationClass('duration-500 hover:scale-110 hover:-rotate-3')} filter drop-shadow-lg`}
-                  />
-                )}
+                <BrainMedia 
+                  className={`w-40 h-40 sm:w-48 sm:h-48 md:w-56 md:h-56 lg:w-64 lg:h-64 object-contain transition-all ${getAnimationClass('duration-500 hover:scale-110 hover:-rotate-3')} filter drop-shadow-lg`}
+                  width="256"
+                  height="256"
+                />
               </div>
 
               {/* Subtitle with Step Effect */}
@@ -442,20 +519,12 @@ const Hero = () => {
                 </SocialWindow>
               </div>
 
-              {/* Social Video - Desktop - Under social links */}
-              {!isLowPowerMode && (
-                <div className={`flex justify-center mt-4 transform transition-all ${getAnimationClass('duration-1000 delay-1200')} ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'} relative z-5`}>
-                  <video 
-                    src={socialVideo}
-                    autoPlay 
-                    loop 
-                    muted 
-                    playsInline
-                    preload="auto"
-                    className={`w-42 h-42 xl:w-60 xl:h-60 object-contain filter drop-shadow-lg transition-all ${getAnimationClass('duration-500 hover:scale-110')}`}
-                  />
-                </div>
-              )}
+              {/* Desktop Social Media */}
+              <div className={`flex justify-center mt-4 transform transition-all ${getAnimationClass('duration-1000 delay-1200')} ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'} relative z-5`}>
+                <SocialMedia 
+                  className={`w-42 h-42 xl:w-60 xl:h-60 object-contain filter drop-shadow-lg transition-all ${getAnimationClass('duration-500 hover:scale-110')}`}
+                />
+              </div>
             </div>
           </div>
 

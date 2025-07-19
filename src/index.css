@@ -261,3 +261,39 @@ img {
     scroll-behavior: smooth;
   }
 }
+
+/* Enhanced mobile video support */
+@media (max-width: 768px) {
+  video {
+    /* Force hardware acceleration on mobile */
+    -webkit-transform: translateZ(0);
+    -moz-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    -o-transform: translateZ(0);
+    transform: translateZ(0);
+    
+    /* Better video rendering on mobile */
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+  
+  /* Fallback for mobile browsers that don't support transparent video */
+  video[data-fallback="true"] {
+    display: none;
+  }
+  
+  img[data-video-fallback="true"] {
+    display: block;
+  }
+}
+
+/* iOS Safari specific fixes */
+@supports (-webkit-touch-callout: none) {
+  video {
+    /* iOS Safari video optimizations */
+    -webkit-playsinline: true;
+    -webkit-appearance: none;
+  }
+}
