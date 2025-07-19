@@ -83,9 +83,12 @@ const Hero = () => {
               {/* Subtitle */}
               <div className={`transform transition-all duration-1000 delay-400 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
                 <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-semibold text-gray-700 leading-relaxed">
-                  Full Stack Developer &{' '}
+                  Software Engineering Undergraduate |{' '}
                   <span className="bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">
-                    UI/UX Designer
+                    Knowledge Seeker &{' '}
+                  </span>
+                <span className="bg-gradient-to-r from-pink-600 to-purple-600 bg-clip-text text-transparent">
+                    IoT Enthusiast...
                   </span>
                 </h2>
               </div>
