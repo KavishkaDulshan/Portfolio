@@ -25,7 +25,7 @@ const Hero = () => {
     },
     github: {
       platform: 'github',
-      username: 'kavishka-dulshan',
+      username: 'KavishkaDulshan',
       followers: '25+',
       description: 'Open source enthusiast. Check out my latest projects in React, Node.js, and IoT development.',
     }
