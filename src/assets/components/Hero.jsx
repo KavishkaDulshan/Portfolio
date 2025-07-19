@@ -16,8 +16,8 @@ const Hero = () => {
       username: 'kavishka',
       followers: '100+',
       description: 'Let\'s chat! Available for project discussions and collaborations. Quick responses guaranteed.',
-      phoneNumber: '9485826121',
-      url: 'https://wa.me/9485826121?text=Hello%20Kavishka!'
+      phoneNumber: process.env.REACT_APP_WHATSAPP_PHONE_NUMBER,
+      url: `https://wa.me/${process.env.REACT_APP_WHATSAPP_PHONE_NUMBER}?text=Hello%20Kavishka!`
     },
     linkedin: {
       platform: 'linkedin',
