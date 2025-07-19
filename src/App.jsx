@@ -1,16 +1,12 @@
 import React from 'react'
-// import { useState } from 'react';
-import Search from './assets/components/Search'
 import NavBar from './assets/components/NavBar'
+import Hero from './assets/components/Hero'
 
 const App = () => {
-
-  // const [searchTerm,setSearchTerm] = useState('');
-
   return (
     <div>
-      {/* <Search searchTerm={searchTerm} setSearchTerm={setSearchTerm}/> */}
       <NavBar />
+      <Hero />
     </div>
   )
 }
