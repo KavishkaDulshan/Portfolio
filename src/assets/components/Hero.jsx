@@ -2,45 +2,13 @@ import React, { useEffect, useState } from 'react'
 
 const Hero = () => {
   const [isVisible, setIsVisible] = useState(false)
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
 
   useEffect(() => {
     setIsVisible(true)
-    
-    const handleMouseMove = (e) => {
-      setMousePosition({
-        x: (e.clientX / window.innerWidth) * 100,
-        y: (e.clientY / window.innerHeight) * 100,
-      })
-    }
-
-    window.addEventListener('mousemove', handleMouseMove)
-    return () => window.removeEventListener('mousemove', handleMouseMove)
   }, [])
 
   return (
-    <section id="home" className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50 relative overflow-hidden pt-20 font-inter">
-      {/* Animated Background Elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div 
-          className="absolute w-96 h-96 bg-gradient-to-r from-blue-400/20 to-purple-400/20 rounded-full blur-3xl transition-all duration-1000 ease-out"
-          style={{
-            left: `${mousePosition.x * 0.1}%`,
-            top: `${mousePosition.y * 0.1}%`,
-          }}
-        />
-        <div 
-          className="absolute w-80 h-80 bg-gradient-to-r from-cyan-400/15 to-emerald-400/15 rounded-full blur-2xl transition-all duration-700 ease-out"
-          style={{
-            right: `${mousePosition.x * 0.05}%`,
-            bottom: `${mousePosition.y * 0.05}%`,
-          }}
-        />
-        <div className="absolute top-20 left-10 w-2 h-2 bg-blue-400 rounded-full animate-ping" />
-        <div className="absolute top-32 right-20 w-3 h-3 bg-purple-400 rounded-full animate-bounce" />
-        <div className="absolute bottom-40 left-20 w-1 h-1 bg-cyan-400 rounded-full animate-pulse" />
-      </div>
-
+    <section id="home" className="min-h-screen relative overflow-hidden pt-20 font-inter">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10 relative z-10">
         <div className="min-h-screen flex flex-col justify-center gap-8 lg:gap-12">
           {/* Top Section - Name and Desktop Profile Image */}
@@ -54,7 +22,7 @@ const Hero = () => {
                 </p>
               </div>
 
-              {/* Main Title - Removed small image from here */}
+              {/* Main Title */}
               <div className={`transform transition-all duration-1000 delay-200 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
                 <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight">
                   <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-cyan-600 bg-clip-text text-transparent animate-gradient-x">
@@ -102,7 +70,7 @@ const Hero = () => {
               </div>
             </div>
 
-            {/* Right Content - Large Profile Image - Desktop only - Now positioned at top right */}
+            {/* Right Content - Large Profile Image - Desktop only */}
             <div className={`hidden lg:flex flex-shrink-0 transform transition-all duration-1000 delay-300 ${isVisible ? 'translate-x-0 opacity-100' : 'translate-x-10 opacity-0'}`}>
               <div className="relative">
                 <div className="w-80 h-80 xl:w-96 xl:h-96 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 p-2">
@@ -114,13 +82,11 @@ const Hero = () => {
                     />
                   </div>
                 </div>
-                <div className="absolute -top-4 -right-4 w-8 h-8 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full animate-bounce" />
-                <div className="absolute -bottom-4 -left-4 w-6 h-6 bg-gradient-to-r from-purple-400 to-pink-500 rounded-full animate-pulse" />
               </div>
             </div>
           </div>
 
-          {/* Profile Image - Mobile/Small screens only - Moved after main title */}
+          {/* Profile Image - Mobile/Small screens only */}
           <div className={`lg:hidden flex justify-center transform transition-all duration-1000 delay-300 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
             <div className="relative">
               <div className="w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 p-2">
@@ -132,8 +98,6 @@ const Hero = () => {
                   />
                 </div>
               </div>
-              <div className="absolute -top-2 -right-2 w-5 h-5 sm:w-6 sm:h-6 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full animate-bounce" />
-              <div className="absolute -bottom-2 -left-2 w-4 h-4 sm:w-5 sm:h-5 bg-gradient-to-r from-purple-400 to-pink-500 rounded-full animate-pulse" />
             </div>
           </div>
 
