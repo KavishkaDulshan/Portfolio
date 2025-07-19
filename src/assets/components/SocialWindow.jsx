@@ -78,7 +78,7 @@ const SocialWindow = ({ children, platform, username, followers, description, is
           primaryLabel: 'Contacts',
           secondaryLabel: 'Status'
         },
-        actionUrl: `https://wa.me/${phoneNumber || '9485826121'}?text=Hello%20Kavishka!%20I'd%20like%20to%20discuss%20a%20project%20with%20you.`,
+        actionUrl: `https://wa.me/${phoneNumber || process.env.REACT_APP_DEFAULT_PHONE_NUMBER}?text=Hello%20Kavishka!%20I'd%20like%20to%20discuss%20a%20project%20with%20you.`,
         isLive: false
       };
     }
