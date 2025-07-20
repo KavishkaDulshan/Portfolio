@@ -6,3 +6,5 @@ Updated the navigation bar to feel as android ui by adding round elements and na
 finished the navigation bar
 
 2025/07/18 finalized
+
+Hero page done!
