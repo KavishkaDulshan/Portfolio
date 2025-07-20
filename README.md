@@ -8,3 +8,5 @@ finished the navigation bar
 2025/07/18 finalized
 
 Hero page done!
+
+npm run deploy
