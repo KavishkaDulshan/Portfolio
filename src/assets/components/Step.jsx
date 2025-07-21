@@ -7,8 +7,6 @@ const Step = ({
   height = "auto",
   padding = "p-4",
   shadow = "shadow-xl",
-  blur = "backdrop-blur-sm",
-  border = "border border-white/20",
   rounded = "rounded-3xl"
 }) => {
   return (
@@ -23,23 +21,21 @@ const Step = ({
         height: height 
       }}
     >
-      {/* Step Platform - Creates the elevated white background */}
+      {/* Step Platform - Creates the glassmorphism background */}
       <div className={`
-        relative bg-white/95 ${blur} ${shadow} ${border} ${rounded} ${padding}
-        transform transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl
-        before:absolute before:inset-0 before:bg-gradient-to-br before:from-white/50 before:to-white/20 
-        before:${rounded} before:opacity-0 before:transition-opacity before:duration-300
-        hover:before:opacity-100
-        after:absolute after:inset-0 after:bg-gradient-to-t after:from-gray-100/20 after:to-transparent 
-        after:${rounded} after:pointer-events-none
+        relative bg-white/10 backdrop-blur-sm ${shadow} border border-white/20 ${rounded} ${padding}
+        transform transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl hover:bg-white/20 hover:border-white/30
+        before:absolute before:inset-0 before:bg-gradient-to-r before:from-white/0 before:via-white/20 before:to-white/0
+        before:${rounded} before:translate-x-[-100%] before:transition-transform before:duration-700 before:ease-out
+        hover:before:translate-x-[100%]
+        after:absolute after:inset-0 after:bg-gradient-to-br after:from-white/10 after:to-transparent 
+        after:${rounded} after:pointer-events-none after:opacity-0 after:transition-opacity after:duration-300
+        hover:after:opacity-100
       `}>
         {/* Inner content container - Centered */}
         <div className="relative z-10 text-center">
           {children}
         </div>
-        
-        {/* Subtle glow effect */}
-        <div className="absolute inset-0 -z-10 bg-white/40 blur-xl opacity-50 rounded-full scale-110" />
       </div>
       
       {/* Bottom shadow for depth */}
