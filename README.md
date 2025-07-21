@@ -10,3 +10,9 @@ finished the navigation bar
 Hero page done!
 
 npm run deploy
+
+restore last commti
+
+git fetch origin
+git reset --hard origin/main
+git clean -fd
