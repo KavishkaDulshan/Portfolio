@@ -2,6 +2,7 @@ import React, { useEffect, useState, useCallback, useMemo } from 'react'
 import SocialWindow from './SocialWindow'
 import Step from './Step'
 import Typewriter from './Typewriter'
+import PrimaryButton from './PrimaryButton'
 
 // Import assets
 import profileImage from '../images/profileImage.jpeg'
@@ -220,7 +221,7 @@ const Hero = () => {
             <div className="flex-1 space-y-4 sm:space-y-6 lg:space-y-8 text-center lg:text-left lg:max-w-3xl">
 
               {/* Main Title */}
-              <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight min-h-[1.2em] relative z-10 text-center px-2">
+              <h1 className="mt-5 text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight min-h-[1.2em] relative z-10 text-center px-2">
                 <Typewriter 
                   texts={[
                     "Hello there!",
@@ -513,34 +514,37 @@ const Hero = () => {
 
           {/* CTA Buttons */}
           <div className="flex flex-col items-center lg:items-start space-y-4 sm:space-y-6 px-4">
-            <Step 
-              delay={800}
-              className={`transform transition-all ${getAnimationClass('duration-1000 delay-800')} ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'} w-full max-w-lg`}
-              padding="p-3 sm:p-4"
-              shadow="shadow-lg"
+            <div className={`flex justify-center transform transition-all ${getAnimationClass('duration-1000 delay-800')} ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'} w-full max-w-lg`}
+
             >
-              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start">
-                <button 
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start mb-5">
+                <PrimaryButton 
+                  variant="outline"
+                  size="lg"
                   onClick={handleGetInTouch}
-                  className={`px-5 sm:px-6 lg:px-8 py-3 lg:py-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold rounded-full text-sm sm:text-base lg:text-lg tracking-wide transition-all ${getAnimationClass('duration-300 hover:shadow-lg hover:scale-105')} active:scale-95 flex items-center justify-center gap-2 sm:gap-3 group focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2`}
-                >
-                  <svg className={`w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 transition-transform ${getAnimationClass('duration-300 group-hover:scale-110 group-hover:rotate-12')}`} fill="currentColor" viewBox="0 0 24 24">
+                  icon={<svg className="w-5 h-5 lg:w-6 lg:h-6" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
-                  </svg>
-                  Get In Touch
-                </button>
-                
-                <button 
-                  onClick={handleViewProjects}
-                  className={`px-5 sm:px-6 lg:px-8 py-3 lg:py-4 bg-gray-100/60 hover:bg-gradient-to-r hover:from-blue-500 hover:to-purple-600 text-gray-800 hover:text-white font-semibold rounded-full text-sm sm:text-base lg:text-lg tracking-wide transition-all ${getAnimationClass('duration-300 hover:shadow-lg hover:scale-105')} active:scale-95 flex items-center justify-center gap-2 sm:gap-3 group backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2`}
+                  </svg>}
+                  iconPosition="left"
+                  className="tracking-wide hover:bg-gradient-to-r hover:from-blue-500 hover:to-purple-600 hover:text-white hover:border-transparent"
                 >
-                  <svg className={`w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 transition-transform ${getAnimationClass('duration-300 group-hover:scale-110 group-hover:-rotate-12')}`} fill="currentColor" viewBox="0 0 24 24">
+                  Get In Touch
+                </PrimaryButton>
+                
+                <PrimaryButton 
+                  variant="outline"
+                  size="lg"
+                  onClick={handleViewProjects}
+                  icon={<svg className="w-5 h-5 lg:w-6 lg:h-6" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M20 6h-2.18c.11-.31.18-.65.18-1a2.996 2.996 0 0 0-5.5-1.65l-.5.67-.5-.68C10.96 2.54 10.05 2 9 2 7.34 2 6 3.34 6 5c0 .35.07.69.18 1H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-5-2c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zM9 4c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1z"/>
-                  </svg>
+                  </svg>}
+                  iconPosition="left"
+                  className="tracking-wide hover:bg-gradient-to-r hover:from-blue-500 hover:to-purple-600 hover:text-white hover:border-transparent"
+                >
                   View Projects
-                </button>
+                </PrimaryButton>
               </div>
-            </Step>
+            </div>
           </div>
         </div>
 
