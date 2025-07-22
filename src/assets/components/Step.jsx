@@ -23,12 +23,12 @@ const Step = ({
     >
       {/* Step Platform - Creates the glassmorphism background */}
       <div className={`
-        relative bg-white/10 backdrop-blur-sm ${shadow} border border-white/20 ${rounded} ${padding}
-        transform transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl hover:bg-white/20 hover:border-white/30
-        before:absolute before:inset-0 before:bg-gradient-to-r before:from-white/0 before:via-white/20 before:to-white/0
+        relative bg-blue-50/5 backdrop-blur-sm ${shadow} border border-blue-200/10 ${rounded} ${padding}
+        transform transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl hover:bg-blue-50/10 hover:border-blue-200/15
+        before:absolute before:inset-0 before:bg-gradient-to-r before:from-white/0 before:via-blue-100/10 before:to-white/0
         before:${rounded} before:translate-x-[-100%] before:transition-transform before:duration-700 before:ease-out
         hover:before:translate-x-[100%]
-        after:absolute after:inset-0 after:bg-gradient-to-br after:from-white/10 after:to-transparent 
+        after:absolute after:inset-0 after:bg-gradient-to-br after:from-blue-50/5 after:to-transparent 
         after:${rounded} after:pointer-events-none after:opacity-0 after:transition-opacity after:duration-300
         hover:after:opacity-100
       `}>

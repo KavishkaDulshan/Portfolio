@@ -40,7 +40,7 @@ const HeroDesktop = ({
           </h1>
 
           {/* Profile Image - Desktop */}
-          <div className={`flex justify-center lg:justify-start items-center gap-6 transform transition-all ${getAnimationClass('duration-1000 delay-300')} ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
+          <div className={`flex justify-center lg:justify-center items-center gap-6 transform transition-all ${getAnimationClass('duration-1000 delay-300')} ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
             <img 
               src={manImage}
               alt="Profile illustration" 
