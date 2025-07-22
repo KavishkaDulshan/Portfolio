@@ -15,7 +15,6 @@ const HeroDesktop = ({
   hoveredSocial,
   handleSocialHover,
   handleSocialLeave,
-  handleGetInTouch,
   handleViewProjects,
   BrainMedia,
   SocialMedia
@@ -91,6 +90,24 @@ const HeroDesktop = ({
                 I am a Software Engineering undergraduate at NSBM Green University with a strong passion for web application development, computer network and security, robotics and IoT. I am always eager to explore new technologies and expand my knowledge. With a curious mindset and a drive to understand how things work, I constantly seek opportunities to learn, build, and innovate in the tech world. And also I like to share my knowledge with others and be helpful for someone. 
               </p>
             </Step>
+          </div>
+
+          {/* CTA Button - Desktop */}
+          <div className="flex justify-center lg:justify-center mt-6">
+            <div className={`transform transition-all ${getAnimationClass('duration-1000 delay-800')} ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
+              <PrimaryButton 
+                variant="outline"
+                size="lg"
+                onClick={handleViewProjects}
+                icon={<svg className="w-5 h-5 lg:w-6 lg:h-6" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M20 6h-2.18c.11-.31.18-.65.18-1a2.996 2.996 0 0 0-5.5-1.65l-.5.67-.5-.68C10.96 2.54 10.05 2 9 2 7.34 2 6 3.34 6 5c0 .35.07.69.18 1H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-5-2c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zM9 4c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1z"/>
+                </svg>}
+                iconPosition="left"
+                className="tracking-wide hover:bg-gradient-to-r hover:from-blue-500 hover:to-purple-600 hover:text-white hover:border-transparent"
+              >
+                View Projects
+              </PrimaryButton>
+            </div>
           </div>
         </div>
 
@@ -178,39 +195,6 @@ const HeroDesktop = ({
             <SocialMedia 
               className={`w-42 h-42 xl:w-60 xl:h-60 object-contain filter drop-shadow-lg transition-all ${getAnimationClass('duration-500 hover:scale-110')}`}
             />
-          </div>
-        </div>
-      </div>
-
-      {/* CTA Buttons - Desktop */}
-      <div className="flex flex-col items-center lg:items-start space-y-4 sm:space-y-6 px-4 mt-8">
-        <div className={`flex justify-center transform transition-all ${getAnimationClass('duration-1000 delay-800')} ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'} w-full max-w-lg`}>
-          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start mb-5">
-            <PrimaryButton 
-              variant="outline"
-              size="lg"
-              onClick={handleGetInTouch}
-              icon={<svg className="w-5 h-5 lg:w-6 lg:h-6" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
-              </svg>}
-              iconPosition="left"
-              className="tracking-wide hover:bg-gradient-to-r hover:from-blue-500 hover:to-purple-600 hover:text-white hover:border-transparent"
-            >
-              Get In Touch
-            </PrimaryButton>
-            
-            <PrimaryButton 
-              variant="outline"
-              size="lg"
-              onClick={handleViewProjects}
-              icon={<svg className="w-5 h-5 lg:w-6 lg:h-6" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M20 6h-2.18c.11-.31.18-.65.18-1a2.996 2.996 0 0 0-5.5-1.65l-.5.67-.5-.68C10.96 2.54 10.05 2 9 2 7.34 2 6 3.34 6 5c0 .35.07.69.18 1H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-5-2c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zM9 4c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1z"/>
-              </svg>}
-              iconPosition="left"
-              className="tracking-wide hover:bg-gradient-to-r hover:from-blue-500 hover:to-purple-600 hover:text-white hover:border-transparent"
-            >
-              View Projects
-            </PrimaryButton>
           </div>
         </div>
       </div>

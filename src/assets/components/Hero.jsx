@@ -129,17 +129,6 @@ const Hero = () => {
     }
   }, [isMobile])
 
-  const handleGetInTouch = useCallback(() => {
-    if ('vibrate' in navigator && isMobile) {
-      navigator.vibrate(50)
-    }
-    
-    const contactSection = document.getElementById('contact')
-    if (contactSection) {
-      contactSection.scrollIntoView({ behavior: 'smooth' })
-    }
-  }, [isMobile])
-
   const handleViewProjects = useCallback(() => {
     if ('vibrate' in navigator && isMobile) {
       navigator.vibrate(50)
@@ -227,7 +216,6 @@ const Hero = () => {
             hoveredSocial={hoveredSocial}
             handleSocialHover={handleSocialHover}
             handleSocialLeave={handleSocialLeave}
-            handleGetInTouch={handleGetInTouch}
             handleViewProjects={handleViewProjects}
             BrainMedia={BrainMedia}
           />
@@ -242,7 +230,6 @@ const Hero = () => {
             hoveredSocial={hoveredSocial}
             handleSocialHover={handleSocialHover}
             handleSocialLeave={handleSocialLeave}
-            handleGetInTouch={handleGetInTouch}
             handleViewProjects={handleViewProjects}
             BrainMedia={BrainMedia}
             SocialMedia={SocialMedia}

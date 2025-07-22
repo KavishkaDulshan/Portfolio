@@ -120,7 +120,7 @@ const SocialWindow = ({ children, platform, username, followers, description, is
       {/* Social Info Window - Only show on large screens */}
       {isLargeScreen && (
         <div className={`absolute top-full left-1/2 transform -translate-x-1/2 mt-3 w-80 ${isDark ? 'bg-gray-900/95' : 'bg-white/95'} backdrop-blur-md rounded-xl shadow-xl border ${isDark ? 'border-gray-700/50' : 'border-gray-200/50'} p-3 transition-all duration-300 z-50 ${
-          isVisible ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 -translate-y-2 scale-95 pointer-events-none'
+          isVisible ? 'opacity-96 translate-y-0 scale-100' : 'opacity-0 -translate-y-2 scale-95 pointer-events-none'
         }`}>
           {/* Arrow pointing up */}
           <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-1">
