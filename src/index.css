@@ -237,6 +237,39 @@ nav:hover .spotlight {
   /* Dark mode styles can be added here for future implementation */
 }
 
+/* Dark theme variables and styles */
+.dark {
+  /* Background colors */
+  --background-color: #111827;
+  --surface-color: #1f2937;
+  --surface-hover: #374151;
+  
+  /* Text colors */
+  --text-primary: #f9fafb;
+  --text-secondary: #d1d5db;
+  --text-muted: #9ca3af;
+  
+  /* Accent colors */
+  --accent-primary: #3b82f6;
+  --accent-secondary: #8b5cf6;
+}
+
+.light {
+  /* Background colors */
+  --background-color: #ffffff;
+  --surface-color: #f8fafc;
+  --surface-hover: #f1f5f9;
+  
+  /* Text colors */
+  --text-primary: #1f2937;
+  --text-secondary: #4b5563;
+  --text-muted: #6b7280;
+  
+  /* Accent colors */
+  --accent-primary: #3b82f6;
+  --accent-secondary: #8b5cf6;
+}
+
 /* Print optimizations */
 @media print {
   video,
@@ -294,6 +327,5 @@ img {
   video {
     /* iOS Safari video optimizations */
     -webkit-playsinline: true;
-    -webkit-appearance: none;
   }
 }

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { useTheme } from '../../hooks/useTheme'
 
 const ScrollIndicator = ({ 
   isVisible, 
@@ -9,6 +10,7 @@ const ScrollIndicator = ({
   const [showIndicator, setShowIndicator] = useState(false)
   const [scrollDirection, setScrollDirection] = useState('down')
   const [lastScrollY, setLastScrollY] = useState(0)
+  const { isDark } = useTheme()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -51,7 +53,7 @@ const ScrollIndicator = ({
     <div className={`fixed right-4 top-1/2 transform -translate-y-1/2 z-50 transition-all duration-500 ${showIndicator && isVisible ? 'translate-x-0 opacity-100' : 'translate-x-10 opacity-0'} ${className}`}>
       <button 
         onClick={handleClick}
-        className={`flex items-center justify-center text-gray-600 hover:text-blue-600 transition-all ${getAnimationClass('duration-300')} group focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded-full p-3 bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 hover:shadow-lg hover:scale-110 active:scale-95`}
+        className={`flex items-center justify-center ${isDark ? 'text-gray-300' : 'text-gray-600'} hover:text-blue-600 transition-all ${getAnimationClass('duration-300')} group focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded-full p-3 ${isDark ? 'bg-gray-800/30' : 'bg-white/10'} backdrop-blur-sm border ${isDark ? 'border-gray-600/20' : 'border-white/20'} ${isDark ? 'hover:bg-gray-700/30' : 'hover:bg-white/20'} hover:shadow-lg hover:scale-110 active:scale-95`}
         aria-label={scrollDirection === 'up' ? 'Scroll to top' : 'Scroll down'}
       >        
         {/* Arrow Icon */}
