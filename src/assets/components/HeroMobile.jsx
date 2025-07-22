@@ -83,12 +83,12 @@ const HeroMobile = ({
           padding="p-3 sm:p-5"
           shadow="shadow-xl"
         >
-          <h2 className={`text-sm xs:text-base sm:text-lg md:text-xl font-semibold ${isDark ? 'text-gray-200' : 'text-gray-700'} leading-relaxed px-2`}>
+          <h2 className={`text-sm xs:text-base sm:text-lg md:text-xl font-semibold ${isDark ? 'text-fuchsia-300' : 'text-gray-700'} leading-relaxed px-2`}>
             Software Engineering Undergraduate |{' '}
-            <span className="bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">
+            <span className={`bg-gradient-to-r ${isDark ? 'from-cyan-400 to-blue-400' : 'from-emerald-600 to-teal-600'} bg-clip-text text-transparent`}>
               Knowledge Seeker &{' '}
             </span>
-            <span className="bg-gradient-to-r from-pink-600 to-purple-600 bg-clip-text text-transparent">
+            <span className={`bg-gradient-to-r ${isDark ? 'from-pink-400 to-fuchsia-400' : 'from-pink-600 to-purple-600'} bg-clip-text text-transparent`}>
               IoT Enthusiast...
             </span>
           </h2>
@@ -103,7 +103,7 @@ const HeroMobile = ({
           padding="p-3 sm:p-5"
           shadow="shadow-lg"
         >
-          <p className={`text-xs xs:text-sm sm:text-base ${isDark ? 'text-gray-300' : 'text-gray-600'} max-w-2xl leading-relaxed mx-auto font-bold px-2`}>
+          <p className={`text-xs xs:text-sm sm:text-base ${isDark ? 'text-cyan-200' : 'text-gray-600'} max-w-2xl leading-relaxed mx-auto font-bold px-2`}>
             I am a Software Engineering undergraduate at NSBM Green University with a strong passion for web application development, computer network and security, robotics and IoT. I am always eager to explore new technologies and expand my knowledge. With a curious mindset and a drive to understand how things work, I constantly seek opportunities to learn, build, and innovate in the tech world. And also I like to share my knowledge with others and be helpful for someone. 
           </p>
         </Step>
@@ -122,7 +122,7 @@ const HeroMobile = ({
             href={socialData.whatsapp.url} 
             target="_blank" 
             rel="noopener noreferrer"
-            className={`w-12 h-12 sm:w-14 sm:h-14 ${isDark ? 'bg-gray-800/60' : 'bg-gray-100/60'} hover:bg-green-500 ${isDark ? 'text-gray-200' : 'text-gray-700'} hover:text-white rounded-full flex items-center justify-center transition-all ${getAnimationClass('duration-300 hover:shadow-lg hover:scale-110')} active:scale-95 group`}
+            className={`w-12 h-12 sm:w-14 sm:h-14 ${isDark ? 'bg-black/80 text-fuchsia-300' : 'bg-gray-100/60 text-gray-700'} hover:bg-green-500 hover:text-white rounded-full flex items-center justify-center transition-all ${getAnimationClass('duration-300 hover:shadow-lg hover:scale-110')} active:scale-95 group`}
             aria-label="Contact via WhatsApp"
           >
             <svg className={`w-5 h-5 sm:w-10 sm:h-10 group-hover:scale-110 transition-transform ${getAnimationClass('duration-300')}`} fill="currentColor" viewBox="0 0 24 24">
@@ -142,7 +142,7 @@ const HeroMobile = ({
             href={socialData.linkedin.url} 
             target="_blank" 
             rel="noopener noreferrer"
-            className={`w-12 h-12 sm:w-14 sm:h-14 ${isDark ? 'bg-gray-800/60' : 'bg-gray-100/60'} hover:bg-blue-600 ${isDark ? 'text-gray-200' : 'text-gray-700'} hover:text-white rounded-full flex items-center justify-center transition-all ${getAnimationClass('duration-300 hover:shadow-lg hover:scale-110')} active:scale-95 group`}
+            className={`w-12 h-12 sm:w-14 sm:h-14 ${isDark ? 'bg-black/80 text-cyan-300' : 'bg-gray-100/60 text-gray-700'} hover:bg-green-500 hover:text-white rounded-full flex items-center justify-center transition-all ${getAnimationClass('duration-300 hover:shadow-lg hover:scale-110')} active:scale-95 group`}
             aria-label="Connect on LinkedIn"
           >
             <svg className={`w-5 h-5 sm:w-10 sm:h-10 group-hover:scale-110 transition-transform ${getAnimationClass('duration-300')}`} fill="currentColor" viewBox="0 0 24 24">
@@ -162,7 +162,7 @@ const HeroMobile = ({
             href={socialData.github.url} 
             target="_blank" 
             rel="noopener noreferrer"
-            className={`w-12 h-12 sm:w-14 sm:h-14 ${isDark ? 'bg-gray-800/60' : 'bg-gray-100/60'} hover:bg-gray-800 ${isDark ? 'text-gray-200' : 'text-gray-700'} hover:text-white rounded-full flex items-center justify-center transition-all ${getAnimationClass('duration-300 hover:shadow-lg hover:scale-110')} active:scale-95 group`}
+            className={`w-12 h-12 sm:w-14 sm:h-14 ${isDark ? 'bg-black/80 text-pink-300' : 'bg-gray-100/60 text-gray-700'} hover:bg-gray-800 hover:text-white rounded-full flex items-center justify-center transition-all ${getAnimationClass('duration-300 hover:shadow-lg hover:scale-110')} active:scale-95 group`}
             aria-label="View GitHub Profile"
           >
             <svg className={`w-5 h-5 sm:w-10 sm:h-10 group-hover:scale-110 transition-transform ${getAnimationClass('duration-300')}`} fill="currentColor" viewBox="0 0 24 24">

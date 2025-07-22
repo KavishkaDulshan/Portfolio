@@ -53,13 +53,13 @@ const ScrollIndicator = ({
     <div className={`fixed right-4 top-1/2 transform -translate-y-1/2 z-50 transition-all duration-500 ${showIndicator && isVisible ? 'translate-x-0 opacity-100' : 'translate-x-10 opacity-0'} ${className}`}>
       <button 
         onClick={handleClick}
-        className={`flex items-center justify-center ${isDark ? 'text-gray-300' : 'text-gray-600'} hover:text-blue-600 transition-all ${getAnimationClass('duration-300')} group focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded-full p-3 ${isDark ? 'bg-gray-800/30' : 'bg-white/10'} backdrop-blur-sm border ${isDark ? 'border-gray-600/20' : 'border-white/20'} ${isDark ? 'hover:bg-gray-700/30' : 'hover:bg-white/20'} hover:shadow-lg hover:scale-110 active:scale-95`}
+        className={`flex items-center justify-center ${isDark ? 'text-cyan-300 hover:text-fuchsia-300' : 'text-gray-600 hover:text-blue-600'} transition-all ${getAnimationClass('duration-300')} group focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded-full p-3 ${isDark ? 'bg-black/50 border-fuchsia-400/30 hover:bg-black/70' : 'bg-white/10 border-white/20 hover:bg-white/20'} backdrop-blur-sm border hover:shadow-lg hover:scale-110 active:scale-95`}
         aria-label={scrollDirection === 'up' ? 'Scroll to top' : 'Scroll down'}
       >        
         {/* Arrow Icon */}
         <div className="relative">
           <svg 
-            className={`w-5 h-5 transition-all duration-300 ${scrollDirection === 'up' ? 'transform rotate-180' : ''} ${isReducedMotion ? '' : 'group-hover:animate-bounce'} group-hover:text-blue-600`} 
+            className={`w-5 h-5 transition-all duration-300 ${scrollDirection === 'up' ? 'transform rotate-180' : ''} ${isReducedMotion ? '' : 'group-hover:animate-bounce'} ${isDark ? 'group-hover:text-fuchsia-400' : 'group-hover:text-blue-600'}`} 
             fill="none" 
             stroke="currentColor" 
             viewBox="0 0 24 24"
@@ -73,11 +73,11 @@ const ScrollIndicator = ({
           </svg>
           
           {/* Animated dot indicator */}
-          <div className={`absolute ${scrollDirection === 'up' ? '-top-1' : '-bottom-1'} left-1/2 transform -translate-x-1/2 w-1 h-1 bg-blue-500 rounded-full transition-all duration-300 ${isReducedMotion ? '' : 'animate-ping'} opacity-75`} />
+          <div className={`absolute ${scrollDirection === 'up' ? '-top-1' : '-bottom-1'} left-1/2 transform -translate-x-1/2 w-1 h-1 ${isDark ? 'bg-fuchsia-400' : 'bg-blue-500'} rounded-full transition-all duration-300 ${isReducedMotion ? '' : 'animate-ping'} opacity-75`} />
         </div>
         
-        {/* Subtle glow effect on hover */}
-        <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-500/20 to-purple-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10 blur-sm" />
+        {/* Synthwave glow effect on hover */}
+        <div className={`absolute inset-0 rounded-full ${isDark ? 'bg-gradient-to-r from-fuchsia-500/30 to-cyan-400/30' : 'bg-gradient-to-r from-blue-500/20 to-purple-500/20'} opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10 blur-sm`} />
       </button>
     </div>
   )
