@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useGitHubData } from '../../hooks/useGitHubData.js';
+import { useTheme } from '../../hooks/useTheme';
 
 const SocialWindow = ({ children, platform, username, followers, description, isVisible, onMouseEnter, onMouseLeave, phoneNumber}) => {
   const [isLargeScreen, setIsLargeScreen] = useState(false);
+  const { isDark } = useTheme();
   
   // Fetch GitHub data only for GitHub platform
   const { data: githubData, loading, error } = useGitHubData(
@@ -117,12 +119,12 @@ const SocialWindow = ({ children, platform, username, followers, description, is
       
       {/* Social Info Window - Only show on large screens */}
       {isLargeScreen && (
-        <div className={`absolute top-full left-1/2 transform -translate-x-1/2 mt-3 w-80 bg-white/95 backdrop-blur-md rounded-xl shadow-xl border border-gray-200/50 p-3 transition-all duration-300 z-50 ${
+        <div className={`absolute top-full left-1/2 transform -translate-x-1/2 mt-3 w-80 ${isDark ? 'bg-gray-900/95' : 'bg-white/95'} backdrop-blur-md rounded-xl shadow-xl border ${isDark ? 'border-gray-700/50' : 'border-gray-200/50'} p-3 transition-all duration-300 z-50 ${
           isVisible ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 -translate-y-2 scale-95 pointer-events-none'
         }`}>
           {/* Arrow pointing up */}
           <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-1">
-            <div className="w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-b-[6px] border-b-white/95"></div>
+            <div className={`w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-b-[6px] ${isDark ? 'border-b-gray-900/95' : 'border-b-white/95'}`}></div>
           </div>
           
           <div className="flex flex-col gap-2">
@@ -157,12 +159,12 @@ const SocialWindow = ({ children, platform, username, followers, description, is
                 </div>
                 <div>
                   <div className="flex items-center gap-2">
-                    <h3 className="text-base font-semibold text-gray-800 capitalize">{platform}</h3>
+                    <h3 className={`text-base font-semibold ${isDark ? 'text-gray-200' : 'text-gray-800'} capitalize`}>{platform}</h3>
                     {loading && platform === 'github' && (
-                      <div className="w-3 h-3 border-2 border-gray-300 border-t-blue-600 rounded-full animate-spin"></div>
+                      <div className={`w-3 h-3 border-2 ${isDark ? 'border-gray-600 border-t-blue-400' : 'border-gray-300 border-t-blue-600'} rounded-full animate-spin`}></div>
                     )}
                   </div>
-                  <p className="text-xs text-gray-600">@{displayData.username}</p>
+                  <p className={`text-xs ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>@{displayData.username}</p>
                 </div>
               </div>
               
@@ -172,34 +174,34 @@ const SocialWindow = ({ children, platform, username, followers, description, is
                   <p className={`text-sm font-bold ${
                     platform === 'whatsapp' ? 'text-green-600' :
                     platform === 'linkedin' ? 'text-blue-600' :
-                    platform === 'github' ? 'text-gray-700' : 'text-blue-600'
+                    platform === 'github' ? (isDark ? 'text-gray-300' : 'text-gray-700') : 'text-blue-600'
                   }`}>
                     {loading && platform === 'github' ? '...' : displayData.stats.primary}
                   </p>
-                  <p className="text-xs text-gray-500">{displayData.stats.primaryLabel}</p>
+                  <p className={`text-xs ${isDark ? 'text-gray-400' : 'text-gray-500'}`}>{displayData.stats.primaryLabel}</p>
                 </div>
-                <div className="w-px h-6 bg-gray-300"></div>
+                <div className={`w-px h-6 ${isDark ? 'bg-gray-600' : 'bg-gray-300'}`}></div>
                 <div>
                   <p className={`text-sm font-bold ${
                     platform === 'whatsapp' ? 'text-green-600' :
                     platform === 'linkedin' ? 'text-blue-600' :
-                    platform === 'github' ? 'text-gray-700' : 'text-purple-600'
+                    platform === 'github' ? (isDark ? 'text-gray-300' : 'text-gray-700') : 'text-purple-600'
                   }`}>
                     {loading && platform === 'github' ? '...' : displayData.stats.secondary}
                   </p>
-                  <p className="text-xs text-gray-500">{displayData.stats.secondaryLabel}</p>
+                  <p className={`text-xs ${isDark ? 'text-gray-400' : 'text-gray-500'}`}>{displayData.stats.secondaryLabel}</p>
                 </div>
               </div>
             </div>
             
             {/* Description - made more compact */}
-            <p className="text-xs text-gray-700 leading-relaxed">
+            <p className={`text-xs ${isDark ? 'text-gray-300' : 'text-gray-700'} leading-relaxed`}>
               {loading && platform === 'github' ? 'Loading GitHub data...' : displayData.description}
             </p>
 
             {/* Error message */}
             {error && platform === 'github' && (
-              <p className="text-xs text-red-500 bg-red-50 p-2 rounded">
+              <p className={`text-xs text-red-500 ${isDark ? 'bg-red-900/30' : 'bg-red-50'} p-2 rounded`}>
                 {error}
               </p>
             )}

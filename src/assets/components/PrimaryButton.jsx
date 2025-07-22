@@ -1,4 +1,5 @@
 import React from 'react'
+import { useTheme } from '../../hooks/useTheme'
 
 const PrimaryButton = ({ 
   children, 
@@ -14,6 +15,7 @@ const PrimaryButton = ({
   type = 'button',
   ...props 
 }) => {
+  const { isDark } = useTheme()
   // Base styles with enhanced modern transitions
   const baseStyles = "relative inline-flex items-center justify-center font-medium transition-all duration-300 ease-out focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-full disabled:opacity-60 disabled:cursor-not-allowed overflow-hidden group"
 
@@ -27,44 +29,50 @@ const PrimaryButton = ({
   // Enhanced variant styles with glassmorphism and modern hover effects
   const variantStyles = {
     primary: `
-      bg-white/10 backdrop-blur-sm border border-white/20 text-white shadow-lg
-      hover:bg-white/20 hover:shadow-2xl hover:shadow-blue-500/25 
-      hover:scale-110 hover:border-white/30
+      ${isDark 
+        ? 'bg-gray-800/80 border-gray-600/50 text-gray-100' 
+        : 'bg-gray-900/90 border-gray-700/60 text-white'} backdrop-blur-sm border shadow-lg
+      hover:${isDark ? 'bg-gray-700/90' : 'bg-gray-800/95'} hover:shadow-2xl hover:shadow-blue-500/25 
+      hover:scale-110 hover:border-${isDark ? 'gray-500/60' : 'gray-600/70'}
       active:scale-95 active:shadow-md
       focus:ring-blue-500/50 focus:ring-opacity-75
-      before:absolute before:inset-0 before:bg-gradient-to-r before:from-white/0 before:via-white/20 before:to-white/0
+      before:absolute before:inset-0 before:bg-gradient-to-r before:from-${isDark ? 'gray-600' : 'gray-700'}/0 before:via-${isDark ? 'gray-600' : 'gray-700'}/20 before:to-${isDark ? 'gray-600' : 'gray-700'}/0
       before:translate-x-[-100%] before:transition-transform before:duration-700 before:ease-out
       hover:before:translate-x-[100%]
     `,
     secondary: `
-      bg-white/10 backdrop-blur-sm border border-white/20 text-gray-700 shadow-md
-      hover:bg-white/20 hover:shadow-lg hover:shadow-gray-400/20
-      hover:scale-110 hover:border-white/30
-      active:scale-95 active:bg-white/30
+      ${isDark 
+        ? 'bg-gray-800/70 border-gray-600/40 text-gray-200' 
+        : 'bg-gray-800/80 border-gray-600/50 text-gray-100'} backdrop-blur-sm border shadow-md
+      hover:${isDark ? 'bg-gray-700/80' : 'bg-gray-700/90'} hover:shadow-lg hover:shadow-gray-400/20
+      hover:scale-110 hover:border-${isDark ? 'gray-500/50' : 'gray-500/60'}
+      active:scale-95 active:${isDark ? 'bg-gray-600/80' : 'bg-gray-600/85'}
       focus:ring-gray-400 focus:ring-opacity-50
-      before:absolute before:inset-0 before:bg-gradient-to-r before:from-white/0 before:via-white/30 before:to-white/0
+      before:absolute before:inset-0 before:bg-gradient-to-r before:from-${isDark ? 'gray-600' : 'gray-600'}/0 before:via-${isDark ? 'gray-600' : 'gray-600'}/30 before:to-${isDark ? 'gray-600' : 'gray-600'}/0
       before:translate-x-[-100%] before:transition-transform before:duration-600 before:ease-out
       hover:before:translate-x-[100%]
     `,
     outline: `
-      bg-white/10 backdrop-blur-sm border-2 border-white/30 text-gray-700 shadow-sm
-      hover:bg-white/20 hover:text-white hover:border-white/40 hover:shadow-lg hover:shadow-blue-500/20
+      ${isDark 
+        ? 'bg-gray-800/30 border-gray-500/60 text-gray-200' 
+        : 'bg-gray-100/90 border-gray-600/70 text-gray-800'} backdrop-blur-sm border-2 shadow-sm
+      hover:${isDark ? 'bg-gray-700/50 text-gray-100' : 'bg-gray-200/95 text-gray-900'} hover:border-${isDark ? 'gray-400/70' : 'gray-500/80'} hover:shadow-lg hover:shadow-blue-500/20
       hover:scale-110
-      active:scale-95 active:bg-white/30
+      active:scale-95 active:${isDark ? 'bg-gray-600/60' : 'bg-gray-300/90'}
       focus:ring-blue-400 focus:ring-opacity-50
-      before:absolute before:inset-0 before:bg-white/20 before:opacity-0 before:transition-opacity before:duration-300
+      before:absolute before:inset-0 before:${isDark ? 'bg-gray-600' : 'bg-gray-300'}/20 before:opacity-0 before:transition-opacity before:duration-300
       hover:before:opacity-100
-      after:absolute after:inset-0 after:bg-gradient-to-r after:from-white/0 after:via-white/20 after:to-white/0
+      after:absolute after:inset-0 after:bg-gradient-to-r after:from-${isDark ? 'gray-500' : 'gray-400'}/0 after:via-${isDark ? 'gray-500' : 'gray-400'}/20 after:to-${isDark ? 'gray-500' : 'gray-400'}/0
       after:translate-x-[-100%] after:transition-transform after:duration-500 after:ease-out
       hover:after:translate-x-[100%]
     `,
     ghost: `
-      bg-transparent text-gray-600 backdrop-blur-sm border border-transparent
-      hover:bg-white/10 hover:text-gray-800 hover:shadow-md hover:shadow-gray-400/20 hover:border-white/20
+      bg-transparent ${isDark ? 'text-gray-300' : 'text-gray-700'} backdrop-blur-sm border border-transparent
+      hover:${isDark ? 'bg-gray-800/40 text-gray-100' : 'bg-gray-200/80 text-gray-900'} hover:shadow-md hover:shadow-gray-400/20 hover:border-${isDark ? 'gray-600' : 'gray-400'}/30
       hover:scale-110
-      active:scale-95 active:bg-white/20
+      active:scale-95 active:${isDark ? 'bg-gray-700/50' : 'bg-gray-300/80'}
       focus:ring-gray-400 focus:ring-opacity-30
-      before:absolute before:inset-0 before:bg-gradient-to-r before:from-white/0 before:via-white/50 before:to-white/0
+      before:absolute before:inset-0 before:bg-gradient-to-r before:from-${isDark ? 'gray-600' : 'gray-400'}/0 before:via-${isDark ? 'gray-600' : 'gray-400'}/50 before:to-${isDark ? 'gray-600' : 'gray-400'}/0
       before:translate-x-[-100%] before:transition-transform before:duration-500 before:ease-out
       hover:before:translate-x-[100%]
     `
