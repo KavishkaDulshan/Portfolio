@@ -1,0 +1,1372 @@
+/* Modern Timeline Animations */
+@keyframes gradient-x {
+  0%, 100% {
+    background-size: 200% 200%;
+    background-position: left center;
+  }
+  50% {
+    background-size: 200% 200%;
+    background-position: right center;
+  }
+}
+
+@keyframes timelineGlow {
+  0%, 100% {
+    opacity: 0.8;
+    filter: blur(1px);
+  }
+  50% {
+    opacity: 1;
+    filter: blur(0px);
+  }
+}
+
+@keyframes floatingBadge {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes nodeRotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes cardSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+
+@keyframes cardSlideInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+
+@keyframes rocketBoost {
+  0%, 100% {
+    transform: scale(1) rotate(-15deg);
+  }
+  50% {
+    transform: scale(1.05) rotate(-12deg);
+  }
+}
+
+@keyframes rocketTrail {
+  0%, 100% {
+    opacity: 0.15;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 0.25;
+    transform: scale(1.1);
+  }
+}
+
+.animate-gradient-x {
+  animation: gradient-x 3s ease infinite;
+}
+
+.animate-timeline-glow {
+  animation: timelineGlow 2s ease-in-out infinite;
+}
+
+.animate-floating-badge {
+  animation: floatingBadge 2s ease-in-out infinite;
+}
+
+.animate-node-rotate {
+  animation: nodeRotate 20s linear infinite;
+}
+
+.animate-slide-in-left {
+  animation: cardSlideIn 0.6s ease-out forwards;
+}
+
+.animate-slide-in-right {
+  animation: cardSlideInRight 0.6s ease-out forwards;
+}
+
+.animate-rocket-boost {
+  animation: rocketBoost 2s ease-in-out infinite;
+}
+
+.animate-rocket-trail {
+  animation: rocketTrail 1.5s ease-in-out infinite;
+}
+
+/* Timeline Node Specific Styles */
+.timeline-node {
+  transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  will-change: transform, box-shadow;
+}
+
+.timeline-node:hover {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.timeline-node.active {
+  transform: scale(1.2) rotate(12deg);
+}
+
+/* Timeline Card Hover Effects */
+.timeline-card {
+  transition: all 0.7s cubic-bezier(0.25, 0.8, 0.25, 1);
+  will-change: transform, box-shadow, filter;
+}
+
+.timeline-card:hover {
+  transform: scale(1.02) rotate(-0.5deg);
+  filter: brightness(1.05);
+}
+
+.timeline-card.active {
+  transform: scale(1.05) rotate(1deg);
+  filter: brightness(1.1);
+}
+
+/* Connection Line Animation */
+.connection-line {
+  position: relative;
+  overflow: hidden;
+}
+
+.connection-line::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+  transition: left 0.8s ease-out;
+}
+
+.connection-line.active::after {
+  left: 100%;
+}
+
+/* Text Shadow for Active States */
+.text-shadow-lg {
+  text-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Enhanced Glow Effects */
+.glow-effect {
+  filter: drop-shadow(0 0 20px currentColor);
+}
+
+.glow-cyan {
+  filter: drop-shadow(0 0 15px rgba(34, 211, 238, 0.5));
+}
+
+.glow-blue {
+  filter: drop-shadow(0 0 15px rgba(59, 130, 246, 0.5));
+}
+
+/* Animated Icon Keyframes */
+@keyframes bounce-slow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes wobble {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-2deg); }
+  75% { transform: rotate(2deg); }
+}
+
+@keyframes glow {
+  0%, 100% { filter: brightness(1) drop-shadow(0 0 5px currentColor); }
+  50% { filter: brightness(1.2) drop-shadow(0 0 15px currentColor); }
+}
+
+@keyframes typing {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+@keyframes tech-pulse {
+  0%, 100% { transform: scale(1); filter: brightness(1); }
+  50% { transform: scale(1.05); filter: brightness(1.1); }
+}
+
+@keyframes lightning {
+  0%, 90%, 100% { opacity: 1; }
+  5%, 85% { opacity: 0.3; }
+}
+
+@keyframes pulse-slow {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-3px); }
+}
+
+@keyframes fade-in-out {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+@keyframes scale-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+@keyframes draw-circle {
+  0% { stroke-dasharray: 0 63; }
+  100% { stroke-dasharray: 63 63; }
+}
+
+@keyframes check-draw {
+  0% { stroke-dasharray: 0 10; }
+  100% { stroke-dasharray: 10 10; }
+}
+
+@keyframes orbit {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes brightness-pulse {
+  0%, 100% { filter: brightness(1); }
+  50% { filter: brightness(1.3); }
+}
+
+@keyframes sparkle {
+  0%, 100% { opacity: 0.8; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.4; transform: scale(0.8); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+@keyframes slide-up {
+  0% { transform: translateY(2px); opacity: 0.8; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes type-lines {
+  0% { stroke-dasharray: 0 20; }
+  100% { stroke-dasharray: 20 20; }
+}
+
+@keyframes float-gentle {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-2px); }
+}
+
+@keyframes notification-pulse {
+  0%, 100% { transform: scale(1); opacity: 0.7; }
+  50% { transform: scale(1.1); opacity: 1; }
+}
+
+@keyframes check-small {
+  0% { stroke-dasharray: 0 2; }
+  100% { stroke-dasharray: 2 2; }
+}
+
+@keyframes cursor-blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+@keyframes circuit-flow {
+  0%, 100% { opacity: 0.8; }
+  50% { opacity: 1; }
+}
+
+@keyframes circle-draw {
+  0% { stroke-dasharray: 0 50; }
+  100% { stroke-dasharray: 50 50; }
+}
+
+@keyframes core-pulse {
+  0%, 100% { transform: scale(1); opacity: 0.6; }
+  50% { transform: scale(1.1); opacity: 1; }
+}
+
+@keyframes signal-flow {
+  0% { stroke-dasharray: 0 8; }
+  100% { stroke-dasharray: 8 8; }
+}
+
+@keyframes sensor-blink {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+@keyframes sensor-pulse {
+  0%, 100% { transform: scale(1); opacity: 0.6; }
+  50% { transform: scale(1.2); opacity: 1; }
+}
+
+@keyframes data-flow {
+  0%, 100% { transform: translateY(0px); opacity: 0.6; }
+  50% { transform: translateY(-2px); opacity: 1; }
+}
+
+@keyframes electric-pulse {
+  0%, 100% { filter: brightness(1) drop-shadow(0 0 5px currentColor); }
+  25%, 75% { filter: brightness(1.3) drop-shadow(0 0 15px currentColor); }
+  50% { filter: brightness(1.5) drop-shadow(0 0 20px currentColor); }
+}
+
+@keyframes lightning-strike {
+  0%, 90%, 100% { opacity: 1; }
+  10%, 80% { opacity: 0.7; }
+  20%, 70% { opacity: 1; }
+  30%, 60% { opacity: 0.8; }
+}
+
+@keyframes inner-lightning {
+  0%, 100% { opacity: 0.7; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.05); }
+}
+
+@keyframes energy-sparks {
+  0%, 100% { transform: scale(1); opacity: 0.9; }
+  50% { transform: scale(1.3); opacity: 0.6; }
+}
+
+@keyframes spark {
+  0%, 100% { transform: scale(1); opacity: 0.9; }
+  25% { transform: scale(1.5); opacity: 0.4; }
+  50% { transform: scale(0.8); opacity: 1; }
+  75% { transform: scale(1.2); opacity: 0.6; }
+}
+
+@keyframes energy-beam {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.8; }
+}
+
+@keyframes draw-line {
+  0% { stroke-dasharray: 0 20; }
+  100% { stroke-dasharray: 20 20; }
+}
+
+/* Animated Icon Classes */
+.animate-bounce-slow {
+  animation: bounce-slow 3s ease-in-out infinite;
+}
+
+.animate-spin-slow {
+  animation: spin-slow 8s linear infinite;
+}
+
+.animate-wobble {
+  animation: wobble 4s ease-in-out infinite;
+}
+
+.animate-glow {
+  animation: glow 2s ease-in-out infinite;
+}
+
+.animate-typing {
+  animation: typing 2s ease-in-out infinite;
+}
+
+.animate-tech-pulse {
+  animation: tech-pulse 3s ease-in-out infinite;
+}
+
+.animate-lightning {
+  animation: lightning 2s ease-in-out infinite;
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 3s ease-in-out infinite;
+}
+
+.animate-float {
+  animation: float 2s ease-in-out infinite;
+}
+
+.animate-fade-in-out {
+  animation: fade-in-out 2s ease-in-out infinite;
+}
+
+.animate-scale-pulse {
+  animation: scale-pulse 2s ease-in-out infinite;
+}
+
+.animate-draw-circle {
+  animation: draw-circle 3s ease-in-out infinite;
+}
+
+.animate-check-draw {
+  animation: check-draw 1s ease-in-out infinite 1s;
+}
+
+.animate-orbit {
+  animation: orbit 10s linear infinite;
+}
+
+.animate-brightness-pulse {
+  animation: brightness-pulse 2s ease-in-out infinite;
+}
+
+.animate-sparkle {
+  animation: sparkle 2s ease-in-out infinite;
+}
+
+.animate-twinkle {
+  animation: twinkle 2s ease-in-out infinite;
+}
+
+.animate-slide-up {
+  animation: slide-up 2s ease-in-out infinite;
+}
+
+.animate-type-lines {
+  animation: type-lines 3s ease-in-out infinite;
+}
+
+.animate-float-gentle {
+  animation: float-gentle 3s ease-in-out infinite;
+}
+
+.animate-notification-pulse {
+  animation: notification-pulse 2s ease-in-out infinite;
+}
+
+.animate-check-small {
+  animation: check-small 1s ease-in-out infinite 0.5s;
+}
+
+.animate-cursor-blink {
+  animation: cursor-blink 1.2s ease-in-out infinite;
+}
+
+.animate-circuit-flow {
+  animation: circuit-flow 2s ease-in-out infinite;
+}
+
+.animate-circle-draw {
+  animation: circle-draw 4s ease-in-out infinite;
+}
+
+.animate-core-pulse {
+  animation: core-pulse 2s ease-in-out infinite;
+}
+
+.animate-signal-flow {
+  animation: signal-flow 2s ease-in-out infinite;
+}
+
+.animate-sensor-blink {
+  animation: sensor-blink 1s ease-in-out infinite;
+}
+
+.animate-sensor-pulse {
+  animation: sensor-pulse 2s ease-in-out infinite;
+}
+
+.animate-data-flow {
+  animation: data-flow 3s ease-in-out infinite;
+}
+
+.animate-electric-pulse {
+  animation: electric-pulse 1.5s ease-in-out infinite;
+}
+
+.animate-lightning-strike {
+  animation: lightning-strike 3s ease-in-out infinite;
+}
+
+.animate-inner-lightning {
+  animation: inner-lightning 2s ease-in-out infinite;
+}
+
+.animate-energy-sparks {
+  animation: energy-sparks 1s ease-in-out infinite;
+}
+
+.animate-spark {
+  animation: spark 2s ease-in-out infinite;
+}
+
+.animate-energy-beam {
+  animation: energy-beam 2s ease-in-out infinite;
+}
+
+.animate-draw-line {
+  animation: draw-line 2s ease-in-out infinite 1s;
+}
+
+/* 3D Animated Illustrations Keyframes */
+@keyframes three-d-float {
+  0%, 100% { transform: translateY(0px) scale(1); }
+  50% { transform: translateY(-8px) scale(1.02); }
+}
+
+@keyframes shadow-pulse {
+  0%, 100% { opacity: 0.3; transform: scaleX(1); }
+  50% { opacity: 0.5; transform: scaleX(1.1); }
+}
+
+@keyframes three-d-cap-tilt {
+  0%, 100% { transform: rotateX(0deg); }
+  50% { transform: rotateX(5deg); }
+}
+
+@keyframes tassel-swing {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-10deg); }
+  75% { transform: rotate(10deg); }
+}
+
+@keyframes book-float-1 {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  33% { transform: translateY(-3px) rotate(2deg); }
+  66% { transform: translateY(-1px) rotate(-1deg); }
+}
+
+@keyframes book-float-2 {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  33% { transform: translateY(-2px) rotate(-2deg); }
+  66% { transform: translateY(-4px) rotate(1deg); }
+}
+
+@keyframes sparkle-1 {
+  0%, 100% { transform: scale(1); opacity: 0.8; }
+  50% { transform: scale(1.5); opacity: 1; }
+}
+
+@keyframes sparkle-2 {
+  0%, 100% { transform: scale(1); opacity: 0.7; }
+  50% { transform: scale(1.3); opacity: 1; }
+}
+
+@keyframes sparkle-3 {
+  0%, 100% { transform: scale(1); opacity: 0.9; }
+  50% { transform: scale(1.4); opacity: 1; }
+}
+
+@keyframes building-glow {
+  0%, 100% { filter: brightness(1); }
+  50% { filter: brightness(1.1); }
+}
+
+@keyframes window-glow-1 {
+  0%, 100% { opacity: 0.8; }
+  50% { opacity: 1; }
+}
+
+@keyframes window-glow-2 {
+  0%, 100% { opacity: 0.7; }
+  50% { opacity: 1; }
+}
+
+@keyframes window-glow-3 {
+  0%, 100% { opacity: 0.9; }
+  50% { opacity: 1; }
+}
+
+@keyframes flag-wave {
+  0%, 100% { transform: scaleX(1); }
+  50% { transform: scaleX(0.95); }
+}
+
+@keyframes float-element-1 {
+  0%, 100% { transform: translateY(0px) translateX(0px); }
+  33% { transform: translateY(-5px) translateX(2px); }
+  66% { transform: translateY(-2px) translateX(-1px); }
+}
+
+@keyframes float-element-2 {
+  0%, 100% { transform: translateY(0px) translateX(0px); }
+  50% { transform: translateY(-3px) translateX(-2px); }
+}
+
+@keyframes screen-glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(59, 130, 246, 0.3); }
+  50% { box-shadow: 0 0 30px rgba(59, 130, 246, 0.5); }
+}
+
+@keyframes code-type-1 {
+  0% { width: 0%; }
+  100% { width: 100%; }
+}
+
+@keyframes code-type-2 {
+  0% { width: 0%; }
+  100% { width: 100%; }
+}
+
+@keyframes code-type-3 {
+  0% { width: 0%; }
+  100% { width: 100%; }
+}
+
+@keyframes symbol-float-1 {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-8px) rotate(5deg); }
+}
+
+@keyframes symbol-float-2 {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-6px) rotate(-3deg); }
+}
+
+@keyframes symbol-float-3 {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-4px) rotate(2deg); }
+}
+
+@keyframes bulb-glow {
+  0%, 100% { filter: brightness(1) drop-shadow(0 0 10px currentColor); }
+  50% { filter: brightness(1.2) drop-shadow(0 0 20px currentColor); }
+}
+
+@keyframes inner-glow {
+  0%, 100% { opacity: 0.8; }
+  50% { opacity: 1; }
+}
+
+@keyframes filament-glow {
+  0%, 100% { opacity: 0.7; }
+  50% { opacity: 1; }
+}
+
+@keyframes ray-1 {
+  0%, 100% { opacity: 0.8; transform: scaleX(1); }
+  50% { opacity: 1; transform: scaleX(1.2); }
+}
+
+@keyframes ray-2 {
+  0%, 100% { opacity: 0.7; transform: scaleX(1); }
+  50% { opacity: 1; transform: scaleX(1.1); }
+}
+
+@keyframes ray-3 {
+  0%, 100% { opacity: 0.9; transform: scaleY(1); }
+  50% { opacity: 1; transform: scaleY(1.3); }
+}
+
+@keyframes ray-4 {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+@keyframes ray-5 {
+  0%, 100% { opacity: 0.8; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.1); }
+}
+
+@keyframes ray-6 {
+  0%, 100% { opacity: 0.7; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.15); }
+}
+
+@keyframes ray-7 {
+  0%, 100% { opacity: 0.9; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.25); }
+}
+
+@keyframes idea-float-1 {
+  0%, 100% { transform: translateY(0px); opacity: 0.8; }
+  50% { transform: translateY(-10px); opacity: 1; }
+}
+
+@keyframes idea-float-2 {
+  0%, 100% { transform: translateY(0px); opacity: 0.7; }
+  50% { transform: translateY(-8px); opacity: 1; }
+}
+
+@keyframes idea-float-3 {
+  0%, 100% { transform: translateY(0px); opacity: 0.9; }
+  50% { transform: translateY(-6px); opacity: 1; }
+}
+
+@keyframes folder-glow {
+  0%, 100% { filter: brightness(1); }
+  50% { filter: brightness(1.1); }
+}
+
+@keyframes file-bob-1 {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-3px) rotate(1deg); }
+}
+
+@keyframes file-bob-2 {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-4px) rotate(-1deg); }
+}
+
+@keyframes file-bob-3 {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-2px) rotate(0.5deg); }
+}
+
+@keyframes progress-fill-1 {
+  0% { width: 0%; }
+  100% { width: 100%; }
+}
+
+@keyframes progress-fill-2 {
+  0% { width: 0%; }
+  100% { width: 100%; }
+}
+
+@keyframes progress-fill-3 {
+  0% { width: 0%; }
+  100% { width: 100%; }
+}
+
+@keyframes code-orbit {
+  0% { transform: translateX(0px) translateY(0px); }
+  25% { transform: translateX(5px) translateY(-3px); }
+  50% { transform: translateX(0px) translateY(-6px); }
+  75% { transform: translateX(-5px) translateY(-3px); }
+  100% { transform: translateX(0px) translateY(0px); }
+}
+
+@keyframes circuit-glow {
+  0%, 100% { filter: brightness(1); box-shadow: 0 0 20px rgba(5, 150, 105, 0.3); }
+  50% { filter: brightness(1.1); box-shadow: 0 0 30px rgba(5, 150, 105, 0.5); }
+}
+
+@keyframes processor-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+@keyframes trace-flow-1 {
+  0% { stroke-dasharray: 0 25; }
+  100% { stroke-dasharray: 25 25; }
+}
+
+@keyframes trace-flow-2 {
+  0% { stroke-dasharray: 0 25; }
+  100% { stroke-dasharray: 25 25; }
+}
+
+@keyframes trace-flow-3 {
+  0% { stroke-dasharray: 0 35; }
+  100% { stroke-dasharray: 35 35; }
+}
+
+@keyframes trace-flow-4 {
+  0% { stroke-dasharray: 0 35; }
+  100% { stroke-dasharray: 35 35; }
+}
+
+@keyframes sensor-pulse-1 {
+  0%, 100% { transform: scale(1); opacity: 0.8; }
+  50% { transform: scale(1.2); opacity: 1; }
+}
+
+@keyframes sensor-pulse-2 {
+  0%, 100% { transform: scale(1); opacity: 0.7; }
+  50% { transform: scale(1.15); opacity: 1; }
+}
+
+@keyframes sensor-pulse-3 {
+  0%, 100% { transform: scale(1); opacity: 0.9; }
+  50% { transform: scale(1.1); opacity: 1; }
+}
+
+@keyframes sensor-pulse-4 {
+  0%, 100% { transform: scale(1); opacity: 0.8; }
+  50% { transform: scale(1.25); opacity: 1; }
+}
+
+@keyframes led-blink-1 {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0.3; }
+}
+
+@keyframes led-blink-2 {
+  0%, 30% { opacity: 0.3; }
+  31%, 80% { opacity: 1; }
+  81%, 100% { opacity: 0.3; }
+}
+
+@keyframes wifi-signal-1 {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+@keyframes wifi-signal-2 {
+  0%, 100% { opacity: 0.7; }
+  50% { opacity: 1; }
+}
+
+@keyframes wifi-dot {
+  0%, 100% { opacity: 0.8; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.3); }
+}
+
+@keyframes data-particle-1 {
+  0% { transform: translateX(0px) translateY(0px); opacity: 0.8; }
+  50% { transform: translateX(20px) translateY(-10px); opacity: 1; }
+  100% { transform: translateX(40px) translateY(0px); opacity: 0.6; }
+}
+
+@keyframes data-particle-2 {
+  0% { transform: translateX(0px) translateY(0px); opacity: 0.7; }
+  50% { transform: translateX(-15px) translateY(-20px); opacity: 1; }
+  100% { transform: translateX(-30px) translateY(0px); opacity: 0.5; }
+}
+
+@keyframes data-particle-3 {
+  0% { transform: translateX(0px) translateY(0px); opacity: 0.9; }
+  50% { transform: translateX(-10px) translateY(25px); opacity: 1; }
+  100% { transform: translateX(-20px) translateY(50px); opacity: 0.4; }
+}
+
+@keyframes lightning-flash {
+  0%, 90%, 100% { filter: brightness(1) drop-shadow(0 0 10px currentColor); }
+  5%, 85% { filter: brightness(1.5) drop-shadow(0 0 25px currentColor); }
+  10%, 80% { filter: brightness(1.8) drop-shadow(0 0 35px currentColor); }
+}
+
+@keyframes inner-lightning-glow {
+  0%, 100% { opacity: 0.8; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.05); }
+}
+
+@keyframes electric-arc-1 {
+  0%, 100% { opacity: 0.6; }
+  25%, 75% { opacity: 1; }
+  50% { opacity: 0.8; }
+}
+
+@keyframes electric-arc-2 {
+  0%, 100% { opacity: 0.7; }
+  33%, 66% { opacity: 1; }
+}
+
+@keyframes energy-sphere-1 {
+  0%, 100% { transform: translateY(0px) scale(1); opacity: 0.8; }
+  50% { transform: translateY(-15px) scale(1.2); opacity: 1; }
+}
+
+@keyframes energy-sphere-2 {
+  0%, 100% { transform: translateY(0px) scale(1); opacity: 0.7; }
+  50% { transform: translateY(10px) scale(1.1); opacity: 1; }
+}
+
+@keyframes energy-sphere-3 {
+  0%, 100% { transform: translateY(0px) scale(1); opacity: 0.9; }
+  50% { transform: translateY(-8px) scale(1.15); opacity: 1; }
+}
+
+@keyframes energy-sphere-4 {
+  0%, 100% { transform: translateY(0px) scale(1); opacity: 0.8; }
+  50% { transform: translateY(12px) scale(1.3); opacity: 1; }
+}
+
+@keyframes grid-pulse {
+  0%, 100% { opacity: 0.2; }
+  50% { opacity: 0.4; }
+}
+
+@keyframes particle-1 {
+  0% { transform: translateX(0px) translateY(0px); opacity: 1; }
+  100% { transform: translateX(200px) translateY(-50px); opacity: 0; }
+}
+
+@keyframes particle-2 {
+  0% { transform: translateX(0px) translateY(0px); opacity: 1; }
+  100% { transform: translateX(-180px) translateY(80px); opacity: 0; }
+}
+
+@keyframes particle-3 {
+  0% { transform: translateX(0px) translateY(0px); opacity: 1; }
+  100% { transform: translateX(150px) translateY(40px); opacity: 0; }
+}
+
+@keyframes particle-4 {
+  0% { transform: translateX(0px) translateY(0px); opacity: 1; }
+  100% { transform: translateX(-160px) translateY(-30px); opacity: 0; }
+}
+
+/* 3D Animation Classes */
+.animate-three-d-float {
+  animation: three-d-float 4s ease-in-out infinite;
+}
+
+.animate-shadow-pulse {
+  animation: shadow-pulse 3s ease-in-out infinite;
+}
+
+.animate-three-d-cap-tilt {
+  animation: three-d-cap-tilt 3s ease-in-out infinite;
+}
+
+.animate-tassel-swing {
+  animation: tassel-swing 2s ease-in-out infinite;
+}
+
+.animate-book-float-1 {
+  animation: book-float-1 3s ease-in-out infinite;
+}
+
+.animate-book-float-2 {
+  animation: book-float-2 3.5s ease-in-out infinite;
+}
+
+.animate-sparkle-1 {
+  animation: sparkle-1 2s ease-in-out infinite;
+}
+
+.animate-sparkle-2 {
+  animation: sparkle-2 2.5s ease-in-out infinite;
+}
+
+.animate-sparkle-3 {
+  animation: sparkle-3 2.2s ease-in-out infinite;
+}
+
+.animate-building-glow {
+  animation: building-glow 4s ease-in-out infinite;
+}
+
+.animate-window-glow-1 {
+  animation: window-glow-1 2s ease-in-out infinite;
+}
+
+.animate-window-glow-2 {
+  animation: window-glow-2 2.5s ease-in-out infinite;
+}
+
+.animate-window-glow-3 {
+  animation: window-glow-3 2.2s ease-in-out infinite;
+}
+
+.animate-flag-wave {
+  animation: flag-wave 1.5s ease-in-out infinite;
+}
+
+.animate-float-element-1 {
+  animation: float-element-1 3s ease-in-out infinite;
+}
+
+.animate-float-element-2 {
+  animation: float-element-2 2.8s ease-in-out infinite;
+}
+
+.animate-screen-glow {
+  animation: screen-glow 3s ease-in-out infinite;
+}
+
+.animate-code-type-1 {
+  animation: code-type-1 3s ease-in-out infinite;
+}
+
+.animate-code-type-2 {
+  animation: code-type-2 3.5s ease-in-out infinite;
+}
+
+.animate-code-type-3 {
+  animation: code-type-3 3.2s ease-in-out infinite;
+}
+
+.animate-symbol-float-1 {
+  animation: symbol-float-1 4s ease-in-out infinite;
+}
+
+.animate-symbol-float-2 {
+  animation: symbol-float-2 3.5s ease-in-out infinite;
+}
+
+.animate-symbol-float-3 {
+  animation: symbol-float-3 4.2s ease-in-out infinite;
+}
+
+.animate-bulb-glow {
+  animation: bulb-glow 2s ease-in-out infinite;
+}
+
+.animate-inner-glow {
+  animation: inner-glow 2s ease-in-out infinite;
+}
+
+.animate-filament-glow {
+  animation: filament-glow 1.5s ease-in-out infinite;
+}
+
+.animate-ray-1 {
+  animation: ray-1 2s ease-in-out infinite;
+}
+
+.animate-ray-2 {
+  animation: ray-2 2.2s ease-in-out infinite;
+}
+
+.animate-ray-3 {
+  animation: ray-3 1.8s ease-in-out infinite;
+}
+
+.animate-ray-4 {
+  animation: ray-4 2.5s ease-in-out infinite;
+}
+
+.animate-ray-5 {
+  animation: ray-5 2.3s ease-in-out infinite;
+}
+
+.animate-ray-6 {
+  animation: ray-6 2.1s ease-in-out infinite;
+}
+
+.animate-ray-7 {
+  animation: ray-7 2.4s ease-in-out infinite;
+}
+
+.animate-idea-float-1 {
+  animation: idea-float-1 3s ease-in-out infinite;
+}
+
+.animate-idea-float-2 {
+  animation: idea-float-2 3.5s ease-in-out infinite;
+}
+
+.animate-idea-float-3 {
+  animation: idea-float-3 2.8s ease-in-out infinite;
+}
+
+.animate-folder-glow {
+  animation: folder-glow 3s ease-in-out infinite;
+}
+
+.animate-file-bob-1 {
+  animation: file-bob-1 2s ease-in-out infinite;
+}
+
+.animate-file-bob-2 {
+  animation: file-bob-2 2.5s ease-in-out infinite;
+}
+
+.animate-file-bob-3 {
+  animation: file-bob-3 2.2s ease-in-out infinite;
+}
+
+.animate-progress-fill-1 {
+  animation: progress-fill-1 4s ease-in-out infinite;
+}
+
+.animate-progress-fill-2 {
+  animation: progress-fill-2 4.5s ease-in-out infinite;
+}
+
+.animate-progress-fill-3 {
+  animation: progress-fill-3 4.2s ease-in-out infinite;
+}
+
+.animate-code-orbit {
+  animation: code-orbit 6s ease-in-out infinite;
+}
+
+.animate-circuit-glow {
+  animation: circuit-glow 3s ease-in-out infinite;
+}
+
+.animate-processor-pulse {
+  animation: processor-pulse 2s ease-in-out infinite;
+}
+
+.animate-trace-flow-1 {
+  animation: trace-flow-1 3s ease-in-out infinite;
+}
+
+.animate-trace-flow-2 {
+  animation: trace-flow-2 3.2s ease-in-out infinite;
+}
+
+.animate-trace-flow-3 {
+  animation: trace-flow-3 2.8s ease-in-out infinite;
+}
+
+.animate-trace-flow-4 {
+  animation: trace-flow-4 3.5s ease-in-out infinite;
+}
+
+.animate-sensor-pulse-1 {
+  animation: sensor-pulse-1 2s ease-in-out infinite;
+}
+
+.animate-sensor-pulse-2 {
+  animation: sensor-pulse-2 2.3s ease-in-out infinite;
+}
+
+.animate-sensor-pulse-3 {
+  animation: sensor-pulse-3 2.1s ease-in-out infinite;
+}
+
+.animate-sensor-pulse-4 {
+  animation: sensor-pulse-4 2.4s ease-in-out infinite;
+}
+
+.animate-led-blink-1 {
+  animation: led-blink-1 1s ease-in-out infinite;
+}
+
+.animate-led-blink-2 {
+  animation: led-blink-2 1.5s ease-in-out infinite;
+}
+
+.animate-wifi-signal-1 {
+  animation: wifi-signal-1 2s ease-in-out infinite;
+}
+
+.animate-wifi-signal-2 {
+  animation: wifi-signal-2 2.2s ease-in-out infinite;
+}
+
+.animate-wifi-dot {
+  animation: wifi-dot 1.5s ease-in-out infinite;
+}
+
+.animate-data-particle-1 {
+  animation: data-particle-1 4s linear infinite;
+}
+
+.animate-data-particle-2 {
+  animation: data-particle-2 4.5s linear infinite;
+}
+
+.animate-data-particle-3 {
+  animation: data-particle-3 4.2s linear infinite;
+}
+
+.animate-lightning-flash {
+  animation: lightning-flash 3s ease-in-out infinite;
+}
+
+.animate-inner-lightning-glow {
+  animation: inner-lightning-glow 2s ease-in-out infinite;
+}
+
+.animate-electric-arc-1 {
+  animation: electric-arc-1 1.5s ease-in-out infinite;
+}
+
+.animate-electric-arc-2 {
+  animation: electric-arc-2 1.8s ease-in-out infinite;
+}
+
+.animate-energy-sphere-1 {
+  animation: energy-sphere-1 3s ease-in-out infinite;
+}
+
+.animate-energy-sphere-2 {
+  animation: energy-sphere-2 3.5s ease-in-out infinite;
+}
+
+.animate-energy-sphere-3 {
+  animation: energy-sphere-3 2.8s ease-in-out infinite;
+}
+
+.animate-energy-sphere-4 {
+  animation: energy-sphere-4 3.2s ease-in-out infinite;
+}
+
+.animate-grid-pulse {
+  animation: grid-pulse 4s ease-in-out infinite;
+}
+
+.animate-particle-1 {
+  animation: particle-1 6s linear infinite;
+}
+
+.animate-particle-2 {
+  animation: particle-2 6.5s linear infinite;
+}
+
+.animate-particle-3 {
+  animation: particle-3 6.2s linear infinite;
+}
+
+.animate-particle-4 {
+  animation: particle-4 6.8s linear infinite;
+}
+
+/* Modern Glassmorphism */
+.glass-effect {
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.125);
+}
+
+/* Performance Optimizations */
+.timeline-container {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* Responsive Animations */
+@media (prefers-reduced-motion: reduce) {
+  .animate-gradient-x,
+  .animate-timeline-glow,
+  .animate-floating-badge,
+  .animate-node-rotate,
+  .animate-slide-in-left,
+  .animate-slide-in-right,
+  .animate-rocket-boost,
+  .animate-rocket-trail,
+  .animate-bounce-slow,
+  .animate-spin-slow,
+  .animate-wobble,
+  .animate-glow,
+  .animate-typing,
+  .animate-tech-pulse,
+  .animate-lightning,
+  .animate-pulse-slow,
+  .animate-float,
+  .animate-fade-in-out,
+  .animate-scale-pulse,
+  .animate-draw-circle,
+  .animate-check-draw,
+  .animate-orbit,
+  .animate-brightness-pulse,
+  .animate-sparkle,
+  .animate-twinkle,
+  .animate-slide-up,
+  .animate-type-lines,
+  .animate-float-gentle,
+  .animate-notification-pulse,
+  .animate-check-small,
+  .animate-cursor-blink,
+  .animate-circuit-flow,
+  .animate-circle-draw,
+  .animate-core-pulse,
+  .animate-signal-flow,
+  .animate-sensor-blink,
+  .animate-sensor-pulse,
+  .animate-data-flow,
+  .animate-electric-pulse,
+  .animate-lightning-strike,
+  .animate-inner-lightning,
+  .animate-energy-sparks,
+  .animate-spark,
+  .animate-energy-beam,
+  .animate-draw-line,
+  .animate-three-d-float,
+  .animate-shadow-pulse,
+  .animate-three-d-cap-tilt,
+  .animate-tassel-swing,
+  .animate-book-float-1,
+  .animate-book-float-2,
+  .animate-sparkle-1,
+  .animate-sparkle-2,
+  .animate-sparkle-3,
+  .animate-building-glow,
+  .animate-window-glow-1,
+  .animate-window-glow-2,
+  .animate-window-glow-3,
+  .animate-flag-wave,
+  .animate-float-element-1,
+  .animate-float-element-2,
+  .animate-screen-glow,
+  .animate-code-type-1,
+  .animate-code-type-2,
+  .animate-code-type-3,
+  .animate-symbol-float-1,
+  .animate-symbol-float-2,
+  .animate-symbol-float-3,
+  .animate-bulb-glow,
+  .animate-inner-glow,
+  .animate-filament-glow,
+  .animate-ray-1,
+  .animate-ray-2,
+  .animate-ray-3,
+  .animate-ray-4,
+  .animate-ray-5,
+  .animate-ray-6,
+  .animate-ray-7,
+  .animate-idea-float-1,
+  .animate-idea-float-2,
+  .animate-idea-float-3,
+  .animate-folder-glow,
+  .animate-file-bob-1,
+  .animate-file-bob-2,
+  .animate-file-bob-3,
+  .animate-progress-fill-1,
+  .animate-progress-fill-2,
+  .animate-progress-fill-3,
+  .animate-code-orbit,
+  .animate-circuit-glow,
+  .animate-processor-pulse,
+  .animate-trace-flow-1,
+  .animate-trace-flow-2,
+  .animate-trace-flow-3,
+  .animate-trace-flow-4,
+  .animate-sensor-pulse-1,
+  .animate-sensor-pulse-2,
+  .animate-sensor-pulse-3,
+  .animate-sensor-pulse-4,
+  .animate-led-blink-1,
+  .animate-led-blink-2,
+  .animate-wifi-signal-1,
+  .animate-wifi-signal-2,
+  .animate-wifi-dot,
+  .animate-data-particle-1,
+  .animate-data-particle-2,
+  .animate-data-particle-3,
+  .animate-lightning-flash,
+  .animate-inner-lightning-glow,
+  .animate-electric-arc-1,
+  .animate-electric-arc-2,
+  .animate-energy-sphere-1,
+  .animate-energy-sphere-2,
+  .animate-energy-sphere-3,
+  .animate-energy-sphere-4,
+  .animate-grid-pulse,
+  .animate-particle-1,
+  .animate-particle-2,
+  .animate-particle-3,
+  .animate-particle-4,
+  [style*="animation"] {
+    animation: none !important;
+  }
+  
+  .timeline-node,
+  .timeline-card,
+  .connection-line {
+    transition: none !important;
+  }
+}
+
+/* Mobile Optimizations */
+@media (max-width: 768px) {
+  .timeline-card {
+    will-change: auto;
+  }
+  
+  .timeline-node {
+    will-change: auto;
+  }
+}
