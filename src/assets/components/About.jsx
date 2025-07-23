@@ -143,8 +143,12 @@ const About = () => {
       description: 'Successfully completed G.C.E Advanced Level examination in Physical Science stream, laying the foundation for my technical education.',
       year: '2022',
       icon: (
-        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9L12 3zm6.82 6L12 12.72 5.18 9 12 5.28 18.82 9zM17 15.99l-5 2.73-5-2.73v-3.72L12 15l5-2.73v3.72z"/>
+        <svg className="w-6 h-6 animate-bounce-slow" fill="currentColor" viewBox="0 0 24 24">
+          <g className="animate-pulse-slow">
+            <path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9L12 3zm6.82 6L12 12.72 5.18 9 12 5.28 18.82 9z"/>
+            <path className="animate-float" d="M17 15.99l-5 2.73-5-2.73v-3.72L12 15l5-2.73v3.72z" opacity="0.7"/>
+          </g>
+          <circle cx="12" cy="9" r="1" className="animate-ping" opacity="0.3"/>
         </svg>
       )
     },
@@ -154,8 +158,13 @@ const About = () => {
       description: 'Enrolled in Software Engineering program at NSBM Green University, beginning my formal journey in software development and computer science.',
       year: '2023',
       icon: (
-        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M12 14l9-5-9-5-9 5 9 5z M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/>
+        <svg className="w-6 h-6 animate-spin-slow" fill="currentColor" viewBox="0 0 24 24">
+          <g className="animate-pulse-slow">
+            <path d="M12 2L1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9L12 3z"/>
+            <path className="animate-fade-in-out" d="M12 6l6 3.2-6 3.2-6-3.2L12 6z" opacity="0.8"/>
+            <circle cx="12" cy="12" r="2" className="animate-pulse" opacity="0.6"/>
+          </g>
+          <path className="animate-draw-line" stroke="currentColor" strokeWidth="0.5" fill="none" d="M5 15l7-7 7 7"/>
         </svg>
       )
     },
@@ -165,8 +174,18 @@ const About = () => {
       description: 'Mastered modern web development technologies including React.js, Node.js, JavaScript ES6+, HTML5, CSS3, and various development tools.',
       year: '2023',
       icon: (
-        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+        <svg className="w-6 h-6 animate-wobble" fill="currentColor" viewBox="0 0 24 24">
+          <g className="animate-scale-pulse">
+            <circle cx="12" cy="12" r="10" strokeWidth="2" stroke="currentColor" fill="none" className="animate-draw-circle"/>
+            <path d="M9 12l2 2 4-4" strokeWidth="2" stroke="currentColor" fill="none" className="animate-check-draw"/>
+            <circle cx="12" cy="12" r="3" className="animate-pulse" opacity="0.4"/>
+          </g>
+          <g className="animate-orbit">
+            <circle cx="18" cy="12" r="1" opacity="0.6"/>
+            <circle cx="6" cy="12" r="1" opacity="0.6"/>
+            <circle cx="12" cy="6" r="1" opacity="0.6"/>
+            <circle cx="12" cy="18" r="1" opacity="0.6"/>
+          </g>
         </svg>
       )
     },
@@ -176,8 +195,17 @@ const About = () => {
       description: 'Studied software engineering principles, design patterns, database design, API development, version control, and agile development methodologies.',
       year: '2023 - 2024',
       icon: (
-        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+        <svg className="w-6 h-6 animate-glow" fill="currentColor" viewBox="0 0 24 24">
+          <g className="animate-brightness-pulse">
+            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+            <circle cx="12" cy="12" r="4" className="animate-pulse" opacity="0.3"/>
+          </g>
+          <g className="animate-sparkle">
+            <circle cx="12" cy="4" r="0.5" className="animate-twinkle" opacity="0.8"/>
+            <circle cx="20" cy="9" r="0.5" className="animate-twinkle" style={{animationDelay: '0.5s'}} opacity="0.8"/>
+            <circle cx="4" cy="9" r="0.5" className="animate-twinkle" style={{animationDelay: '1s'}} opacity="0.8"/>
+            <circle cx="12" cy="20" r="0.5" className="animate-twinkle" style={{animationDelay: '1.5s'}} opacity="0.8"/>
+          </g>
         </svg>
       )
     },
@@ -187,8 +215,16 @@ const About = () => {
       description: 'Began building personal web applications and software projects to apply learned concepts and create a professional portfolio.',
       year: '2024',
       icon: (
-        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
+        <svg className="w-6 h-6 animate-typing" fill="currentColor" viewBox="0 0 24 24">
+          <g className="animate-slide-up">
+            <rect x="3" y="4" width="18" height="16" rx="2" stroke="currentColor" strokeWidth="1" fill="none"/>
+            <path d="M7 8h10M7 12h8M7 16h6" stroke="currentColor" strokeWidth="1.5" className="animate-type-lines"/>
+          </g>
+          <g className="animate-float-gentle">
+            <circle cx="19" cy="5" r="2" className="animate-notification-pulse" opacity="0.7"/>
+            <path d="M18 4.5l1 0.5 1-0.5" stroke="currentColor" strokeWidth="0.5" fill="none" className="animate-check-small"/>
+          </g>
+          <rect x="6" y="10" width="1" height="2" className="animate-cursor-blink" opacity="0.8"/>
         </svg>
       )
     },
@@ -198,8 +234,19 @@ const About = () => {
       description: 'Explored Internet of Things development using Arduino and Raspberry Pi, integrating sensors and building smart automation systems.',
       year: '2024',
       icon: (
-        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+        <svg className="w-6 h-6 animate-tech-pulse" fill="currentColor" viewBox="0 0 24 24">
+          <g className="animate-circuit-flow">
+            <circle cx="12" cy="12" r="8" stroke="currentColor" strokeWidth="1" fill="none" className="animate-circle-draw"/>
+            <circle cx="12" cy="12" r="3" className="animate-core-pulse"/>
+            <path d="M12 4v4M12 16v4M4 12h4M16 12h4" stroke="currentColor" strokeWidth="2" className="animate-signal-flow"/>
+          </g>
+          <g className="animate-sensor-blink">
+            <circle cx="8" cy="8" r="1" className="animate-sensor-pulse" opacity="0.8"/>
+            <circle cx="16" cy="8" r="1" className="animate-sensor-pulse" style={{animationDelay: '0.3s'}} opacity="0.8"/>
+            <circle cx="8" cy="16" r="1" className="animate-sensor-pulse" style={{animationDelay: '0.6s'}} opacity="0.8"/>
+            <circle cx="16" cy="16" r="1" className="animate-sensor-pulse" style={{animationDelay: '0.9s'}} opacity="0.8"/>
+          </g>
+          <path d="M12 8l2 2-2 2-2-2z" className="animate-data-flow" opacity="0.6"/>
         </svg>
       )
     },
@@ -209,8 +256,18 @@ const About = () => {
       description: 'Currently exploring emerging technologies, experimenting with new frameworks, and working on innovative projects to stay ahead in the software industry.',
       year: '2024 - Present',
       icon: (
-        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M13 10V3L4 14h7v7l9-11h-7z"/>
+        <svg className="w-6 h-6 animate-lightning" fill="currentColor" viewBox="0 0 24 24">
+          <g className="animate-electric-pulse">
+            <path d="M13 2L4 14h7v7l9-11h-7V2z" className="animate-lightning-strike"/>
+            <path d="M11 6L8 10h4v4l3-4h-4V6z" className="animate-inner-lightning" opacity="0.7"/>
+          </g>
+          <g className="animate-energy-sparks">
+            <circle cx="6" cy="8" r="0.5" className="animate-spark" opacity="0.9"/>
+            <circle cx="18" cy="16" r="0.5" className="animate-spark" style={{animationDelay: '0.2s'}} opacity="0.9"/>
+            <circle cx="15" cy="6" r="0.5" className="animate-spark" style={{animationDelay: '0.4s'}} opacity="0.9"/>
+            <circle cx="9" cy="18" r="0.5" className="animate-spark" style={{animationDelay: '0.6s'}} opacity="0.9"/>
+          </g>
+          <path d="M12 2L12 22" stroke="currentColor" strokeWidth="0.5" className="animate-energy-beam" opacity="0.3"/>
         </svg>
       )
     }
@@ -590,6 +647,247 @@ const About = () => {
                               : (isDark ? 'bg-gray-600 opacity-30' : 'bg-gray-300 opacity-30')
                           } ${index % 2 === 0 ? 'translate-x-full' : '-translate-x-full'}`}>
                           </div>
+                        </div>
+                      </div>
+
+                      {/* 3D Animated Illustration - Opposite side */}
+                      <div className={`w-5/12 ${index % 2 === 0 ? 'pl-12' : 'pr-12'} flex items-center justify-center`}>
+                        <div className={`transition-all duration-700 transform ${
+                          activeAchievement === index 
+                            ? 'scale-110 opacity-100' 
+                            : 'scale-95 opacity-60'
+                        }`}>
+                          {/* Achievement 0: Graduation Cap 3D */}
+                          {index === 0 && (
+                            <div className="relative w-48 h-48 flex items-center justify-center">
+                              <svg className="w-full h-full animate-3d-float" viewBox="0 0 200 200" fill="none">
+                                {/* Graduation Cap Base */}
+                                <ellipse cx="100" cy="120" rx="60" ry="12" fill={isDark ? '#1e3a8a' : '#3b82f6'} className="animate-shadow-pulse" opacity="0.3"/>
+                                <path d="M40 100 L100 80 L160 100 L160 120 L100 140 L40 120 Z" 
+                                      fill={isDark ? '#1d4ed8' : '#2563eb'} 
+                                      className="animate-3d-cap-tilt"/>
+                                {/* Cap Top */}
+                                <ellipse cx="100" cy="100" rx="60" ry="15" fill={isDark ? '#2563eb' : '#1d4ed8'}/>
+                                {/* Tassel */}
+                                <circle cx="130" cy="95" r="3" fill={isDark ? '#fbbf24' : '#f59e0b'} className="animate-tassel-swing"/>
+                                <path d="M130 98 Q135 105 130 112 Q125 105 130 98" 
+                                      fill={isDark ? '#fbbf24' : '#f59e0b'} 
+                                      className="animate-tassel-swing"/>
+                                {/* Floating Books */}
+                                <rect x="65" y="60" width="12" height="16" rx="2" fill={isDark ? '#dc2626' : '#ef4444'} className="animate-book-float-1"/>
+                                <rect x="125" y="65" width="12" height="16" rx="2" fill={isDark ? '#16a34a' : '#22c55e'} className="animate-book-float-2"/>
+                                {/* Sparkles */}
+                                <circle cx="70" cy="50" r="2" fill={isDark ? '#fbbf24' : '#f59e0b'} className="animate-sparkle-1"/>
+                                <circle cx="140" cy="45" r="2" fill={isDark ? '#fbbf24' : '#f59e0b'} className="animate-sparkle-2"/>
+                                <circle cx="90" cy="40" r="1.5" fill={isDark ? '#fbbf24' : '#f59e0b'} className="animate-sparkle-3"/>
+                              </svg>
+                            </div>
+                          )}
+
+                          {/* Achievement 1: University Building 3D */}
+                          {index === 1 && (
+                            <div className="relative w-48 h-48 flex items-center justify-center">
+                              <svg className="w-full h-full animate-3d-float" viewBox="0 0 200 200" fill="none">
+                                {/* Building Shadow */}
+                                <ellipse cx="100" cy="170" rx="70" ry="15" fill={isDark ? '#065f46' : '#10b981'} className="animate-shadow-pulse" opacity="0.3"/>
+                                {/* Main Building */}
+                                <rect x="60" y="80" width="80" height="90" fill={isDark ? '#059669' : '#10b981'} className="animate-building-glow"/>
+                                {/* Roof */}
+                                <path d="M50 80 L100 50 L150 80 Z" fill={isDark ? '#047857' : '#059669'}/>
+                                {/* Windows */}
+                                <rect x="70" y="95" width="8" height="12" fill={isDark ? '#fbbf24' : '#f59e0b'} className="animate-window-glow-1"/>
+                                <rect x="85" y="95" width="8" height="12" fill={isDark ? '#fbbf24' : '#f59e0b'} className="animate-window-glow-2"/>
+                                <rect x="100" y="95" width="8" height="12" fill={isDark ? '#fbbf24' : '#f59e0b'} className="animate-window-glow-3"/>
+                                <rect x="115" y="95" width="8" height="12" fill={isDark ? '#fbbf24' : '#f59e0b'} className="animate-window-glow-1"/>
+                                <rect x="70" y="115" width="8" height="12" fill={isDark ? '#fbbf24' : '#f59e0b'} className="animate-window-glow-2"/>
+                                <rect x="85" y="115" width="8" height="12" fill={isDark ? '#fbbf24' : '#f59e0b'} className="animate-window-glow-3"/>
+                                <rect x="100" y="115" width="8" height="12" fill={isDark ? '#fbbf24' : '#f59e0b'} className="animate-window-glow-1"/>
+                                <rect x="115" y="115" width="8" height="12" fill={isDark ? '#fbbf24' : '#f59e0b'} className="animate-window-glow-2"/>
+                                {/* Door */}
+                                <rect x="90" y="140" width="20" height="30" fill={isDark ? '#92400e' : '#d97706'}/>
+                                {/* Flag */}
+                                <line x1="45" y1="30" x2="45" y2="75" stroke={isDark ? '#6b7280' : '#4b5563'} strokeWidth="2"/>
+                                <path d="M45 30 L70 35 L70 50 L45 45 Z" fill={isDark ? '#dc2626' : '#ef4444'} className="animate-flag-wave"/>
+                                {/* Floating Elements */}
+                                <circle cx="40" cy="60" r="3" fill={isDark ? '#06b6d4' : '#0891b2'} className="animate-float-element-1"/>
+                                <circle cx="160" cy="70" r="2.5" fill={isDark ? '#8b5cf6' : '#7c3aed'} className="animate-float-element-2"/>
+                              </svg>
+                            </div>
+                          )}
+
+                          {/* Achievement 2: Coding Monitor 3D */}
+                          {index === 2 && (
+                            <div className="relative w-48 h-48 flex items-center justify-center">
+                              <svg className="w-full h-full animate-3d-float" viewBox="0 0 200 200" fill="none">
+                                {/* Monitor Shadow */}
+                                <ellipse cx="100" cy="170" rx="65" ry="12" fill={isDark ? '#581c87' : '#7c3aed'} className="animate-shadow-pulse" opacity="0.3"/>
+                                {/* Monitor Base */}
+                                <rect x="90" y="150" width="20" height="15" fill={isDark ? '#4b5563' : '#6b7280'}/>
+                                <ellipse cx="100" cy="165" rx="25" ry="5" fill={isDark ? '#374151' : '#4b5563'}/>
+                                {/* Monitor Screen */}
+                                <rect x="50" y="60" width="100" height="90" rx="8" fill={isDark ? '#1f2937' : '#374151'} className="animate-screen-glow"/>
+                                <rect x="55" y="65" width="90" height="80" rx="4" fill={isDark ? '#111827' : '#1f2937'}/>
+                                {/* Code Lines */}
+                                <rect x="65" y="75" width="30" height="3" fill={isDark ? '#10b981' : '#059669'} className="animate-code-type-1"/>
+                                <rect x="65" y="85" width="45" height="3" fill={isDark ? '#3b82f6' : '#2563eb'} className="animate-code-type-2"/>
+                                <rect x="75" y="95" width="35" height="3" fill={isDark ? '#f59e0b' : '#d97706'} className="animate-code-type-3"/>
+                                <rect x="65" y="105" width="50" height="3" fill={isDark ? '#ef4444' : '#dc2626'} className="animate-code-type-1"/>
+                                <rect x="75" y="115" width="25" height="3" fill={isDark ? '#8b5cf6' : '#7c3aed'} className="animate-code-type-2"/>
+                                <rect x="65" y="125" width="40" height="3" fill={isDark ? '#06b6d4' : '#0891b2'} className="animate-code-type-3"/>
+                                {/* Cursor */}
+                                <rect x="105" y="125" width="2" height="3" fill={isDark ? '#fbbf24' : '#f59e0b'} className="animate-cursor-blink"/>
+                                {/* Floating Code Symbols */}
+                                <text x="160" y="50" fill={isDark ? '#10b981' : '#059669'} fontSize="16" className="animate-symbol-float-1">{'<}'}</text>
+                                <text x="35" y="55" fill={isDark ? '#3b82f6' : '#2563eb'} fontSize="14" className="animate-symbol-float-2">{'{ }'}</text>
+                                <text x="170" y="120" fill={isDark ? '#f59e0b' : '#d97706'} fontSize="12" className="animate-symbol-float-3">{'( )'}</text>
+                              </svg>
+                            </div>
+                          )}
+
+                          {/* Achievement 3: Light Bulb Idea 3D */}
+                          {index === 3 && (
+                            <div className="relative w-48 h-48 flex items-center justify-center">
+                              <svg className="w-full h-full animate-3d-float" viewBox="0 0 200 200" fill="none">
+                                {/* Bulb Shadow */}
+                                <ellipse cx="100" cy="170" rx="45" ry="10" fill={isDark ? '#92400e' : '#f59e0b'} className="animate-shadow-pulse" opacity="0.3"/>
+                                {/* Bulb Base */}
+                                <rect x="85" y="130" width="30" height="20" rx="5" fill={isDark ? '#6b7280' : '#9ca3af'}/>
+                                <rect x="90" y="145" width="20" height="8" fill={isDark ? '#4b5563' : '#6b7280'}/>
+                                {/* Bulb */}
+                                <circle cx="100" cy="100" r="35" fill={isDark ? '#fbbf24' : '#f59e0b'} className="animate-bulb-glow"/>
+                                <circle cx="100" cy="100" r="30" fill={isDark ? '#fed7aa' : '#fef3c7'} className="animate-inner-glow"/>
+                                {/* Filament */}
+                                <path d="M85 90 Q100 85 115 90 Q100 95 85 90" stroke={isDark ? '#92400e' : '#b45309'} strokeWidth="2" fill="none" className="animate-filament-glow"/>
+                                <path d="M85 110 Q100 105 115 110 Q100 115 85 110" stroke={isDark ? '#92400e' : '#b45309'} strokeWidth="2" fill="none" className="animate-filament-glow"/>
+                                {/* Light Rays */}
+                                <line x1="45" y1="100" x2="35" y2="100" stroke={isDark ? '#fbbf24' : '#f59e0b'} strokeWidth="3" className="animate-ray-1"/>
+                                <line x1="155" y1="100" x2="165" y2="100" stroke={isDark ? '#fbbf24' : '#f59e0b'} strokeWidth="3" className="animate-ray-2"/>
+                                <line x1="100" y1="45" x2="100" y2="35" stroke={isDark ? '#fbbf24' : '#f59e0b'} strokeWidth="3" className="animate-ray-3"/>
+                                <line x1="65" y1="65" x2="58" y2="58" stroke={isDark ? '#fbbf24' : '#f59e0b'} strokeWidth="2" className="animate-ray-4"/>
+                                <line x1="135" y1="65" x2="142" y2="58" stroke={isDark ? '#fbbf24' : '#f59e0b'} strokeWidth="2" className="animate-ray-5"/>
+                                <line x1="65" y1="135" x2="58" y2="142" stroke={isDark ? '#fbbf24' : '#f59e0b'} strokeWidth="2" className="animate-ray-6"/>
+                                <line x1="135" y1="135" x2="142" y2="142" stroke={isDark ? '#fbbf24' : '#f59e0b'} strokeWidth="2" className="animate-ray-7"/>
+                                {/* Floating Ideas */}
+                                <circle cx="60" cy="40" r="4" fill={isDark ? '#fef3c7' : '#fffbeb'} className="animate-idea-float-1"/>
+                                <circle cx="150" cy="45" r="3" fill={isDark ? '#fef3c7' : '#fffbeb'} className="animate-idea-float-2"/>
+                                <circle cx="45" cy="140" r="3.5" fill={isDark ? '#fef3c7' : '#fffbeb'} className="animate-idea-float-3"/>
+                              </svg>
+                            </div>
+                          )}
+
+                          {/* Achievement 4: Project Folder 3D */}
+                          {index === 4 && (
+                            <div className="relative w-48 h-48 flex items-center justify-center">
+                              <svg className="w-full h-full animate-3d-float" viewBox="0 0 200 200" fill="none">
+                                {/* Folder Shadow */}
+                                <ellipse cx="100" cy="165" rx="60" ry="12" fill={isDark ? '#be185d' : '#ec4899'} className="animate-shadow-pulse" opacity="0.3"/>
+                                {/* Main Folder */}
+                                <path d="M40 80 L40 150 L160 150 L160 90 L120 90 L110 80 Z" 
+                                      fill={isDark ? '#ec4899' : '#f472b6'} 
+                                      className="animate-folder-glow"/>
+                                {/* Folder Tab */}
+                                <path d="M40 80 L110 80 L120 90 L40 90 Z" fill={isDark ? '#be185d' : '#ec4899'}/>
+                                {/* File Icons */}
+                                <rect x="55" y="105" width="20" height="25" rx="2" fill={isDark ? '#fbbf24' : '#f59e0b'} className="animate-file-bob-1"/>
+                                <rect x="85" y="110" width="20" height="25" rx="2" fill={isDark ? '#3b82f6' : '#60a5fa'} className="animate-file-bob-2"/>
+                                <rect x="115" y="108" width="20" height="25" rx="2" fill={isDark ? '#10b981' : '#34d399'} className="animate-file-bob-3"/>
+                                {/* Progress Bars on Files */}
+                                <rect x="58" y="120" width="14" height="2" fill={isDark ? '#065f46' : '#059669'} className="animate-progress-fill-1"/>
+                                <rect x="88" y="125" width="14" height="2" fill={isDark ? '#1e40af' : '#2563eb'} className="animate-progress-fill-2"/>
+                                <rect x="118" y="123" width="14" height="2" fill={isDark ? '#be185d' : '#ec4899'} className="animate-progress-fill-3"/>
+                                {/* Floating Code Elements */}
+                                <circle cx="170" cy="60" r="8" fill={isDark ? '#374151' : '#6b7280'} className="animate-code-orbit"/>
+                                <rect x="166" y="56" width="8" height="1" fill={isDark ? '#10b981' : '#059669'}/>
+                                <rect x="166" y="59" width="6" height="1" fill={isDark ? '#3b82f6' : '#2563eb'}/>
+                                <rect x="166" y="62" width="5" height="1" fill={isDark ? '#f59e0b' : '#d97706'}/>
+                                {/* Notification Badge */}
+                                <circle cx="145" cy="75" r="6" fill={isDark ? '#dc2626' : '#ef4444'} className="animate-notification-pulse"/>
+                                <text x="145" y="78" textAnchor="middle" fill="white" fontSize="8" fontWeight="bold">3</text>
+                              </svg>
+                            </div>
+                          )}
+
+                          {/* Achievement 5: IoT Circuit 3D */}
+                          {index === 5 && (
+                            <div className="relative w-48 h-48 flex items-center justify-center">
+                              <svg className="w-full h-full animate-3d-float" viewBox="0 0 200 200" fill="none">
+                                {/* Circuit Shadow */}
+                                <ellipse cx="100" cy="170" rx="70" ry="15" fill={isDark ? '#0c4a6e' : '#0284c7'} className="animate-shadow-pulse" opacity="0.3"/>
+                                {/* Circuit Board */}
+                                <rect x="50" y="70" width="100" height="80" rx="8" fill={isDark ? '#065f46' : '#059669'} className="animate-circuit-glow"/>
+                                {/* Central Processor */}
+                                <rect x="85" y="95" width="30" height="30" fill={isDark ? '#1f2937' : '#374151'} className="animate-processor-pulse"/>
+                                <rect x="90" y="100" width="20" height="20" fill={isDark ? '#4b5563' : '#6b7280'}/>
+                                {/* Circuit Traces */}
+                                <path d="M100 70 L100 95" stroke={isDark ? '#fbbf24' : '#f59e0b'} strokeWidth="2" className="animate-trace-flow-1"/>
+                                <path d="M100 125 L100 150" stroke={isDark ? '#fbbf24' : '#f59e0b'} strokeWidth="2" className="animate-trace-flow-2"/>
+                                <path d="M50 110 L85 110" stroke={isDark ? '#fbbf24' : '#f59e0b'} strokeWidth="2" className="animate-trace-flow-3"/>
+                                <path d="M115 110 L150 110" stroke={isDark ? '#fbbf24' : '#f59e0b'} strokeWidth="2" className="animate-trace-flow-4"/>
+                                {/* Sensors */}
+                                <circle cx="70" cy="85" r="6" fill={isDark ? '#3b82f6' : '#60a5fa'} className="animate-sensor-pulse-1"/>
+                                <circle cx="130" cy="85" r="6" fill={isDark ? '#ec4899' : '#f472b6'} className="animate-sensor-pulse-2"/>
+                                <circle cx="70" cy="135" r="6" fill={isDark ? '#f59e0b' : '#fbbf24'} className="animate-sensor-pulse-3"/>
+                                <circle cx="130" cy="135" r="6" fill={isDark ? '#10b981' : '#34d399'} className="animate-sensor-pulse-4"/>
+                                {/* LED Indicators */}
+                                <circle cx="95" cy="75" r="2" fill={isDark ? '#dc2626' : '#ef4444'} className="animate-led-blink-1"/>
+                                <circle cx="105" cy="75" r="2" fill={isDark ? '#10b981' : '#22c55e'} className="animate-led-blink-2"/>
+                                {/* WiFi Signal */}
+                                <path d="M160 50 Q170 60 160 70" stroke={isDark ? '#06b6d4' : '#0891b2'} strokeWidth="2" fill="none" className="animate-wifi-signal-1"/>
+                                <path d="M165 55 Q170 60 165 65" stroke={isDark ? '#06b6d4' : '#0891b2'} strokeWidth="2" fill="none" className="animate-wifi-signal-2"/>
+                                <circle cx="170" cy="60" r="1.5" fill={isDark ? '#06b6d4' : '#0891b2'} className="animate-wifi-dot"/>
+                                {/* Data Flow */}
+                                <circle cx="40" cy="50" r="3" fill={isDark ? '#8b5cf6' : '#a78bfa'} className="animate-data-particle-1"/>
+                                <circle cx="45" cy="160" r="2.5" fill={isDark ? '#8b5cf6' : '#a78bfa'} className="animate-data-particle-2"/>
+                                <circle cx="155" cy="40" r="2" fill={isDark ? '#8b5cf6' : '#a78bfa'} className="animate-data-particle-3"/>
+                              </svg>
+                            </div>
+                          )}
+
+                          {/* Achievement 6: Lightning Tech 3D */}
+                          {index === 6 && (
+                            <div className="relative w-48 h-48 flex items-center justify-center">
+                              <svg className="w-full h-full animate-3d-float" viewBox="0 0 200 200" fill="none">
+                                {/* Lightning Shadow */}
+                                <ellipse cx="100" cy="170" rx="50" ry="12" fill={isDark ? '#ea580c' : '#f97316'} className="animate-shadow-pulse" opacity="0.3"/>
+                                {/* Main Lightning Bolt */}
+                                <path d="M85 40 L70 90 L90 90 L80 160 L130 80 L110 80 L115 40 Z" 
+                                      fill={isDark ? '#f97316' : '#fb923c'} 
+                                      className="animate-lightning-flash"/>
+                                {/* Inner Lightning */}
+                                <path d="M90 50 L80 85 L95 85 L85 140 L115 90 L105 90 L110 50 Z" 
+                                      fill={isDark ? '#fed7aa' : '#ffedd5'} 
+                                      className="animate-inner-lightning-glow"/>
+                                {/* Electric Arcs */}
+                                <path d="M50 70 Q60 65 70 70 Q80 75 90 70" 
+                                      stroke={isDark ? '#fbbf24' : '#f59e0b'} 
+                                      strokeWidth="2" 
+                                      fill="none" 
+                                      className="animate-electric-arc-1"/>
+                                <path d="M110 110 Q120 105 130 110 Q140 115 150 110" 
+                                      stroke={isDark ? '#fbbf24' : '#f59e0b'} 
+                                      strokeWidth="2" 
+                                      fill="none" 
+                                      className="animate-electric-arc-2"/>
+                                {/* Energy Spheres */}
+                                <circle cx="60" cy="120" r="8" fill={isDark ? '#06b6d4' : '#0891b2'} className="animate-energy-sphere-1"/>
+                                <circle cx="140" cy="60" r="6" fill={isDark ? '#8b5cf6' : '#a78bfa'} className="animate-energy-sphere-2"/>
+                                <circle cx="45" cy="45" r="5" fill={isDark ? '#ec4899' : '#f472b6'} className="animate-energy-sphere-3"/>
+                                <circle cx="155" cy="140" r="7" fill={isDark ? '#10b981' : '#22c55e'} className="animate-energy-sphere-4"/>
+                                {/* Tech Grid Background */}
+                                <defs>
+                                  <pattern id="techGrid" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                                    <rect width="20" height="20" fill="none" stroke={isDark ? '#374151' : '#6b7280'} strokeWidth="0.5" opacity="0.3"/>
+                                  </pattern>
+                                </defs>
+                                <rect x="30" y="30" width="140" height="140" fill="url(#techGrid)" className="animate-grid-pulse"/>
+                                {/* Particle Effects */}
+                                <circle cx="35" cy="100" r="1.5" fill={isDark ? '#fbbf24' : '#f59e0b'} className="animate-particle-1"/>
+                                <circle cx="170" cy="80" r="1" fill={isDark ? '#fbbf24' : '#f59e0b'} className="animate-particle-2"/>
+                                <circle cx="25" cy="150" r="1.2" fill={isDark ? '#fbbf24' : '#f59e0b'} className="animate-particle-3"/>
+                                <circle cx="175" cy="120" r="0.8" fill={isDark ? '#fbbf24' : '#f59e0b'} className="animate-particle-4"/>
+                              </svg>
+                            </div>
+                          )}
                         </div>
                       </div>
                     </div>
@@ -1089,6 +1387,1037 @@ const About = () => {
           filter: drop-shadow(0 0 15px rgba(59, 130, 246, 0.5));
         }
         
+        /* Animated Icon Keyframes */
+        @keyframes bounce-slow {
+          0%, 100% { transform: translateY(0); }
+          50% { transform: translateY(-4px); }
+        }
+        
+        @keyframes spin-slow {
+          from { transform: rotate(0deg); }
+          to { transform: rotate(360deg); }
+        }
+        
+        @keyframes wobble {
+          0%, 100% { transform: rotate(0deg); }
+          25% { transform: rotate(-2deg); }
+          75% { transform: rotate(2deg); }
+        }
+        
+        @keyframes glow {
+          0%, 100% { filter: brightness(1) drop-shadow(0 0 5px currentColor); }
+          50% { filter: brightness(1.2) drop-shadow(0 0 15px currentColor); }
+        }
+        
+        @keyframes typing {
+          0%, 100% { opacity: 1; }
+          50% { opacity: 0.7; }
+        }
+        
+        @keyframes tech-pulse {
+          0%, 100% { transform: scale(1); filter: brightness(1); }
+          50% { transform: scale(1.05); filter: brightness(1.1); }
+        }
+        
+        @keyframes lightning {
+          0%, 90%, 100% { opacity: 1; }
+          5%, 85% { opacity: 0.3; }
+        }
+        
+        @keyframes pulse-slow {
+          0%, 100% { opacity: 0.6; }
+          50% { opacity: 1; }
+        }
+        
+        @keyframes float {
+          0%, 100% { transform: translateY(0px); }
+          50% { transform: translateY(-3px); }
+        }
+        
+        @keyframes fade-in-out {
+          0%, 100% { opacity: 0.5; }
+          50% { opacity: 1; }
+        }
+        
+        @keyframes scale-pulse {
+          0%, 100% { transform: scale(1); }
+          50% { transform: scale(1.1); }
+        }
+        
+        @keyframes draw-circle {
+          0% { stroke-dasharray: 0 63; }
+          100% { stroke-dasharray: 63 63; }
+        }
+        
+        @keyframes check-draw {
+          0% { stroke-dasharray: 0 10; }
+          100% { stroke-dasharray: 10 10; }
+        }
+        
+        @keyframes orbit {
+          0% { transform: rotate(0deg); }
+          100% { transform: rotate(360deg); }
+        }
+        
+        @keyframes brightness-pulse {
+          0%, 100% { filter: brightness(1); }
+          50% { filter: brightness(1.3); }
+        }
+        
+        @keyframes sparkle {
+          0%, 100% { opacity: 0.8; transform: scale(1); }
+          50% { opacity: 1; transform: scale(1.2); }
+        }
+        
+        @keyframes twinkle {
+          0%, 100% { opacity: 0.4; transform: scale(0.8); }
+          50% { opacity: 1; transform: scale(1.2); }
+        }
+        
+        @keyframes slide-up {
+          0% { transform: translateY(2px); opacity: 0.8; }
+          100% { transform: translateY(0); opacity: 1; }
+        }
+        
+        @keyframes type-lines {
+          0% { stroke-dasharray: 0 20; }
+          100% { stroke-dasharray: 20 20; }
+        }
+        
+        @keyframes float-gentle {
+          0%, 100% { transform: translateY(0px); }
+          50% { transform: translateY(-2px); }
+        }
+        
+        @keyframes notification-pulse {
+          0%, 100% { transform: scale(1); opacity: 0.7; }
+          50% { transform: scale(1.1); opacity: 1; }
+        }
+        
+        @keyframes check-small {
+          0% { stroke-dasharray: 0 2; }
+          100% { stroke-dasharray: 2 2; }
+        }
+        
+        @keyframes cursor-blink {
+          0%, 50% { opacity: 1; }
+          51%, 100% { opacity: 0; }
+        }
+        
+        @keyframes circuit-flow {
+          0%, 100% { opacity: 0.8; }
+          50% { opacity: 1; }
+        }
+        
+        @keyframes circle-draw {
+          0% { stroke-dasharray: 0 50; }
+          100% { stroke-dasharray: 50 50; }
+        }
+        
+        @keyframes core-pulse {
+          0%, 100% { transform: scale(1); opacity: 0.6; }
+          50% { transform: scale(1.1); opacity: 1; }
+        }
+        
+        @keyframes signal-flow {
+          0% { stroke-dasharray: 0 8; }
+          100% { stroke-dasharray: 8 8; }
+        }
+        
+        @keyframes sensor-blink {
+          0%, 100% { opacity: 0.6; }
+          50% { opacity: 1; }
+        }
+        
+        @keyframes sensor-pulse {
+          0%, 100% { transform: scale(1); opacity: 0.6; }
+          50% { transform: scale(1.2); opacity: 1; }
+        }
+        
+        @keyframes data-flow {
+          0%, 100% { transform: translateY(0px); opacity: 0.6; }
+          50% { transform: translateY(-2px); opacity: 1; }
+        }
+        
+        @keyframes electric-pulse {
+          0%, 100% { filter: brightness(1) drop-shadow(0 0 5px currentColor); }
+          25%, 75% { filter: brightness(1.3) drop-shadow(0 0 15px currentColor); }
+          50% { filter: brightness(1.5) drop-shadow(0 0 20px currentColor); }
+        }
+        
+        @keyframes lightning-strike {
+          0%, 90%, 100% { opacity: 1; }
+          10%, 80% { opacity: 0.7; }
+          20%, 70% { opacity: 1; }
+          30%, 60% { opacity: 0.8; }
+        }
+        
+        @keyframes inner-lightning {
+          0%, 100% { opacity: 0.7; transform: scale(1); }
+          50% { opacity: 1; transform: scale(1.05); }
+        }
+        
+        @keyframes energy-sparks {
+          0%, 100% { transform: scale(1); opacity: 0.9; }
+          50% { transform: scale(1.3); opacity: 0.6; }
+        }
+        
+        @keyframes spark {
+          0%, 100% { transform: scale(1); opacity: 0.9; }
+          25% { transform: scale(1.5); opacity: 0.4; }
+          50% { transform: scale(0.8); opacity: 1; }
+          75% { transform: scale(1.2); opacity: 0.6; }
+        }
+        
+        @keyframes energy-beam {
+          0%, 100% { opacity: 0.3; }
+          50% { opacity: 0.8; }
+        }
+        
+        @keyframes draw-line {
+          0% { stroke-dasharray: 0 20; }
+          100% { stroke-dasharray: 20 20; }
+        }
+        
+        /* Animated Icon Classes */
+        .animate-bounce-slow {
+          animation: bounce-slow 3s ease-in-out infinite;
+        }
+        
+        .animate-spin-slow {
+          animation: spin-slow 8s linear infinite;
+        }
+        
+        .animate-wobble {
+          animation: wobble 4s ease-in-out infinite;
+        }
+        
+        .animate-glow {
+          animation: glow 2s ease-in-out infinite;
+        }
+        
+        .animate-typing {
+          animation: typing 2s ease-in-out infinite;
+        }
+        
+        .animate-tech-pulse {
+          animation: tech-pulse 3s ease-in-out infinite;
+        }
+        
+        .animate-lightning {
+          animation: lightning 2s ease-in-out infinite;
+        }
+        
+        .animate-pulse-slow {
+          animation: pulse-slow 3s ease-in-out infinite;
+        }
+        
+        .animate-float {
+          animation: float 2s ease-in-out infinite;
+        }
+        
+        .animate-fade-in-out {
+          animation: fade-in-out 2s ease-in-out infinite;
+        }
+        
+        .animate-scale-pulse {
+          animation: scale-pulse 2s ease-in-out infinite;
+        }
+        
+        .animate-draw-circle {
+          animation: draw-circle 3s ease-in-out infinite;
+        }
+        
+        .animate-check-draw {
+          animation: check-draw 1s ease-in-out infinite 1s;
+        }
+        
+        .animate-orbit {
+          animation: orbit 10s linear infinite;
+        }
+        
+        .animate-brightness-pulse {
+          animation: brightness-pulse 2s ease-in-out infinite;
+        }
+        
+        .animate-sparkle {
+          animation: sparkle 2s ease-in-out infinite;
+        }
+        
+        .animate-twinkle {
+          animation: twinkle 2s ease-in-out infinite;
+        }
+        
+        .animate-slide-up {
+          animation: slide-up 2s ease-in-out infinite;
+        }
+        
+        .animate-type-lines {
+          animation: type-lines 3s ease-in-out infinite;
+        }
+        
+        .animate-float-gentle {
+          animation: float-gentle 3s ease-in-out infinite;
+        }
+        
+        .animate-notification-pulse {
+          animation: notification-pulse 2s ease-in-out infinite;
+        }
+        
+        .animate-check-small {
+          animation: check-small 1s ease-in-out infinite 0.5s;
+        }
+        
+        .animate-cursor-blink {
+          animation: cursor-blink 1.2s ease-in-out infinite;
+        }
+        
+        .animate-circuit-flow {
+          animation: circuit-flow 2s ease-in-out infinite;
+        }
+        
+        .animate-circle-draw {
+          animation: circle-draw 4s ease-in-out infinite;
+        }
+        
+        .animate-core-pulse {
+          animation: core-pulse 2s ease-in-out infinite;
+        }
+        
+        .animate-signal-flow {
+          animation: signal-flow 2s ease-in-out infinite;
+        }
+        
+        .animate-sensor-blink {
+          animation: sensor-blink 1s ease-in-out infinite;
+        }
+        
+        .animate-sensor-pulse {
+          animation: sensor-pulse 2s ease-in-out infinite;
+        }
+        
+        .animate-data-flow {
+          animation: data-flow 3s ease-in-out infinite;
+        }
+        
+        .animate-electric-pulse {
+          animation: electric-pulse 1.5s ease-in-out infinite;
+        }
+        
+        .animate-lightning-strike {
+          animation: lightning-strike 3s ease-in-out infinite;
+        }
+        
+        .animate-inner-lightning {
+          animation: inner-lightning 2s ease-in-out infinite;
+        }
+        
+        .animate-energy-sparks {
+          animation: energy-sparks 1s ease-in-out infinite;
+        }
+        
+        .animate-spark {
+          animation: spark 2s ease-in-out infinite;
+        }
+        
+        .animate-energy-beam {
+          animation: energy-beam 2s ease-in-out infinite;
+        }
+        
+        .animate-draw-line {
+          animation: draw-line 2s ease-in-out infinite 1s;
+        }
+        
+        /* 3D Animated Illustrations Keyframes */
+        @keyframes 3d-float {
+          0%, 100% { transform: translateY(0px) scale(1); }
+          50% { transform: translateY(-8px) scale(1.02); }
+        }
+        
+        @keyframes shadow-pulse {
+          0%, 100% { opacity: 0.3; transform: scaleX(1); }
+          50% { opacity: 0.5; transform: scaleX(1.1); }
+        }
+        
+        @keyframes 3d-cap-tilt {
+          0%, 100% { transform: rotateX(0deg); }
+          50% { transform: rotateX(5deg); }
+        }
+        
+        @keyframes tassel-swing {
+          0%, 100% { transform: rotate(0deg); }
+          25% { transform: rotate(-10deg); }
+          75% { transform: rotate(10deg); }
+        }
+        
+        @keyframes book-float-1 {
+          0%, 100% { transform: translateY(0px) rotate(0deg); }
+          33% { transform: translateY(-3px) rotate(2deg); }
+          66% { transform: translateY(-1px) rotate(-1deg); }
+        }
+        
+        @keyframes book-float-2 {
+          0%, 100% { transform: translateY(0px) rotate(0deg); }
+          33% { transform: translateY(-2px) rotate(-2deg); }
+          66% { transform: translateY(-4px) rotate(1deg); }
+        }
+        
+        @keyframes sparkle-1 {
+          0%, 100% { transform: scale(1); opacity: 0.8; }
+          50% { transform: scale(1.5); opacity: 1; }
+        }
+        
+        @keyframes sparkle-2 {
+          0%, 100% { transform: scale(1); opacity: 0.7; }
+          50% { transform: scale(1.3); opacity: 1; }
+        }
+        
+        @keyframes sparkle-3 {
+          0%, 100% { transform: scale(1); opacity: 0.9; }
+          50% { transform: scale(1.4); opacity: 1; }
+        }
+        
+        @keyframes building-glow {
+          0%, 100% { filter: brightness(1); }
+          50% { filter: brightness(1.1); }
+        }
+        
+        @keyframes window-glow-1 {
+          0%, 100% { opacity: 0.8; }
+          50% { opacity: 1; }
+        }
+        
+        @keyframes window-glow-2 {
+          0%, 100% { opacity: 0.7; }
+          50% { opacity: 1; }
+        }
+        
+        @keyframes window-glow-3 {
+          0%, 100% { opacity: 0.9; }
+          50% { opacity: 1; }
+        }
+        
+        @keyframes flag-wave {
+          0%, 100% { transform: scaleX(1); }
+          50% { transform: scaleX(0.95); }
+        }
+        
+        @keyframes float-element-1 {
+          0%, 100% { transform: translateY(0px) translateX(0px); }
+          33% { transform: translateY(-5px) translateX(2px); }
+          66% { transform: translateY(-2px) translateX(-1px); }
+        }
+        
+        @keyframes float-element-2 {
+          0%, 100% { transform: translateY(0px) translateX(0px); }
+          50% { transform: translateY(-3px) translateX(-2px); }
+        }
+        
+        @keyframes screen-glow {
+          0%, 100% { box-shadow: 0 0 20px rgba(59, 130, 246, 0.3); }
+          50% { box-shadow: 0 0 30px rgba(59, 130, 246, 0.5); }
+        }
+        
+        @keyframes code-type-1 {
+          0% { width: 0%; }
+          100% { width: 100%; }
+        }
+        
+        @keyframes code-type-2 {
+          0% { width: 0%; }
+          100% { width: 100%; }
+        }
+        
+        @keyframes code-type-3 {
+          0% { width: 0%; }
+          100% { width: 100%; }
+        }
+        
+        @keyframes symbol-float-1 {
+          0%, 100% { transform: translateY(0px) rotate(0deg); }
+          50% { transform: translateY(-8px) rotate(5deg); }
+        }
+        
+        @keyframes symbol-float-2 {
+          0%, 100% { transform: translateY(0px) rotate(0deg); }
+          50% { transform: translateY(-6px) rotate(-3deg); }
+        }
+        
+        @keyframes symbol-float-3 {
+          0%, 100% { transform: translateY(0px) rotate(0deg); }
+          50% { transform: translateY(-4px) rotate(2deg); }
+        }
+        
+        @keyframes bulb-glow {
+          0%, 100% { filter: brightness(1) drop-shadow(0 0 10px currentColor); }
+          50% { filter: brightness(1.2) drop-shadow(0 0 20px currentColor); }
+        }
+        
+        @keyframes inner-glow {
+          0%, 100% { opacity: 0.8; }
+          50% { opacity: 1; }
+        }
+        
+        @keyframes filament-glow {
+          0%, 100% { opacity: 0.7; }
+          50% { opacity: 1; }
+        }
+        
+        @keyframes ray-1 {
+          0%, 100% { opacity: 0.8; transform: scaleX(1); }
+          50% { opacity: 1; transform: scaleX(1.2); }
+        }
+        
+        @keyframes ray-2 {
+          0%, 100% { opacity: 0.7; transform: scaleX(1); }
+          50% { opacity: 1; transform: scaleX(1.1); }
+        }
+        
+        @keyframes ray-3 {
+          0%, 100% { opacity: 0.9; transform: scaleY(1); }
+          50% { opacity: 1; transform: scaleY(1.3); }
+        }
+        
+        @keyframes ray-4 {
+          0%, 100% { opacity: 0.6; transform: scale(1); }
+          50% { opacity: 1; transform: scale(1.2); }
+        }
+        
+        @keyframes ray-5 {
+          0%, 100% { opacity: 0.8; transform: scale(1); }
+          50% { opacity: 1; transform: scale(1.1); }
+        }
+        
+        @keyframes ray-6 {
+          0%, 100% { opacity: 0.7; transform: scale(1); }
+          50% { opacity: 1; transform: scale(1.15); }
+        }
+        
+        @keyframes ray-7 {
+          0%, 100% { opacity: 0.9; transform: scale(1); }
+          50% { opacity: 1; transform: scale(1.25); }
+        }
+        
+        @keyframes idea-float-1 {
+          0%, 100% { transform: translateY(0px); opacity: 0.8; }
+          50% { transform: translateY(-10px); opacity: 1; }
+        }
+        
+        @keyframes idea-float-2 {
+          0%, 100% { transform: translateY(0px); opacity: 0.7; }
+          50% { transform: translateY(-8px); opacity: 1; }
+        }
+        
+        @keyframes idea-float-3 {
+          0%, 100% { transform: translateY(0px); opacity: 0.9; }
+          50% { transform: translateY(-6px); opacity: 1; }
+        }
+        
+        @keyframes folder-glow {
+          0%, 100% { filter: brightness(1); }
+          50% { filter: brightness(1.1); }
+        }
+        
+        @keyframes file-bob-1 {
+          0%, 100% { transform: translateY(0px) rotate(0deg); }
+          50% { transform: translateY(-3px) rotate(1deg); }
+        }
+        
+        @keyframes file-bob-2 {
+          0%, 100% { transform: translateY(0px) rotate(0deg); }
+          50% { transform: translateY(-4px) rotate(-1deg); }
+        }
+        
+        @keyframes file-bob-3 {
+          0%, 100% { transform: translateY(0px) rotate(0deg); }
+          50% { transform: translateY(-2px) rotate(0.5deg); }
+        }
+        
+        @keyframes progress-fill-1 {
+          0% { width: 0%; }
+          100% { width: 100%; }
+        }
+        
+        @keyframes progress-fill-2 {
+          0% { width: 0%; }
+          100% { width: 100%; }
+        }
+        
+        @keyframes progress-fill-3 {
+          0% { width: 0%; }
+          100% { width: 100%; }
+        }
+        
+        @keyframes code-orbit {
+          0% { transform: translateX(0px) translateY(0px); }
+          25% { transform: translateX(5px) translateY(-3px); }
+          50% { transform: translateX(0px) translateY(-6px); }
+          75% { transform: translateX(-5px) translateY(-3px); }
+          100% { transform: translateX(0px) translateY(0px); }
+        }
+        
+        @keyframes circuit-glow {
+          0%, 100% { filter: brightness(1); box-shadow: 0 0 20px rgba(5, 150, 105, 0.3); }
+          50% { filter: brightness(1.1); box-shadow: 0 0 30px rgba(5, 150, 105, 0.5); }
+        }
+        
+        @keyframes processor-pulse {
+          0%, 100% { transform: scale(1); }
+          50% { transform: scale(1.05); }
+        }
+        
+        @keyframes trace-flow-1 {
+          0% { stroke-dasharray: 0 25; }
+          100% { stroke-dasharray: 25 25; }
+        }
+        
+        @keyframes trace-flow-2 {
+          0% { stroke-dasharray: 0 25; }
+          100% { stroke-dasharray: 25 25; }
+        }
+        
+        @keyframes trace-flow-3 {
+          0% { stroke-dasharray: 0 35; }
+          100% { stroke-dasharray: 35 35; }
+        }
+        
+        @keyframes trace-flow-4 {
+          0% { stroke-dasharray: 0 35; }
+          100% { stroke-dasharray: 35 35; }
+        }
+        
+        @keyframes sensor-pulse-1 {
+          0%, 100% { transform: scale(1); opacity: 0.8; }
+          50% { transform: scale(1.2); opacity: 1; }
+        }
+        
+        @keyframes sensor-pulse-2 {
+          0%, 100% { transform: scale(1); opacity: 0.7; }
+          50% { transform: scale(1.15); opacity: 1; }
+        }
+        
+        @keyframes sensor-pulse-3 {
+          0%, 100% { transform: scale(1); opacity: 0.9; }
+          50% { transform: scale(1.1); opacity: 1; }
+        }
+        
+        @keyframes sensor-pulse-4 {
+          0%, 100% { transform: scale(1); opacity: 0.8; }
+          50% { transform: scale(1.25); opacity: 1; }
+        }
+        
+        @keyframes led-blink-1 {
+          0%, 50% { opacity: 1; }
+          51%, 100% { opacity: 0.3; }
+        }
+        
+        @keyframes led-blink-2 {
+          0%, 30% { opacity: 0.3; }
+          31%, 80% { opacity: 1; }
+          81%, 100% { opacity: 0.3; }
+        }
+        
+        @keyframes wifi-signal-1 {
+          0%, 100% { opacity: 0.5; }
+          50% { opacity: 1; }
+        }
+        
+        @keyframes wifi-signal-2 {
+          0%, 100% { opacity: 0.7; }
+          50% { opacity: 1; }
+        }
+        
+        @keyframes wifi-dot {
+          0%, 100% { opacity: 0.8; transform: scale(1); }
+          50% { opacity: 1; transform: scale(1.3); }
+        }
+        
+        @keyframes data-particle-1 {
+          0% { transform: translateX(0px) translateY(0px); opacity: 0.8; }
+          50% { transform: translateX(20px) translateY(-10px); opacity: 1; }
+          100% { transform: translateX(40px) translateY(0px); opacity: 0.6; }
+        }
+        
+        @keyframes data-particle-2 {
+          0% { transform: translateX(0px) translateY(0px); opacity: 0.7; }
+          50% { transform: translateX(-15px) translateY(-20px); opacity: 1; }
+          100% { transform: translateX(-30px) translateY(0px); opacity: 0.5; }
+        }
+        
+        @keyframes data-particle-3 {
+          0% { transform: translateX(0px) translateY(0px); opacity: 0.9; }
+          50% { transform: translateX(-10px) translateY(25px); opacity: 1; }
+          100% { transform: translateX(-20px) translateY(50px); opacity: 0.4; }
+        }
+        
+        @keyframes lightning-flash {
+          0%, 90%, 100% { filter: brightness(1) drop-shadow(0 0 10px currentColor); }
+          5%, 85% { filter: brightness(1.5) drop-shadow(0 0 25px currentColor); }
+          10%, 80% { filter: brightness(1.8) drop-shadow(0 0 35px currentColor); }
+        }
+        
+        @keyframes inner-lightning-glow {
+          0%, 100% { opacity: 0.8; transform: scale(1); }
+          50% { opacity: 1; transform: scale(1.05); }
+        }
+        
+        @keyframes electric-arc-1 {
+          0%, 100% { opacity: 0.6; }
+          25%, 75% { opacity: 1; }
+          50% { opacity: 0.8; }
+        }
+        
+        @keyframes electric-arc-2 {
+          0%, 100% { opacity: 0.7; }
+          33%, 66% { opacity: 1; }
+        }
+        
+        @keyframes energy-sphere-1 {
+          0%, 100% { transform: translateY(0px) scale(1); opacity: 0.8; }
+          50% { transform: translateY(-15px) scale(1.2); opacity: 1; }
+        }
+        
+        @keyframes energy-sphere-2 {
+          0%, 100% { transform: translateY(0px) scale(1); opacity: 0.7; }
+          50% { transform: translateY(10px) scale(1.1); opacity: 1; }
+        }
+        
+        @keyframes energy-sphere-3 {
+          0%, 100% { transform: translateY(0px) scale(1); opacity: 0.9; }
+          50% { transform: translateY(-8px) scale(1.15); opacity: 1; }
+        }
+        
+        @keyframes energy-sphere-4 {
+          0%, 100% { transform: translateY(0px) scale(1); opacity: 0.8; }
+          50% { transform: translateY(12px) scale(1.3); opacity: 1; }
+        }
+        
+        @keyframes grid-pulse {
+          0%, 100% { opacity: 0.2; }
+          50% { opacity: 0.4; }
+        }
+        
+        @keyframes particle-1 {
+          0% { transform: translateX(0px) translateY(0px); opacity: 1; }
+          100% { transform: translateX(200px) translateY(-50px); opacity: 0; }
+        }
+        
+        @keyframes particle-2 {
+          0% { transform: translateX(0px) translateY(0px); opacity: 1; }
+          100% { transform: translateX(-180px) translateY(80px); opacity: 0; }
+        }
+        
+        @keyframes particle-3 {
+          0% { transform: translateX(0px) translateY(0px); opacity: 1; }
+          100% { transform: translateX(150px) translateY(40px); opacity: 0; }
+        }
+        
+        @keyframes particle-4 {
+          0% { transform: translateX(0px) translateY(0px); opacity: 1; }
+          100% { transform: translateX(-160px) translateY(-30px); opacity: 0; }
+        }
+        
+        /* 3D Animation Classes */
+        .animate-3d-float {
+          animation: 3d-float 4s ease-in-out infinite;
+        }
+        
+        .animate-shadow-pulse {
+          animation: shadow-pulse 3s ease-in-out infinite;
+        }
+        
+        .animate-3d-cap-tilt {
+          animation: 3d-cap-tilt 3s ease-in-out infinite;
+        }
+        
+        .animate-tassel-swing {
+          animation: tassel-swing 2s ease-in-out infinite;
+        }
+        
+        .animate-book-float-1 {
+          animation: book-float-1 3s ease-in-out infinite;
+        }
+        
+        .animate-book-float-2 {
+          animation: book-float-2 3.5s ease-in-out infinite;
+        }
+        
+        .animate-sparkle-1 {
+          animation: sparkle-1 2s ease-in-out infinite;
+        }
+        
+        .animate-sparkle-2 {
+          animation: sparkle-2 2.5s ease-in-out infinite;
+        }
+        
+        .animate-sparkle-3 {
+          animation: sparkle-3 2.2s ease-in-out infinite;
+        }
+        
+        .animate-building-glow {
+          animation: building-glow 4s ease-in-out infinite;
+        }
+        
+        .animate-window-glow-1 {
+          animation: window-glow-1 2s ease-in-out infinite;
+        }
+        
+        .animate-window-glow-2 {
+          animation: window-glow-2 2.5s ease-in-out infinite;
+        }
+        
+        .animate-window-glow-3 {
+          animation: window-glow-3 2.2s ease-in-out infinite;
+        }
+        
+        .animate-flag-wave {
+          animation: flag-wave 1.5s ease-in-out infinite;
+        }
+        
+        .animate-float-element-1 {
+          animation: float-element-1 3s ease-in-out infinite;
+        }
+        
+        .animate-float-element-2 {
+          animation: float-element-2 2.8s ease-in-out infinite;
+        }
+        
+        .animate-screen-glow {
+          animation: screen-glow 3s ease-in-out infinite;
+        }
+        
+        .animate-code-type-1 {
+          animation: code-type-1 3s ease-in-out infinite;
+        }
+        
+        .animate-code-type-2 {
+          animation: code-type-2 3.5s ease-in-out infinite;
+        }
+        
+        .animate-code-type-3 {
+          animation: code-type-3 3.2s ease-in-out infinite;
+        }
+        
+        .animate-symbol-float-1 {
+          animation: symbol-float-1 4s ease-in-out infinite;
+        }
+        
+        .animate-symbol-float-2 {
+          animation: symbol-float-2 3.5s ease-in-out infinite;
+        }
+        
+        .animate-symbol-float-3 {
+          animation: symbol-float-3 4.2s ease-in-out infinite;
+        }
+        
+        .animate-bulb-glow {
+          animation: bulb-glow 2s ease-in-out infinite;
+        }
+        
+        .animate-inner-glow {
+          animation: inner-glow 2s ease-in-out infinite;
+        }
+        
+        .animate-filament-glow {
+          animation: filament-glow 1.5s ease-in-out infinite;
+        }
+        
+        .animate-ray-1 {
+          animation: ray-1 2s ease-in-out infinite;
+        }
+        
+        .animate-ray-2 {
+          animation: ray-2 2.2s ease-in-out infinite;
+        }
+        
+        .animate-ray-3 {
+          animation: ray-3 1.8s ease-in-out infinite;
+        }
+        
+        .animate-ray-4 {
+          animation: ray-4 2.5s ease-in-out infinite;
+        }
+        
+        .animate-ray-5 {
+          animation: ray-5 2.3s ease-in-out infinite;
+        }
+        
+        .animate-ray-6 {
+          animation: ray-6 2.1s ease-in-out infinite;
+        }
+        
+        .animate-ray-7 {
+          animation: ray-7 2.4s ease-in-out infinite;
+        }
+        
+        .animate-idea-float-1 {
+          animation: idea-float-1 3s ease-in-out infinite;
+        }
+        
+        .animate-idea-float-2 {
+          animation: idea-float-2 3.5s ease-in-out infinite;
+        }
+        
+        .animate-idea-float-3 {
+          animation: idea-float-3 2.8s ease-in-out infinite;
+        }
+        
+        .animate-folder-glow {
+          animation: folder-glow 3s ease-in-out infinite;
+        }
+        
+        .animate-file-bob-1 {
+          animation: file-bob-1 2s ease-in-out infinite;
+        }
+        
+        .animate-file-bob-2 {
+          animation: file-bob-2 2.5s ease-in-out infinite;
+        }
+        
+        .animate-file-bob-3 {
+          animation: file-bob-3 2.2s ease-in-out infinite;
+        }
+        
+        .animate-progress-fill-1 {
+          animation: progress-fill-1 4s ease-in-out infinite;
+        }
+        
+        .animate-progress-fill-2 {
+          animation: progress-fill-2 4.5s ease-in-out infinite;
+        }
+        
+        .animate-progress-fill-3 {
+          animation: progress-fill-3 4.2s ease-in-out infinite;
+        }
+        
+        .animate-code-orbit {
+          animation: code-orbit 6s ease-in-out infinite;
+        }
+        
+        .animate-circuit-glow {
+          animation: circuit-glow 3s ease-in-out infinite;
+        }
+        
+        .animate-processor-pulse {
+          animation: processor-pulse 2s ease-in-out infinite;
+        }
+        
+        .animate-trace-flow-1 {
+          animation: trace-flow-1 3s ease-in-out infinite;
+        }
+        
+        .animate-trace-flow-2 {
+          animation: trace-flow-2 3.2s ease-in-out infinite;
+        }
+        
+        .animate-trace-flow-3 {
+          animation: trace-flow-3 2.8s ease-in-out infinite;
+        }
+        
+        .animate-trace-flow-4 {
+          animation: trace-flow-4 3.5s ease-in-out infinite;
+        }
+        
+        .animate-sensor-pulse-1 {
+          animation: sensor-pulse-1 2s ease-in-out infinite;
+        }
+        
+        .animate-sensor-pulse-2 {
+          animation: sensor-pulse-2 2.3s ease-in-out infinite;
+        }
+        
+        .animate-sensor-pulse-3 {
+          animation: sensor-pulse-3 2.1s ease-in-out infinite;
+        }
+        
+        .animate-sensor-pulse-4 {
+          animation: sensor-pulse-4 2.4s ease-in-out infinite;
+        }
+        
+        .animate-led-blink-1 {
+          animation: led-blink-1 1s ease-in-out infinite;
+        }
+        
+        .animate-led-blink-2 {
+          animation: led-blink-2 1.5s ease-in-out infinite;
+        }
+        
+        .animate-wifi-signal-1 {
+          animation: wifi-signal-1 2s ease-in-out infinite;
+        }
+        
+        .animate-wifi-signal-2 {
+          animation: wifi-signal-2 2.2s ease-in-out infinite;
+        }
+        
+        .animate-wifi-dot {
+          animation: wifi-dot 1.5s ease-in-out infinite;
+        }
+        
+        .animate-data-particle-1 {
+          animation: data-particle-1 4s linear infinite;
+        }
+        
+        .animate-data-particle-2 {
+          animation: data-particle-2 4.5s linear infinite;
+        }
+        
+        .animate-data-particle-3 {
+          animation: data-particle-3 4.2s linear infinite;
+        }
+        
+        .animate-lightning-flash {
+          animation: lightning-flash 3s ease-in-out infinite;
+        }
+        
+        .animate-inner-lightning-glow {
+          animation: inner-lightning-glow 2s ease-in-out infinite;
+        }
+        
+        .animate-electric-arc-1 {
+          animation: electric-arc-1 1.5s ease-in-out infinite;
+        }
+        
+        .animate-electric-arc-2 {
+          animation: electric-arc-2 1.8s ease-in-out infinite;
+        }
+        
+        .animate-energy-sphere-1 {
+          animation: energy-sphere-1 3s ease-in-out infinite;
+        }
+        
+        .animate-energy-sphere-2 {
+          animation: energy-sphere-2 3.5s ease-in-out infinite;
+        }
+        
+        .animate-energy-sphere-3 {
+          animation: energy-sphere-3 2.8s ease-in-out infinite;
+        }
+        
+        .animate-energy-sphere-4 {
+          animation: energy-sphere-4 3.2s ease-in-out infinite;
+        }
+        
+        .animate-grid-pulse {
+          animation: grid-pulse 4s ease-in-out infinite;
+        }
+        
+        .animate-particle-1 {
+          animation: particle-1 6s linear infinite;
+        }
+        
+        .animate-particle-2 {
+          animation: particle-2 6.5s linear infinite;
+        }
+        
+        .animate-particle-3 {
+          animation: particle-3 6.2s linear infinite;
+        }
+        
+        .animate-particle-4 {
+          animation: particle-4 6.8s linear infinite;
+        }
+        
         /* Modern Glassmorphism */
         .glass-effect {
           backdrop-filter: blur(16px) saturate(180%);
@@ -1113,6 +2442,118 @@ const About = () => {
           .animate-slide-in-right,
           .animate-rocket-boost,
           .animate-rocket-trail,
+          .animate-bounce-slow,
+          .animate-spin-slow,
+          .animate-wobble,
+          .animate-glow,
+          .animate-typing,
+          .animate-tech-pulse,
+          .animate-lightning,
+          .animate-pulse-slow,
+          .animate-float,
+          .animate-fade-in-out,
+          .animate-scale-pulse,
+          .animate-draw-circle,
+          .animate-check-draw,
+          .animate-orbit,
+          .animate-brightness-pulse,
+          .animate-sparkle,
+          .animate-twinkle,
+          .animate-slide-up,
+          .animate-type-lines,
+          .animate-float-gentle,
+          .animate-notification-pulse,
+          .animate-check-small,
+          .animate-cursor-blink,
+          .animate-circuit-flow,
+          .animate-circle-draw,
+          .animate-core-pulse,
+          .animate-signal-flow,
+          .animate-sensor-blink,
+          .animate-sensor-pulse,
+          .animate-data-flow,
+          .animate-electric-pulse,
+          .animate-lightning-strike,
+          .animate-inner-lightning,
+          .animate-energy-sparks,
+          .animate-spark,
+          .animate-energy-beam,
+          .animate-draw-line,
+          .animate-3d-float,
+          .animate-shadow-pulse,
+          .animate-3d-cap-tilt,
+          .animate-tassel-swing,
+          .animate-book-float-1,
+          .animate-book-float-2,
+          .animate-sparkle-1,
+          .animate-sparkle-2,
+          .animate-sparkle-3,
+          .animate-building-glow,
+          .animate-window-glow-1,
+          .animate-window-glow-2,
+          .animate-window-glow-3,
+          .animate-flag-wave,
+          .animate-float-element-1,
+          .animate-float-element-2,
+          .animate-screen-glow,
+          .animate-code-type-1,
+          .animate-code-type-2,
+          .animate-code-type-3,
+          .animate-symbol-float-1,
+          .animate-symbol-float-2,
+          .animate-symbol-float-3,
+          .animate-bulb-glow,
+          .animate-inner-glow,
+          .animate-filament-glow,
+          .animate-ray-1,
+          .animate-ray-2,
+          .animate-ray-3,
+          .animate-ray-4,
+          .animate-ray-5,
+          .animate-ray-6,
+          .animate-ray-7,
+          .animate-idea-float-1,
+          .animate-idea-float-2,
+          .animate-idea-float-3,
+          .animate-folder-glow,
+          .animate-file-bob-1,
+          .animate-file-bob-2,
+          .animate-file-bob-3,
+          .animate-progress-fill-1,
+          .animate-progress-fill-2,
+          .animate-progress-fill-3,
+          .animate-code-orbit,
+          .animate-circuit-glow,
+          .animate-processor-pulse,
+          .animate-trace-flow-1,
+          .animate-trace-flow-2,
+          .animate-trace-flow-3,
+          .animate-trace-flow-4,
+          .animate-sensor-pulse-1,
+          .animate-sensor-pulse-2,
+          .animate-sensor-pulse-3,
+          .animate-sensor-pulse-4,
+          .animate-led-blink-1,
+          .animate-led-blink-2,
+          .animate-wifi-signal-1,
+          .animate-wifi-signal-2,
+          .animate-wifi-dot,
+          .animate-data-particle-1,
+          .animate-data-particle-2,
+          .animate-data-particle-3,
+          .animate-lightning-flash,
+          .animate-inner-lightning-glow,
+          .animate-electric-arc-1,
+          .animate-electric-arc-2,
+          .animate-energy-sphere-1,
+          .animate-energy-sphere-2,
+          .animate-energy-sphere-3,
+          .animate-energy-sphere-4,
+          .animate-grid-pulse,
+          .animate-particle-1,
+          .animate-particle-2,
+          .animate-particle-3,
+          .animate-particle-4,
           [style*="animation"] {
             animation: none !important;
           }
