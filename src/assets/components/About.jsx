@@ -224,21 +224,12 @@ const About = () => {
       <div className="relative z-10 container mx-auto px-4 py-16 lg:py-24">
         {/* Section Header */}
         <div className="text-center mb-16 lg:mb-20">
-          <Step 
-            delay={200}
-            className={`transform transition-all ${getAnimationClass('duration-1000 delay-200')} ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}
-            padding="p-4 lg:p-6"
-            shadow="shadow-2xl"
-          >
+
             <h2 className={`text-3xl sm:text-4xl lg:text-6xl xl:text-7xl font-bold ${isDark ? 'text-gray-100' : 'text-gray-900'} mb-4`}>
               <span className={`bg-gradient-to-r ${isDark ? 'from-cyan-400 via-pink-400 to-cyan-400' : 'from-blue-600 via-purple-600 to-blue-600'} bg-clip-text text-transparent ${getAnimationClass('animate-gradient-x')}`}>
                 About Me
               </span>
             </h2>
-            <p className={`text-base sm:text-lg lg:text-xl ${isDark ? 'text-gray-300' : 'text-gray-600'} max-w-3xl mx-auto leading-relaxed`}>
-              Passionate Software Engineering student with a drive for innovation and continuous learning
-            </p>
-          </Step>
         </div>
 
         {/* Main Content Grid */}
@@ -383,14 +374,14 @@ const About = () => {
                 {/* Animated Timeline Progress */}
                 <div className={`absolute left-1/2 transform -translate-x-1/2 w-1 rounded-full ${isDark ? 'bg-gradient-to-b from-cyan-400 via-purple-400 to-pink-400' : 'bg-gradient-to-b from-blue-400 via-indigo-400 to-purple-400'} transition-all duration-1000 ease-out shadow-lg`} 
                      style={{ 
-                       height: `${(activeAchievement / Math.max(achievements.length - 1, 1)) * 100}%`,
-                       top: 0
+                       height: `${(activeAchievement / Math.max(achievements.length - 1, 1)) * (100 - (100 / achievements.length / 2) - (100 / achievements.length / 2))}%`,
+                       top: `${100 / achievements.length / 2}%`
                      }}>
                   <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/30 to-transparent animate-pulse"></div>
                   
                   {/* Rocket at Progress End */}
-                  <div className="absolute -bottom-6 left-1/2 transform -translate-x-1/2">
-                    <div className="relative w-12 h-12">
+                  <div className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 z-[100]">
+                    <div className="relative w-40 h-40">
                       <video
                         autoPlay
                         loop
@@ -417,7 +408,7 @@ const About = () => {
                       style={{ animationDelay: `${1200 + index * 400}ms` }}
                     >
                       {/* Timeline Node */}
-                      <div className={`absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20`}>
+                      <div className={`absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-1`}>
                         <button
                           onClick={() => handleAchievementClick(index)}
                           className={`relative w-12 h-12 rounded-full transition-all duration-500 border-3 ${
@@ -654,14 +645,15 @@ const About = () => {
                 <div className={`absolute left-6 top-0 w-0.5 h-full ${isDark ? 'bg-gradient-to-b from-cyan-500 to-purple-500' : 'bg-gradient-to-b from-blue-500 to-indigo-500'} opacity-30`}></div>
                 
                 {/* Mobile Timeline Progress */}
-                <div className={`absolute left-6 top-0 w-0.5 rounded-full ${isDark ? 'bg-gradient-to-b from-cyan-400 to-purple-400' : 'bg-gradient-to-b from-blue-400 to-indigo-400'} transition-all duration-1000 ease-out`} 
+                <div className={`absolute left-6 w-0.5 rounded-full ${isDark ? 'bg-gradient-to-b from-cyan-400 to-purple-400' : 'bg-gradient-to-b from-blue-400 to-indigo-400'} transition-all duration-1000 ease-out`} 
                      style={{ 
-                       height: `${(activeAchievement / Math.max(achievements.length - 1, 1)) * 100}%` 
+                       height: `${(activeAchievement / Math.max(achievements.length - 1, 1)) * (100 - (100 / achievements.length / 2) - (100 / achievements.length / 2))}%`,
+                       top: `${100 / achievements.length / 2}%`
                      }}>
                   
                   {/* Mobile Rocket at Progress End */}
-                  <div className="absolute -bottom-5 left-1/2 transform -translate-x-1/2">
-                    <div className="relative w-10 h-10">
+                  <div className="absolute -bottom-5 left-1/2 transform -translate-x-1/2 z-[100]">
+                    <div className="relative w-15 h-15">
                       <video
                         autoPlay
                         loop
@@ -706,7 +698,7 @@ const About = () => {
                                           ? (isDark ? 'bg-gradient-to-br from-cyan-500 to-blue-600 border-cyan-300 shadow-lg' : 'bg-gradient-to-br from-cyan-500 to-teal-600 border-cyan-300 shadow-lg')
                                           : (isDark ? 'bg-gradient-to-br from-orange-500 to-red-600 border-orange-300 shadow-lg' : 'bg-gradient-to-br from-orange-500 to-pink-600 border-orange-300 shadow-lg'))
                             : (isDark ? 'bg-gray-700 border-gray-600' : 'bg-gray-200 border-gray-300')
-                        } ${activeAchievement === index ? 'scale-105' : ''} z-10`}
+                        } ${activeAchievement === index ? 'scale-105' : ''} z-0`}
                       >
                         <div className="flex items-center justify-center text-white w-full h-full">
                           <div className="w-5 h-5">

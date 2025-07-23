@@ -103,7 +103,7 @@ const HeroMobile = ({
           shadow="shadow-lg"
         >
           <p className={`text-xs xs:text-sm sm:text-base ${isDark ? 'text-gray-300' : 'text-gray-600'} max-w-2xl leading-relaxed mx-auto font-bold px-2`}>
-            I am a Software Engineering undergraduate at NSBM Green University with a strong passion for web application development, computer network and security, robotics and IoT. I am always eager to explore new technologies and expand my knowledge. With a curious mindset and a drive to understand how things work, I constantly seek opportunities to learn, build, and innovate in the tech world. And also I like to share my knowledge with others and be helpful for someone. 
+            I am a Software Engineering undergraduate at NSBM Green University with a strong passion for web application development, computer network and security, robotics and IoT.
           </p>
         </Step>
       </div>
