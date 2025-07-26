@@ -28,4 +28,6 @@ timeline should change
 
 remove time line animation  and make it update while scorlling
 
+everything is fine untill now
+
 
