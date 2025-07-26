@@ -1,4 +1,5 @@
 #added search component
+
 search function is implemented as a seperate componnent
 
 Updated the navigation bar to feel as android ui by adding round elements and naked colours.
@@ -14,13 +15,17 @@ npm run deploy
 restore last commti
 
 git fetch origin
+
 git reset --hard origin/main
+
 git clean -fd
 
 git pull origin main
 
 remove tempory and useless files
+
 timeline should change
+
 remove time line animation  and make it update while scorlling
 
 
