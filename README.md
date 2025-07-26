@@ -19,6 +19,7 @@ git clean -fd
 
 git pull origin main
 
+remove tempory and useless files
 timeline should change
 remove time line animation  and make it update while scorlling
 
