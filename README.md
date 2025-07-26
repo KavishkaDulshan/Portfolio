@@ -20,4 +20,6 @@ git clean -fd
 git pull origin main
 
 timeline should change
+remove time line animation  and make it update while scorlling
+
 
