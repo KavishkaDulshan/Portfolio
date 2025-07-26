@@ -18,3 +18,6 @@ git reset --hard origin/main
 git clean -fd
 
 git pull origin main
+
+timeline should change
+
