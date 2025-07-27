@@ -31,3 +31,5 @@ remove time line animation and make it update while scorlling
 everything is fine untill now
 
 deployed fixed mobile and desktop versions 27/07/2025
+
+completed upto about section. next task ---> skill section
