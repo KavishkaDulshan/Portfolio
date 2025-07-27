@@ -26,8 +26,8 @@ remove tempory and useless files
 
 timeline should change
 
-remove time line animation  and make it update while scorlling
+remove time line animation and make it update while scorlling
 
 everything is fine untill now
 
-
+deployed fixed mobile and desktop versions 27/07/2025
