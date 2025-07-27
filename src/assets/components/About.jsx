@@ -2,7 +2,6 @@ import React, { useState, useEffect, useCallback } from 'react'
 import { useTheme } from '../../hooks/useTheme'
 import Step from './Step'
 import PrimaryButton from './PrimaryButton'
-import rocketVideo from '../videos/rocket.webm'
 import './About.css'
 
 const About = () => {
@@ -436,25 +435,6 @@ const About = () => {
                        top: `${100 / achievements.length / 2}%`
                      }}>
                   <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/30 to-transparent animate-pulse"></div>
-                  
-                  {/* Rocket at Progress End */}
-                  <div className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 z-[100]">
-                    <div className="relative w-40 h-40">
-                      <video
-                        autoPlay
-                        loop
-                        muted
-                        playsInline
-                        className="w-full h-full object-contain"
-                        style={{
-                          filter: `hue-rotate(${activeAchievement * 60}deg)`,
-                          transform: 'rotate(-15deg)'
-                        }}
-                      >
-                        <source src={rocketVideo} type="video/webm" />
-                      </video>
-                    </div>
-                  </div>
                 </div>
 
                 {/* Timeline Items */}
@@ -949,25 +929,6 @@ const About = () => {
                        height: `${(activeAchievement / Math.max(achievements.length - 1, 1)) * (100 - (100 / achievements.length / 2) - (100 / achievements.length / 2))}%`,
                        top: `${100 / achievements.length / 2}%`
                      }}>
-                  
-                  {/* Mobile Rocket at Progress End */}
-                  <div className="absolute -bottom-5 left-1/2 transform -translate-x-1/2 z-[100]">
-                    <div className="relative w-15 h-15">
-                      <video
-                        autoPlay
-                        loop
-                        muted
-                        playsInline
-                        className="w-full h-full object-contain"
-                        style={{
-                          filter: `hue-rotate(${activeAchievement * 60}deg)`,
-                          transform: 'rotate(0deg)'
-                        }}
-                      >
-                        <source src={rocketVideo} type="video/webm" />
-                      </video>
-                    </div>
-                  </div>
                 </div>
 
                 {/* Mobile Timeline Items */}
