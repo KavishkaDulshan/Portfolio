@@ -13,10 +13,22 @@ const About = () => {
   const [selectedCertImage, setSelectedCertImage] = useState(null) // For certificate image modal
   const { isDark } = useTheme()
 
+  // Mobile fallback: Make content visible on mobile devices
+  useEffect(() => {
+    if (isMobile) {
+      setIsVisible(true)
+    }
+  }, [isMobile])
+
   // Detect mobile devices and reduced motion preference
   useEffect(() => {
     const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768)
+      const mobile = window.innerWidth < 768
+      setIsMobile(mobile)
+      // Immediately set visible for mobile
+      if (mobile) {
+        setIsVisible(true)
+      }
     }
 
     const checkReducedMotion = () => {
@@ -38,13 +50,23 @@ const About = () => {
           setIsVisible(true)
         }
       },
-      { threshold: 0.1 }
+      { 
+        threshold: isMobile ? 0.05 : 0.1, // Lower threshold for mobile
+        rootMargin: isMobile ? '50px 0px' : '0px 0px' // Add margin for mobile
+      }
     )
 
     const aboutSection = document.getElementById('about')
     if (aboutSection) {
       observer.observe(aboutSection)
     }
+
+    // Fallback: Set visible after a delay if intersection observer fails
+    const fallbackTimer = setTimeout(() => {
+      if (!isVisible) {
+        setIsVisible(true)
+      }
+    }, isMobile ? 1000 : 2000) // Shorter delay on mobile
 
     // Timeline scroll-based progression
     const handleTimelineScroll = () => {
@@ -89,13 +111,15 @@ const About = () => {
       mediaQuery.removeEventListener('change', checkReducedMotion)
       window.removeEventListener('scroll', handleTimelineScroll)
       window.removeEventListener('keydown', handleKeyDown)
+      clearTimeout(fallbackTimer) // Clean up timer
       if (aboutSection) observer.unobserve(aboutSection)
     }
-  }, [selectedCertImage])
+  }, [selectedCertImage, isMobile, isVisible])
 
   const getAnimationClass = useCallback((baseClass) => {
-    return isReducedMotion ? '' : baseClass
-  }, [isReducedMotion])
+    // Disable animations on mobile to prevent visibility issues
+    return isReducedMotion || isMobile ? '' : baseClass
+  }, [isReducedMotion, isMobile])
 
   const handleCertificationHover = useCallback((certification) => {
     if (!isMobile) {
@@ -401,7 +425,7 @@ const About = () => {
         {/* Main Content Grid */}
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 mb-16">
           {/* Personal Story */}
-          <div className={`transform transition-all ${getAnimationClass('duration-1000 delay-400')} ${isVisible ? 'translate-x-0 opacity-100' : 'translate-x-[-50px] opacity-0'}`}>
+          <div className={`transform transition-all ${getAnimationClass('duration-1000 delay-400')} ${isVisible || isMobile ? 'translate-x-0 opacity-100' : 'translate-x-[-50px] opacity-0'}`}>
             <Step 
               delay={400}
               padding="p-6 lg:p-8"
@@ -426,7 +450,7 @@ const About = () => {
           </div>
 
           {/* Quick Stats */}
-          <div className={`transform transition-all ${getAnimationClass('duration-1000 delay-600')} ${isVisible ? 'translate-x-0 opacity-100' : 'translate-x-[50px] opacity-0'}`}>
+          <div className={`transform transition-all ${getAnimationClass('duration-1000 delay-600')} ${isVisible || isMobile ? 'translate-x-0 opacity-100' : 'translate-x-[50px] opacity-0'}`}>
             <Step 
               delay={600}
               padding="p-6 lg:p-8"
@@ -467,7 +491,7 @@ const About = () => {
         </div>
 
         {/* Certifications & Education Section */}
-        <div className={`mb-16 transform transition-all ${getAnimationClass('duration-1000 delay-800')} ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
+        <div className={`mb-16 transform transition-all ${getAnimationClass('duration-1000 delay-800')} ${isVisible || isMobile ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
           <Step 
             delay={800}
             padding="p-6 lg:p-8"
@@ -655,7 +679,7 @@ const About = () => {
         {/* Interactive Journey Timeline */}
         <div 
           id="timeline-section"
-          className={`mb-12 transform transition-all ${getAnimationClass('duration-1000 delay-1000')} ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}
+          className={`mb-12 transform transition-all ${getAnimationClass('duration-1000 delay-1000')} ${isVisible || isMobile ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}
         >
           <Step 
             delay={1000}
@@ -1356,7 +1380,7 @@ const About = () => {
         </div>
 
         {/* Call to Action */}
-        <div className={`text-center transform transition-all ${getAnimationClass('duration-1000 delay-1200')} ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
+        <div className={`text-center transform transition-all ${getAnimationClass('duration-1000 delay-1200')} ${isVisible || isMobile ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
           <Step 
             delay={1200}
             padding="p-6 lg:p-8"
