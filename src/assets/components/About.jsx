@@ -146,7 +146,7 @@ const About = () => {
   const certifications = [
     {
       title: 'G.C.E Advanced Level',
-      institution: 'G/Bandaranayake College',
+      institution: 'Kaluthara Vidyalaya National School',
       year: '2021',
       grade: 'Commerce Stream',
       description: 'Information communication technology, Economics, Accounting',
@@ -182,11 +182,11 @@ const About = () => {
       title: 'Web Design For Beginners',
       institution: 'University Of Moratuwa',
       year: 'July 2025',
-      grade: 'Certified',
+      grade: 'Certificate of Completion (oB2wNkCxas)',
       description: 'Fundamentals of web design including HTML, CSS, and responsive design principles',
       type: 'certification',
       image: '/Portfolio/certificates/web.png',
-      certificateUrl: 'https://www.moratuwa.ac.lk/', // Add real certificate link here
+      certificateUrl: 'https://open.uom.lk/verify', // Add real certificate link here
       icon: (
         <svg className="w-6 h-6 text-orange-600" fill="currentColor" viewBox="0 0 24 24">
           <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
@@ -199,11 +199,11 @@ const About = () => {
       title: 'Python For Beginners',
       institution: 'University Of Moratuwa',
       year: 'September 2023',
-      grade: 'Certificate of Completion',
+      grade: 'Certificate of Completion (FWcHscVy9D)',
       description: 'Complete Python development including data structures, algorithms, and web development',
       type: 'certification',
       image: '/Portfolio/certificates/python.png',
-      certificateUrl: 'https://www.moratuwa.ac.lk/', // Add real certificate link here
+      certificateUrl: 'https://open.uom.lk/verify', // Add real certificate link here
       icon: (
         <svg className="w-6 h-6 text-purple-600" fill="currentColor" viewBox="0 0 24 24">
           <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
@@ -220,7 +220,7 @@ const About = () => {
       description: 'Complete English language proficiency assessment covering all four skills',
       type: 'certification',
       image: '/Portfolio/certificates/english.png',
-      certificateUrl: 'https://www.efset.org/', // Add real certificate link here
+      certificateUrl: 'https://cert.efset.org/TFXzQA', // Add real certificate link here
       icon: (
         <svg className="w-6 h-6 text-pink-600" fill="currentColor" viewBox="0 0 24 24">
           <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
@@ -248,9 +248,9 @@ const About = () => {
   const achievements = [
     {
       title: 'Completed Advanced Levels',
-      institution: 'G/Bandaranayake College',
-      description: 'Successfully completed G.C.E Advanced Level examination in Physical Science stream, laying the foundation for my technical education.',
-      year: '2022',
+      institution: 'Kaluthara Vidyalaya National School',
+      description: 'Successfully completed G.C.E Advanced Level examination in Commerce stream, laying the foundation for my education.',
+      year: '2021',
       icon: (
         <svg className="w-6 h-6 animate-bounce-slow" fill="currentColor" viewBox="0 0 24 24">
           <g className="animate-pulse-slow">
