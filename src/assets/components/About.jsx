@@ -45,9 +45,40 @@ const About = () => {
       observer.observe(aboutSection)
     }
 
+    // Timeline scroll-based progression
+    const handleTimelineScroll = () => {
+      const timelineSection = document.getElementById('timeline-section')
+      if (!timelineSection) return
+
+      const rect = timelineSection.getBoundingClientRect()
+      const windowHeight = window.innerHeight
+      const sectionHeight = rect.height
+      
+      // Calculate scroll progress through the timeline section
+      // When top of section reaches bottom of viewport, progress starts (scrollProgress = 0)
+      // When bottom of section reaches top of viewport, progress ends (scrollProgress = 1)
+      const scrollProgress = Math.max(0, Math.min(1, 
+        (windowHeight - rect.top) / (windowHeight + sectionHeight)
+      ))
+      
+      // Map scroll progress to achievement index (hardcoded 7 achievements)
+      const totalAchievements = 7
+      const achievementIndex = Math.floor(scrollProgress * totalAchievements)
+      const clampedIndex = Math.max(0, Math.min(totalAchievements - 1, achievementIndex))
+      
+      setActiveAchievement(clampedIndex)
+    }
+
+    // Add scroll listener for timeline progression
+    window.addEventListener('scroll', handleTimelineScroll)
+    
+    // Initial call to set correct state
+    handleTimelineScroll()
+
     return () => {
       window.removeEventListener('resize', checkMobile)
       mediaQuery.removeEventListener('change', checkReducedMotion)
+      window.removeEventListener('scroll', handleTimelineScroll)
       if (aboutSection) observer.unobserve(aboutSection)
     }
   }, [])
@@ -84,13 +115,6 @@ const About = () => {
     if (contactSection) {
       contactSection.scrollIntoView({ behavior: 'smooth' })
     }
-  }, [isMobile])
-
-  const handleAchievementClick = useCallback((index) => {
-    if ('vibrate' in navigator && isMobile) {
-      navigator.vibrate(50)
-    }
-    setActiveAchievement(index)
   }, [isMobile])
 
   const skills = [
@@ -404,7 +428,10 @@ const About = () => {
         </div>
 
         {/* Interactive Journey Timeline */}
-        <div className={`mb-12 transform transition-all ${getAnimationClass('duration-1000 delay-1000')} ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
+        <div 
+          id="timeline-section"
+          className={`mb-12 transform transition-all ${getAnimationClass('duration-1000 delay-1000')} ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}
+        >
           <Step 
             delay={1000}
             padding="p-6 lg:p-8"
@@ -431,8 +458,8 @@ const About = () => {
                 {/* Animated Timeline Progress */}
                 <div className={`absolute left-1/2 transform -translate-x-1/2 w-1 rounded-full ${isDark ? 'bg-gradient-to-b from-cyan-400 via-purple-400 to-pink-400' : 'bg-gradient-to-b from-blue-400 via-indigo-400 to-purple-400'} transition-all duration-1000 ease-out shadow-lg`} 
                      style={{ 
-                       height: `${(activeAchievement / Math.max(achievements.length - 1, 1)) * (100 - (100 / achievements.length / 2) - (100 / achievements.length / 2))}%`,
-                       top: `${100 / achievements.length / 2}%`
+                       height: `${(activeAchievement / Math.max(7 - 1, 1)) * (100 - (100 / 7 / 2) - (100 / 7 / 2))}%`,
+                       top: `${100 / 7 / 2}%`
                      }}>
                   <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/30 to-transparent animate-pulse"></div>
                 </div>
@@ -447,9 +474,8 @@ const About = () => {
                     >
                       {/* Timeline Node */}
                       <div className={`absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-1`}>
-                        <button
-                          onClick={() => handleAchievementClick(index)}
-                          className={`relative w-12 h-12 rounded-full transition-all duration-500 border-3 ${
+                        <div
+                          className={`relative w-12 h-12 rounded-full transition-all duration-500 border-3 cursor-default ${
                             activeAchievement >= index
                               ? (index === 0 
                                   ? (isDark ? 'bg-gradient-to-br from-blue-500 to-indigo-600 border-blue-300 shadow-lg' : 'bg-gradient-to-br from-blue-500 to-blue-600 border-blue-300 shadow-lg') 
@@ -464,16 +490,8 @@ const About = () => {
                                           : index === 5
                                             ? (isDark ? 'bg-gradient-to-br from-cyan-500 to-blue-600 border-cyan-300 shadow-lg' : 'bg-gradient-to-br from-cyan-500 to-sky-600 border-cyan-300 shadow-lg')
                                             : (isDark ? 'bg-gradient-to-br from-orange-500 to-red-600 border-orange-300 shadow-lg' : 'bg-gradient-to-br from-orange-500 to-red-600 border-orange-300 shadow-lg'))
-                              : (isDark ? 'bg-gray-700 border-gray-600 hover:bg-gray-600' : 'bg-gray-200 border-gray-300 hover:bg-gray-300')
-                          } ${activeAchievement === index ? 'scale-110 rotate-6' : 'hover:scale-105'} focus:outline-none focus:ring-2 ${
-                            index === 0 ? 'focus:ring-blue-400/30' 
-                            : index === 1 ? 'focus:ring-emerald-400/30'
-                            : index === 2 ? 'focus:ring-violet-400/30'
-                            : index === 3 ? 'focus:ring-amber-400/30'
-                            : index === 4 ? 'focus:ring-pink-400/30'
-                            : index === 5 ? 'focus:ring-cyan-400/30'
-                            : 'focus:ring-orange-400/30'
-                          }`}
+                              : (isDark ? 'bg-gray-700 border-gray-600' : 'bg-gray-200 border-gray-300')
+                          } ${activeAchievement === index ? 'scale-110 rotate-6' : ''}`}
                         >
                           <div className={`flex items-center justify-center text-white transition-all duration-300 ${activeAchievement === index ? 'scale-105' : ''}`}>
                             <div className="w-6 h-6">
@@ -493,18 +511,17 @@ const About = () => {
                               : 'bg-orange-400'
                             } opacity-10 animate-pulse`}></div>
                           )}
-                        </button>
+                        </div>
                       </div>
 
                       {/* Content Card */}
                       <div className={`w-5/12 ${index % 2 === 0 ? 'pr-12' : 'pl-12'}`}>
                         <div 
-                          className={`relative cursor-pointer transition-all duration-700 transform ${
+                          className={`relative transition-all duration-700 transform ${
                             activeAchievement === index 
                               ? 'scale-105 rotate-1' 
-                              : 'hover:scale-102 hover:-rotate-1'
+                              : ''
                           }`}
-                          onClick={() => handleAchievementClick(index)}
                         >
                           <div className={`relative p-6 rounded-xl border backdrop-blur-xl transition-all duration-500 ${
                             activeAchievement === index
@@ -884,9 +901,8 @@ const About = () => {
                   } backdrop-blur-sm shadow-lg text-sm`}>
                     <div className={`flex space-x-2`}>
                       {achievements.map((_, index) => (
-                        <button
+                        <div
                           key={index}
-                          onClick={() => handleAchievementClick(index)}
                           className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
                             activeAchievement >= index
                               ? (index === 0 
@@ -894,8 +910,8 @@ const About = () => {
                                   : index === 1 
                                     ? 'bg-violet-400 shadow-md' 
                                     : 'bg-orange-400 shadow-md')
-                              : (isDark ? 'bg-gray-600 hover:bg-gray-500' : 'bg-gray-300 hover:bg-gray-400')
-                          } ${activeAchievement === index ? 'scale-125' : 'hover:scale-110'}`}
+                              : (isDark ? 'bg-gray-600' : 'bg-gray-300')
+                          } ${activeAchievement === index ? 'scale-125' : ''}`}
                         />
                       ))}
                     </div>
@@ -905,7 +921,7 @@ const About = () => {
                       : activeAchievement === 1 ? (isDark ? 'text-violet-400' : 'text-violet-600') 
                       : (isDark ? 'text-orange-400' : 'text-orange-600')
                     }`}>
-                      {activeAchievement + 1} / {achievements.length}
+                      {activeAchievement + 1} / 7
                     </span>
                     <span>-</span>
                     <span className="font-medium">
@@ -926,8 +942,8 @@ const About = () => {
                 {/* Mobile Timeline Progress */}
                 <div className={`absolute left-6 w-0.5 rounded-full ${isDark ? 'bg-gradient-to-b from-cyan-400 to-purple-400' : 'bg-gradient-to-b from-blue-400 to-indigo-400'} transition-all duration-1000 ease-out`} 
                      style={{ 
-                       height: `${(activeAchievement / Math.max(achievements.length - 1, 1)) * (100 - (100 / achievements.length / 2) - (100 / achievements.length / 2))}%`,
-                       top: `${100 / achievements.length / 2}%`
+                       height: `${(activeAchievement / Math.max(7 - 1, 1)) * (100 - (100 / 7 / 2) - (100 / 7 / 2))}%`,
+                       top: `${100 / 7 / 2}%`
                      }}>
                 </div>
 
@@ -940,9 +956,8 @@ const About = () => {
                       style={{ animationDelay: `${1200 + index * 300}ms` }}
                     >
                       {/* Mobile Node */}
-                      <button
-                        onClick={() => handleAchievementClick(index)}
-                        className={`relative w-10 h-10 rounded-full flex-shrink-0 transition-all duration-500 border-2 ${
+                      <div
+                        className={`relative w-10 h-10 rounded-full flex-shrink-0 transition-all duration-500 border-2 cursor-default ${
                           activeAchievement >= index
                             ? (index === 0 
                                 ? (isDark ? 'bg-gradient-to-br from-blue-500 to-cyan-600 border-blue-300 shadow-lg' : 'bg-gradient-to-br from-blue-500 to-indigo-600 border-blue-300 shadow-lg') 
@@ -977,15 +992,14 @@ const About = () => {
                             : 'bg-orange-400'
                           } opacity-15 animate-pulse`}></div>
                         )}
-                      </button>
+                      </div>
 
                       {/* Mobile Content */}
                       <div className="ml-5 flex-1">
                         <div 
-                          className={`cursor-pointer transition-all duration-500 transform ${
+                          className={`transition-all duration-500 transform ${
                             activeAchievement === index ? 'scale-102' : ''
                           }`}
-                          onClick={() => handleAchievementClick(index)}
                         >
                           <div className={`relative p-4 rounded-lg backdrop-blur-sm transition-all duration-500 ${
                             activeAchievement === index
@@ -1102,7 +1116,7 @@ const About = () => {
                       : activeAchievement === 1 ? (isDark ? 'text-violet-400' : 'text-violet-600') 
                       : (isDark ? 'text-orange-400' : 'text-orange-600')
                     }`}>
-                      {activeAchievement + 1}/{achievements.length}
+                      {activeAchievement + 1}/7
                     </span>
                     <span>-</span>
                     <span className="font-medium">
