@@ -61,26 +61,6 @@
   }
 }
 
-@keyframes rocketBoost {
-  0%, 100% {
-    transform: scale(1) rotate(-15deg);
-  }
-  50% {
-    transform: scale(1.05) rotate(-12deg);
-  }
-}
-
-@keyframes rocketTrail {
-  0%, 100% {
-    opacity: 0.15;
-    transform: scale(0.8);
-  }
-  50% {
-    opacity: 0.25;
-    transform: scale(1.1);
-  }
-}
-
 .animate-gradient-x {
   animation: gradient-x 3s ease infinite;
 }
@@ -103,14 +83,6 @@
 
 .animate-slide-in-right {
   animation: cardSlideInRight 0.6s ease-out forwards;
-}
-
-.animate-rocket-boost {
-  animation: rocketBoost 2s ease-in-out infinite;
-}
-
-.animate-rocket-trail {
-  animation: rocketTrail 1.5s ease-in-out infinite;
 }
 
 /* Timeline Node Specific Styles */
@@ -1235,8 +1207,6 @@
   .animate-node-rotate,
   .animate-slide-in-left,
   .animate-slide-in-right,
-  .animate-rocket-boost,
-  .animate-rocket-trail,
   .animate-bounce-slow,
   .animate-spin-slow,
   .animate-wobble,
