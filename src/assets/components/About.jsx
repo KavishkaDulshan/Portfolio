@@ -6,10 +6,11 @@ import './About.css'
 
 const About = () => {
   const [isVisible, setIsVisible] = useState(false)
-  const [activeSkill, setActiveSkill] = useState(null)
+  const [activeCertification, setActiveCertification] = useState(null)
   const [isMobile, setIsMobile] = useState(false)
   const [isReducedMotion, setIsReducedMotion] = useState(false)
   const [activeAchievement, setActiveAchievement] = useState(0) // Start at first achievement
+  const [selectedCertImage, setSelectedCertImage] = useState(null) // For certificate image modal
   const { isDark } = useTheme()
 
   // Detect mobile devices and reduced motion preference
@@ -72,6 +73,14 @@ const About = () => {
     // Add scroll listener for timeline progression
     window.addEventListener('scroll', handleTimelineScroll)
     
+    // Keyboard event listener for modal
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape' && selectedCertImage) {
+        setSelectedCertImage(null)
+      }
+    }
+    window.addEventListener('keydown', handleKeyDown)
+    
     // Initial call to set correct state
     handleTimelineScroll()
 
@@ -79,25 +88,41 @@ const About = () => {
       window.removeEventListener('resize', checkMobile)
       mediaQuery.removeEventListener('change', checkReducedMotion)
       window.removeEventListener('scroll', handleTimelineScroll)
+      window.removeEventListener('keydown', handleKeyDown)
       if (aboutSection) observer.unobserve(aboutSection)
     }
-  }, [])
+  }, [selectedCertImage])
 
   const getAnimationClass = useCallback((baseClass) => {
     return isReducedMotion ? '' : baseClass
   }, [isReducedMotion])
 
-  const handleSkillHover = useCallback((skill) => {
+  const handleCertificationHover = useCallback((certification) => {
     if (!isMobile) {
-      setActiveSkill(skill)
+      setActiveCertification(certification)
     }
   }, [isMobile])
 
-  const handleSkillLeave = useCallback(() => {
+  const handleCertificationLeave = useCallback(() => {
     if (!isMobile) {
-      setActiveSkill(null)
+      setActiveCertification(null)
     }
   }, [isMobile])
+
+  const handleCertificateImageClick = useCallback((cert) => {
+    if (cert.image) {
+      setSelectedCertImage({
+        src: cert.image,
+        title: cert.title,
+        institution: cert.institution,
+        certificateUrl: cert.certificateUrl
+      })
+    }
+  }, [])
+
+  const closeCertificateModal = useCallback(() => {
+    setSelectedCertImage(null)
+  }, [])
 
   const handleDownloadCV = useCallback(() => {
     if ('vibrate' in navigator && isMobile) {
@@ -117,47 +142,107 @@ const About = () => {
     }
   }, [isMobile])
 
-  const skills = [
+  // Certifications and Educational Qualifications - Easy to update
+  const certifications = [
     {
-      category: 'Frontend Development',
-      items: ['React.js', 'JavaScript (ES6+)', 'HTML5 & CSS3', 'Tailwind CSS', 'Responsive Design'],
+      title: 'G.C.E Advanced Level',
+      institution: 'G/Bandaranayake College',
+      year: '2021',
+      grade: 'Commerce Stream',
+      description: 'Information communication technology, Economics, Accounting',
+      type: 'educational',
+      image: null, // No image available yet
+      certificateUrl: null, // Set to external link if available
       icon: (
-        <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M12 2L2 7v10c0 5.55 3.84 9.64 9 11 5.16-1.36 9-5.45 9-11V7l-10-5z"/>
+        <svg className="w-6 h-6 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9L12 3zm6.82 6L12 12.72 5.18 9 12 5.28 18.82 9z"/>
         </svg>
       ),
-      color: 'from-blue-500 to-cyan-500'
+      color: 'from-gray-100 to-blue-100',
+      status: 'completed'
     },
     {
-      category: 'Backend Development',
-      items: ['Node.js', 'Express.js', 'API Development', 'Database Design', 'Server Management'],
+      title: 'Software Engineering Degree',
+      institution: 'NSBM Green University',
+      year: '2023 - 2027',
+      grade: 'Pursuing',
+      description: 'BSc (Hons) in Software Engineering',
+      type: 'educational',
+      image: null,
+      certificateUrl: 'https://www.nsbm.ac.lk/', // University website
       icon: (
-        <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M20 6L9 17l-5-5 1.41-1.41L9 14.17l9.59-9.59L20 6z"/>
+        <svg className="w-6 h-6 text-green-600" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12 2L1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9L12 3z"/>
         </svg>
       ),
-      color: 'from-green-500 to-emerald-500'
+      color: 'from-gray-100 to-green-100',
+      status: 'in-progress'
     },
     {
-      category: 'IoT & Hardware',
-      items: ['Arduino', 'Raspberry Pi', 'Sensor Integration', 'Circuit Design', 'Embedded Systems'],
+      title: 'Web Design For Beginners',
+      institution: 'University Of Moratuwa',
+      year: 'July 2025',
+      grade: 'Certified',
+      description: 'Fundamentals of web design including HTML, CSS, and responsive design principles',
+      type: 'certification',
+      image: '/Portfolio/certificates/web.png',
+      certificateUrl: 'https://www.moratuwa.ac.lk/', // Add real certificate link here
       icon: (
-        <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M13 3h-2v2h2V3zm4.83 2.17l-1.42 1.42L17.83 8l1.42-1.42L18.83 5.17zM11 7h2v6h-2V7zm6.2 1L19 8v8h-1.8L15 12l-1.2 4H12l1.5-5.5L12 8h1.2L15 12l2.2-4zM5 8l1.41 1.41L7.83 8 6.41 6.58 5 8zm8 4c0 .55-.45 1-1 1s-1-.45-1-1 .45-1 1-1 1 .45 1 1z"/>
-        </svg>
-      ),
-      color: 'from-purple-500 to-pink-500'
-    },
-    {
-      category: 'Tools & Technologies',
-      items: ['Git & GitHub', 'VS Code', 'Linux', 'Network Security', 'Project Management'],
-      icon: (
-        <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+        <svg className="w-6 h-6 text-orange-600" fill="currentColor" viewBox="0 0 24 24">
           <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
         </svg>
       ),
-      color: 'from-orange-500 to-red-500'
-    }
+      color: 'from-gray-100 to-yellow-100',
+      status: 'completed'
+    },
+    {
+      title: 'Python For Beginners',
+      institution: 'University Of Moratuwa',
+      year: 'September 2023',
+      grade: 'Certificate of Completion',
+      description: 'Complete Python development including data structures, algorithms, and web development',
+      type: 'certification',
+      image: '/Portfolio/certificates/python.png',
+      certificateUrl: 'https://www.moratuwa.ac.lk/', // Add real certificate link here
+      icon: (
+        <svg className="w-6 h-6 text-purple-600" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+        </svg>
+      ),
+      color: 'from-gray-100 to-purple-100',
+      status: 'completed'
+    },
+    {
+      title: 'EF SET English Certificate',
+      institution: 'EF SET',
+      year: 'June 2024',
+      grade: '67/100 (C1 Advanced)',
+      description: 'Complete English language proficiency assessment covering all four skills',
+      type: 'certification',
+      image: '/Portfolio/certificates/english.png',
+      certificateUrl: 'https://www.efset.org/', // Add real certificate link here
+      icon: (
+        <svg className="w-6 h-6 text-pink-600" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+        </svg>
+      ),
+      color: 'from-gray-100 to-pink-100',
+      status: 'completed'
+    },
+    // Add your new certifications here following the same structure:
+    // {
+    //   title: 'Your Certification Title',
+    //   institution: 'Institution Name',
+    //   year: 'YYYY',
+    //   grade: 'Grade/Status',
+    //   description: 'Brief description',
+    //   type: 'certification' or 'educational',
+    //   image: '/src/assets/images/certificates/your-cert.jpg',
+    //   certificateUrl: 'https://certificate-verification-link.com', // Add verification link
+    //   icon: <svg>...</svg>,
+    //   color: 'from-color-500 to-color-500',
+    //   status: 'completed', 'in-progress', or 'planned'
+    // }
   ]
 
   const achievements = [
@@ -381,7 +466,7 @@ const About = () => {
           </div>
         </div>
 
-        {/* Skills Section */}
+        {/* Certifications & Education Section */}
         <div className={`mb-16 transform transition-all ${getAnimationClass('duration-1000 delay-800')} ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
           <Step 
             delay={800}
@@ -389,41 +474,181 @@ const About = () => {
             shadow="shadow-2xl"
           >
             <h3 className={`text-2xl lg:text-3xl font-bold ${isDark ? 'text-gray-100' : 'text-gray-900'} mb-8 text-center`}>
-              Technical Skills
+              <span className={`bg-gradient-to-r ${isDark ? 'from-cyan-400 via-purple-400 to-pink-400' : 'from-blue-600 via-indigo-600 to-purple-600'} bg-clip-text text-transparent`}>
+                Certifications & Education
+              </span>
             </h3>
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {skills.map((skill, index) => (
+            <div className="grid md:grid-cols-2 gap-6">
+              {certifications.map((cert, index) => (
                 <div
-                  key={skill.category}
-                  className={`relative p-4 lg:p-6 rounded-2xl border ${isDark ? 'bg-gray-800/40 border-gray-600/30' : 'bg-white/80 border-gray-200/50'} backdrop-blur-sm transition-all duration-300 cursor-pointer group ${getAnimationClass('hover:scale-105')} ${getAnimationClass('hover:shadow-xl')}`}
-                  onMouseEnter={() => handleSkillHover(skill.category)}
-                  onMouseLeave={handleSkillLeave}
+                  key={`${cert.title}-${cert.year}`}
+                  className={`relative p-6 rounded-2xl border ${isDark ? 'bg-gray-800/40 border-gray-600/30' : 'bg-white/80 border-gray-200/50'} backdrop-blur-sm transition-all duration-300 cursor-pointer group ${getAnimationClass('hover:scale-105')} ${getAnimationClass('hover:shadow-xl')}`}
+                  onMouseEnter={() => handleCertificationHover(cert.title)}
+                  onMouseLeave={handleCertificationLeave}
                   style={{ animationDelay: `${1000 + index * 200}ms` }}
                 >
-                  <div className={`flex items-center mb-4`}>
-                    <div className={`p-2 rounded-lg bg-gradient-to-r ${skill.color} text-white mr-3`}>
-                      {skill.icon}
-                    </div>
-                    <h4 className={`font-semibold ${isDark ? 'text-gray-200' : 'text-gray-800'} text-sm lg:text-base`}>
-                      {skill.category}
-                    </h4>
+                  {/* Status Badge */}
+                  <div className={`absolute -top-3 right-4 px-3 py-1 rounded-full text-xs font-semibold ${
+                    cert.status === 'completed' 
+                      ? 'bg-green-500 text-white' 
+                      : cert.status === 'in-progress'
+                        ? 'bg-blue-500 text-white'
+                        : 'bg-gray-500 text-white'
+                  }`}>
+                    {cert.status === 'completed' ? 'Completed' : cert.status === 'in-progress' ? 'In Progress' : 'Planned'}
                   </div>
-                  <ul className="space-y-2">
-                    {skill.items.map((item) => (
-                      <li 
-                        key={item}
-                        className={`text-xs lg:text-sm ${isDark ? 'text-gray-400' : 'text-gray-600'} transition-all duration-300 ${activeSkill === skill.category ? 'translate-x-2 text-cyan-400' : ''}`}
-                      >
-                        • {item}
-                      </li>
-                    ))}
-                  </ul>
+
+                  {/* Header with Icon */}
+                  <div className={`flex items-start mb-4`}>
+                    <div className={`p-3 rounded-lg bg-gradient-to-r ${cert.color} text-white mr-4 flex-shrink-0`}>
+                      {cert.icon}
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <h4 className={`font-bold ${isDark ? 'text-gray-100' : 'text-gray-900'} text-lg mb-1 leading-tight`}>
+                        {cert.title}
+                      </h4>
+                      <p className={`text-sm ${isDark ? 'text-gray-300' : 'text-gray-600'} font-medium`}>
+                        {cert.institution}
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Details */}
+                  <div className="space-y-3">
+                    <div className="flex justify-between items-center">
+                      <span className={`text-sm font-semibold px-3 py-1 rounded-full ${isDark ? 'bg-gray-700 text-gray-300' : 'bg-gray-100 text-gray-700'}`}>
+                        {cert.year}
+                      </span>
+                      <span className={`text-sm font-medium ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
+                        {cert.grade}
+                      </span>
+                    </div>
+                    
+                    <p className={`text-sm leading-relaxed ${isDark ? 'text-gray-300' : 'text-gray-700'} transition-all duration-300 ${activeCertification === cert.title ? (isDark ? 'text-cyan-300' : 'text-blue-600') : ''}`}>
+                      {cert.description}
+                    </p>
+
+                    {/* Action Buttons */}
+                    <div className="mt-4 flex flex-col gap-3">
+                      {/* Certificate Image Preview */}
+                      {cert.image && (
+                        <button
+                          onClick={() => handleCertificateImageClick(cert)}
+                          className={`w-full h-36 rounded-xl overflow-hidden border-2 transition-all duration-300 ${
+                            isDark 
+                              ? 'border-gray-600 hover:border-cyan-400 bg-gray-700/50 hover:bg-gray-700/70' 
+                              : 'border-gray-200 hover:border-blue-400 bg-gray-50/50 hover:bg-gray-50/80'
+                          } group/image relative shadow-sm hover:shadow-md`}
+                        >
+                          <img
+                            src={cert.image}
+                            alt={`${cert.title} Certificate`}
+                            className="w-full h-full object-cover transition-all duration-300 group-hover/image:scale-105"
+                            onError={(e) => {
+                              e.target.style.display = 'none'
+                              e.target.nextSibling.style.display = 'flex'
+                            }}
+                          />
+                          {/* Fallback for missing images */}
+                          <div className={`absolute inset-0 flex items-center justify-center ${isDark ? 'bg-gray-700' : 'bg-gray-100'} hidden`}>
+                            <div className="text-center">
+                              <svg className={`w-10 h-10 mx-auto mb-2 ${isDark ? 'text-gray-500' : 'text-gray-400'}`} fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                              </svg>
+                              <p className={`text-sm font-medium ${isDark ? 'text-gray-500' : 'text-gray-400'}`}>
+                                Certificate Preview
+                              </p>
+                            </div>
+                          </div>
+                          {/* View button overlay */}
+                          <div className="absolute inset-0 bg-black/60 opacity-0 group-hover/image:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <div className="text-center text-white">
+                              <svg className="w-8 h-8 mx-auto mb-2" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/>
+                              </svg>
+                              <span className="text-sm font-semibold">View Full Certificate</span>
+                            </div>
+                          </div>
+                        </button>
+                      )}
+
+                      {/* Action Buttons Row */}
+                      <div className="flex gap-2">
+                        {/* View Certificate Button */}
+                        {cert.image && (
+                          <button
+                            onClick={() => handleCertificateImageClick(cert)}
+                            className={`flex-1 flex items-center justify-center gap-2 px-3 py-2 rounded-lg font-medium text-sm transition-all duration-200 ${
+                              isDark 
+                                ? 'bg-cyan-900/30 hover:bg-cyan-800/40 text-cyan-300 hover:text-cyan-200 border border-cyan-700/50' 
+                                : 'bg-blue-50 hover:bg-blue-100 text-blue-700 hover:text-blue-800 border border-blue-200'
+                            }`}
+                          >
+                            <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                              <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/>
+                            </svg>
+                            View
+                          </button>
+                        )}
+
+                        {/* Verify Certificate Button */}
+                        {cert.certificateUrl && (
+                          <button
+                            onClick={() => window.open(cert.certificateUrl, '_blank')}
+                            className={`flex-1 flex items-center justify-center gap-2 px-3 py-2 rounded-lg font-medium text-sm transition-all duration-200 ${
+                              isDark 
+                                ? 'bg-purple-900/30 hover:bg-purple-800/40 text-purple-300 hover:text-purple-200 border border-purple-700/50' 
+                                : 'bg-purple-50 hover:bg-purple-100 text-purple-700 hover:text-purple-800 border border-purple-200'
+                            }`}
+                          >
+                            <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                              <path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/>
+                            </svg>
+                            {cert.status === 'in-progress' ? 'Visit' : 'Verify'}
+                          </button>
+                        )}
+                      </div>
+
+                      {/* No Image Available */}
+                      {!cert.image && (
+                        <div className={`p-4 rounded-xl border-2 border-dashed text-center transition-all duration-200 ${
+                          isDark 
+                            ? 'border-gray-600 bg-gray-700/30 hover:bg-gray-700/40' 
+                            : 'border-gray-300 bg-gray-50/50 hover:bg-gray-50/80'
+                        }`}>
+                          <svg className={`w-8 h-8 mx-auto mb-2 ${isDark ? 'text-gray-500' : 'text-gray-400'}`} fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6z"/>
+                            <polyline points="14,2 14,8 20,8"/>
+                          </svg>
+                          <p className={`text-sm font-medium ${isDark ? 'text-gray-400' : 'text-gray-500'} mb-1`}>
+                            Certificate Image Not Available
+                          </p>
+                          <p className={`text-xs ${isDark ? 'text-gray-500' : 'text-gray-400'}`}>
+                            {cert.status === 'in-progress' ? 'Will be available upon completion' : 'Image not provided'}
+                          </p>
+                        </div>
+                      )}
+                    </div>
+                    
+                    {/* Type Badge */}
+                    <div className="flex justify-between items-center mt-4">
+                      <span className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold ${
+                        cert.type === 'educational' 
+                          ? (isDark ? 'bg-blue-900/50 text-blue-300 border border-blue-700/50' : 'bg-blue-100 text-blue-800 border border-blue-200')
+                          : (isDark ? 'bg-purple-900/50 text-purple-300 border border-purple-700/50' : 'bg-purple-100 text-purple-800 border border-purple-200')
+                      }`}>
+                        {cert.type === 'educational' ? '🎓 Education' : '📜 Certification'}
+                      </span>
+                    </div>
+                  </div>
                   
                   {/* Hover effect overlay */}
-                  <div className={`absolute inset-0 bg-gradient-to-r ${skill.color} opacity-0 group-hover:opacity-10 rounded-2xl transition-opacity duration-300 pointer-events-none`} />
+                  <div className={`absolute inset-0 ${isDark ? 'bg-gray-700/10' : 'bg-gray-200/10'} opacity-0 group-hover:opacity-100 rounded-2xl transition-opacity duration-300 pointer-events-none`} />
                 </div>
               ))}
             </div>
+
+           
           </Step>
         </div>
 
@@ -1176,6 +1401,131 @@ const About = () => {
           </Step>
         </div>
       </div>
+
+      {/* Enhanced Certificate Image Modal */}
+      {selectedCertImage && (
+        <div 
+          className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/90 backdrop-blur-sm"
+          onClick={closeCertificateModal}
+        >
+          <div 
+            className={`relative w-auto max-w-[95vw] max-h-[95vh] bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-2xl`}
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Modal Header */}
+            <div className={`p-3 sm:p-4 border-b ${isDark ? 'border-gray-700 bg-gray-800' : 'border-gray-200 bg-white'}`}>
+              <div className="flex items-center justify-between">
+                <div className="min-w-0 flex-1 mr-4">
+                  <h3 className={`text-lg font-bold ${isDark ? 'text-gray-100' : 'text-gray-900'} truncate`}>
+                    {selectedCertImage.title}
+                  </h3>
+                  <p className={`text-sm font-medium ${isDark ? 'text-gray-400' : 'text-gray-600'} truncate`}>
+                    {selectedCertImage.institution}
+                  </p>
+                </div>
+                
+                {/* Action Buttons */}
+                <div className="flex items-center gap-2">
+                  {/* Download Button (if you want to add download functionality) */}
+                  <button
+                    onClick={() => {
+                      const link = document.createElement('a')
+                      link.href = selectedCertImage.src
+                      link.download = `${selectedCertImage.title.replace(/\s+/g, '_')}_Certificate`
+                      link.click()
+                    }}
+                    className={`p-2 rounded-lg transition-colors ${isDark ? 'hover:bg-gray-700 text-gray-400 hover:text-gray-200' : 'hover:bg-gray-100 text-gray-600 hover:text-gray-900'}`}
+                    title="Download Certificate"
+                  >
+                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M19 13h-6v6h-2v-6H5l7-7 7 7zM5 19v2h14v-2H5z"/>
+                    </svg>
+                  </button>
+                  
+                  {/* Close Button */}
+                  <button
+                    onClick={closeCertificateModal}
+                    className={`p-2 rounded-lg transition-colors ${isDark ? 'hover:bg-gray-700 text-gray-400 hover:text-gray-200' : 'hover:bg-gray-100 text-gray-600 hover:text-gray-900'}`}
+                    title="Close"
+                  >
+                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            {/* Modal Body - Auto-sized Certificate Image */}
+            <div className="flex items-center justify-center bg-gray-50 dark:bg-gray-900 min-h-[200px]">
+              <img
+                src={selectedCertImage.src}
+                alt={`${selectedCertImage.title} Certificate`}
+                className="block max-w-full max-h-[80vh] w-auto h-auto object-contain"
+                style={{
+                  minWidth: '300px',
+                  minHeight: '200px'
+                }}
+                onLoad={(e) => {
+                  // Auto-adjust modal size based on image dimensions
+                  const img = e.target
+                  const container = img.closest('.relative')
+                  
+                  // Set optimal dimensions while respecting viewport limits
+                  const maxWidth = Math.min(window.innerWidth * 0.95, img.naturalWidth + 100)
+                  const maxHeight = Math.min(window.innerHeight * 0.95, img.naturalHeight + 150)
+                  
+                  if (container) {
+                    container.style.width = 'auto'
+                    container.style.height = 'auto'
+                    container.style.maxWidth = `${maxWidth}px`
+                    container.style.maxHeight = `${maxHeight}px`
+                  }
+                }}
+                onError={(e) => {
+                  e.target.style.display = 'none'
+                  e.target.nextSibling.style.display = 'flex'
+                }}
+              />
+              
+              {/* Error fallback */}
+              <div className={`flex-col items-center justify-center p-8 hidden ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
+                <svg className="w-16 h-16 mb-4" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+                <p className="text-lg font-medium mb-2">Certificate Image Not Found</p>
+                <p className="text-sm text-center">The certificate image could not be loaded. Please check the file path.</p>
+              </div>
+            </div>
+
+            {/* Modal Footer */}
+            <div className={`p-3 sm:p-4 border-t ${isDark ? 'border-gray-700 bg-gray-800' : 'border-gray-200 bg-gray-50'}`}>
+              <div className="flex flex-col sm:flex-row justify-between items-center gap-2">
+                <p className={`text-xs ${isDark ? 'text-gray-500' : 'text-gray-500'} text-center sm:text-left`}>
+                  💡 Click outside to close, press ESC, or use download button
+                </p>
+                <div className="flex gap-2">
+                  {/* Verify Certificate Link */}
+                  {selectedCertImage.certificateUrl && (
+                    <button
+                      onClick={() => window.open(selectedCertImage.certificateUrl, '_blank')}
+                      className={`px-4 py-2 rounded-lg font-medium text-sm transition-colors ${isDark ? 'bg-purple-700 hover:bg-purple-600 text-white' : 'bg-purple-600 hover:bg-purple-700 text-white'}`}
+                    >
+                      Verify Online
+                    </button>
+                  )}
+                  <button
+                    onClick={closeCertificateModal}
+                    className={`px-4 py-2 rounded-lg font-medium text-sm transition-colors ${isDark ? 'bg-gray-700 hover:bg-gray-600 text-gray-200' : 'bg-gray-200 hover:bg-gray-300 text-gray-800'}`}
+                  >
+                    Close
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
       
     </section>
   )
