@@ -458,15 +458,25 @@ const Skills = () => {
                   { logo: skillCategories[3].skills[0].logo, color: '#00979D', name: 'Arduino' },
                   { logo: skillCategories[3].skills[1].logo, color: '#C51A4A', name: 'Raspberry' },
                 ].map((item, index) => {
-                  // Create zigzag scattered positioning with safe margins
+                  // Create evenly distributed positioning with better spacing
                   const positions = [
-                    { left: 12, top: 20 }, { left: 25, top: 45 }, { left: 18, top: 70 }, { left: 40, top: 25 },
-                    { left: 58, top: 55 }, { left: 35, top: 80 }, { left: 68, top: 15 }, { left: 50, top: 75 },
-                    { left: 80, top: 40 }, { left: 22, top: 85 }, { left: 72, top: 80 }, { left: 85, top: 30 },
-                    { left: 8, top: 50 }, { left: 45, top: 10 }, { left: 62, top: 88 }, { left: 88, top: 65 }
+                    // Top row - well spaced
+                    { left: 8, top: 12 }, { left: 28, top: 8 }, { left: 52, top: 15 }, { left: 76, top: 10 }, { left: 92, top: 18 },
+                    
+                    // Middle-upper row
+                    { left: 15, top: 35 }, { left: 38, top: 32 }, { left: 65, top: 38 }, { left: 85, top: 35 },
+                    
+                    // Middle-lower row  
+                    { left: 5, top: 58 }, { left: 25, top: 62 }, { left: 48, top: 55 }, { left: 72, top: 60 },
+                    
+                    // Bottom row - spread out
+                    { left: 12, top: 82 }, { left: 35, top: 85 }, { left: 58, top: 78 }
                   ]
                   
-                  const position = positions[index] || { left: Math.random() * 75 + 10, top: Math.random() * 75 + 10 }
+                  const position = positions[index] || { 
+                    left: 10 + (index % 4) * 20 + Math.random() * 8, 
+                    top: 15 + Math.floor(index / 4) * 20 + Math.random() * 8 
+                  }
                   
                   return (
                     <div
