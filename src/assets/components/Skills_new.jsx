@@ -426,98 +426,12 @@ const Skills = () => {
     >
       <div className="relative z-10 container mx-auto px-4 py-16 lg:py-24">
         {/* Section Header */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-16 lg:mb-20">
           <h2 className={`text-3xl sm:text-4xl lg:text-6xl xl:text-7xl font-bold ${isDark ? 'text-gray-100' : 'text-gray-900'} mb-4`}>
             <span className={`bg-gradient-to-r ${isDark ? 'from-cyan-400 via-pink-400 to-cyan-400' : 'from-blue-600 via-purple-600 to-blue-600'} bg-clip-text text-transparent ${getAnimationClass('animate-gradient-x')}`}>
               Skills & Technologies
             </span>
           </h2>
-        </div>
-
-        {/* Animated Skills Showcase */}
-        <div className={`mb-16 transform transition-all ${getAnimationClass('duration-1000 delay-200')} ${isVisible || isMobile ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-          <Step 
-            delay={200}
-            padding="p-8"
-            shadow="shadow-xl"
-            className="w-full"
-          >
-            <div className="relative h-64 overflow-hidden rounded-lg">
-              <div className="absolute inset-0 p-6">
-                {/* Animated floating logos - Adjusted positioning for full visibility */}
-                {[
-                  { logo: skillCategories[0].skills[0].logo, color: '#61DAFB', name: 'React' },
-                  { logo: skillCategories[0].skills[1].logo, color: '#F7DF1E', name: 'JavaScript' },
-                  { logo: skillCategories[0].skills[2].logo, color: '#E34F26', name: 'HTML5' },
-                  { logo: skillCategories[0].skills[3].logo, color: '#1572B6', name: 'CSS3' },
-                  { logo: skillCategories[0].skills[4].logo, color: '#06B6D4', name: 'Tailwind' },
-                  { logo: skillCategories[0].skills[5].logo, color: '#7952B3', name: 'Bootstrap' },
-                  { logo: skillCategories[1].skills[0].logo, color: '#ED8B00', name: 'Java' },
-                  { logo: skillCategories[1].skills[1].logo, color: '#3776AB', name: 'Python' },
-                  { logo: skillCategories[1].skills[3].logo, color: '#6DB33F', name: 'Spring' },
-                  { logo: skillCategories[1].skills[4].logo, color: '#777BB4', name: 'PHP' },
-                  { logo: skillCategories[2].skills[0].logo, color: '#181717', name: 'Git' },
-                  { logo: skillCategories[2].skills[1].logo, color: '#007ACC', name: 'VSCode' },
-                  { logo: skillCategories[2].skills[2].logo, color: '#646CFF', name: 'Vite' },
-                  { logo: skillCategories[2].skills[3].logo, color: '#CB3837', name: 'npm' },
-                  { logo: skillCategories[3].skills[0].logo, color: '#00979D', name: 'Arduino' },
-                  { logo: skillCategories[3].skills[1].logo, color: '#C51A4A', name: 'Raspberry' },
-                ].map((item, index) => {
-                  // Create zigzag scattered positioning with safe margins
-                  const positions = [
-                    { left: 12, top: 20 }, { left: 25, top: 45 }, { left: 18, top: 70 }, { left: 40, top: 25 },
-                    { left: 58, top: 55 }, { left: 35, top: 80 }, { left: 68, top: 15 }, { left: 50, top: 75 },
-                    { left: 80, top: 40 }, { left: 22, top: 85 }, { left: 72, top: 80 }, { left: 85, top: 30 },
-                    { left: 8, top: 50 }, { left: 45, top: 10 }, { left: 62, top: 88 }, { left: 88, top: 65 }
-                  ]
-                  
-                  const position = positions[index] || { left: Math.random() * 75 + 10, top: Math.random() * 75 + 10 }
-                  
-                  return (
-                    <div
-                      key={index}
-                      className={`absolute w-12 h-12 rounded-xl flex items-center justify-center ${
-                        isDark ? 'bg-gray-800/70' : 'bg-white/90'
-                      } backdrop-blur-sm border ${
-                        isDark ? 'border-gray-700/60' : 'border-gray-200/60'
-                      } shadow-lg hover:shadow-xl transition-all duration-300`}
-                      style={{
-                        animation: `float-skill ${4 + (index % 6) * 0.5}s ease-in-out infinite`,
-                        animationDelay: `${index * 0.3}s`,
-                        left: `${position.left}%`,
-                        top: `${position.top}%`,
-                        transform: `rotate(${(index * 11 + 17) % 30 - 15}deg)`,
-                      }}
-                      title={item.name}
-                    >
-                      {React.cloneElement(item.logo, {
-                        className: 'w-7 h-7',
-                        style: { color: item.color, fill: item.color }
-                      })}
-                    </div>
-                  )
-                })}
-              </div>
-              
-              {/* Enhanced floating particles background */}
-              <div className="absolute inset-0 p-6">
-                {[...Array(12)].map((_, i) => (
-                  <div
-                    key={i}
-                    className={`absolute w-1.5 h-1.5 rounded-full ${
-                      isDark ? 'bg-cyan-400/20' : 'bg-blue-500/20'
-                    }`}
-                    style={{
-                      animation: `float-particle ${5 + i * 0.4}s linear infinite`,
-                      animationDelay: `${i * 0.6}s`,
-                      left: `${Math.random() * 80 + 10}%`,
-                      top: `${Math.random() * 80 + 10}%`,
-                    }}
-                  />
-                ))}
-              </div>
-            </div>
-          </Step>
         </div>
 
         {/* Skills Grid */}
@@ -599,6 +513,92 @@ const Skills = () => {
               </Step>
             </div>
           ))}
+        </div>
+
+        {/* Animated Skills Showcase */}
+        <div className={`mb-16 transform transition-all ${getAnimationClass('duration-1000 delay-600')} ${isVisible || isMobile ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
+          <Step 
+            delay={600}
+            padding="p-8"
+            shadow="shadow-xl"
+            className="w-full"
+          >
+            <div className="relative h-40 overflow-hidden rounded-lg">
+              <div className="absolute inset-0">
+                {/* Animated floating logos - Zigzag scattered positioning */}
+                {[
+                  { logo: skillCategories[0].skills[0].logo, color: '#61DAFB', name: 'React' },
+                  { logo: skillCategories[0].skills[1].logo, color: '#F7DF1E', name: 'JavaScript' },
+                  { logo: skillCategories[0].skills[2].logo, color: '#E34F26', name: 'HTML5' },
+                  { logo: skillCategories[0].skills[3].logo, color: '#1572B6', name: 'CSS3' },
+                  { logo: skillCategories[0].skills[4].logo, color: '#06B6D4', name: 'Tailwind' },
+                  { logo: skillCategories[0].skills[5].logo, color: '#7952B3', name: 'Bootstrap' },
+                  { logo: skillCategories[1].skills[0].logo, color: '#ED8B00', name: 'Java' },
+                  { logo: skillCategories[1].skills[1].logo, color: '#3776AB', name: 'Python' },
+                  { logo: skillCategories[1].skills[3].logo, color: '#6DB33F', name: 'Spring' },
+                  { logo: skillCategories[1].skills[4].logo, color: '#777BB4', name: 'PHP' },
+                  { logo: skillCategories[2].skills[0].logo, color: '#181717', name: 'Git' },
+                  { logo: skillCategories[2].skills[1].logo, color: '#007ACC', name: 'VSCode' },
+                  { logo: skillCategories[2].skills[2].logo, color: '#646CFF', name: 'Vite' },
+                  { logo: skillCategories[2].skills[3].logo, color: '#CB3837', name: 'npm' },
+                  { logo: skillCategories[3].skills[0].logo, color: '#00979D', name: 'Arduino' },
+                  { logo: skillCategories[3].skills[1].logo, color: '#C51A4A', name: 'Raspberry' },
+                ].map((item, index) => {
+                  // Create zigzag scattered positioning
+                  const positions = [
+                    { left: 8, top: 15 }, { left: 25, top: 35 }, { left: 15, top: 65 }, { left: 40, top: 20 },
+                    { left: 60, top: 50 }, { left: 35, top: 80 }, { left: 70, top: 10 }, { left: 50, top: 75 },
+                    { left: 85, top: 40 }, { left: 20, top: 90 }, { left: 75, top: 85 }, { left: 90, top: 25 },
+                    { left: 5, top: 45 }, { left: 45, top: 5 }, { left: 65, top: 95 }, { left: 95, top: 70 }
+                  ]
+                  
+                  const position = positions[index] || { left: Math.random() * 85 + 5, top: Math.random() * 85 + 5 }
+                  
+                  return (
+                    <div
+                      key={index}
+                      className={`absolute w-12 h-12 rounded-xl flex items-center justify-center ${
+                        isDark ? 'bg-gray-800/70' : 'bg-white/90'
+                      } backdrop-blur-sm border ${
+                        isDark ? 'border-gray-700/60' : 'border-gray-200/60'
+                      } shadow-lg hover:shadow-xl transition-all duration-300`}
+                      style={{
+                        animation: `float-skill ${4 + (index % 6) * 0.5}s ease-in-out infinite`,
+                        animationDelay: `${index * 0.3}s`,
+                        left: `${position.left}%`,
+                        top: `${position.top}%`,
+                        transform: `rotate(${(index * 11 + 17) % 30 - 15}deg)`,
+                      }}
+                      title={item.name}
+                    >
+                      {React.cloneElement(item.logo, {
+                        className: 'w-7 h-7',
+                        style: { color: item.color, fill: item.color }
+                      })}
+                    </div>
+                  )
+                })}
+              </div>
+              
+              {/* Enhanced floating particles background */}
+              <div className="absolute inset-0">
+                {[...Array(12)].map((_, i) => (
+                  <div
+                    key={i}
+                    className={`absolute w-1.5 h-1.5 rounded-full ${
+                      isDark ? 'bg-cyan-400/20' : 'bg-blue-500/20'
+                    }`}
+                    style={{
+                      animation: `float-particle ${5 + i * 0.4}s linear infinite`,
+                      animationDelay: `${i * 0.6}s`,
+                      left: `${Math.random() * 100}%`,
+                      top: `${Math.random() * 100}%`,
+                    }}
+                  />
+                ))}
+              </div>
+            </div>
+          </Step>
         </div>
 
         {/* Learning Focus */}
