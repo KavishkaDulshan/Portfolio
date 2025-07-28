@@ -515,6 +515,80 @@ const Skills = () => {
           ))}
         </div>
 
+        {/* Animated Skills Showcase */}
+        <div className={`mb-16 transform transition-all ${getAnimationClass('duration-1000 delay-600')} ${isVisible || isMobile ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
+          <Step 
+            delay={600}
+            padding="p-8"
+            shadow="shadow-xl"
+            className="w-full"
+          >
+            <div className="relative h-40 overflow-hidden rounded-lg">
+              <div className="absolute inset-0">
+                {/* Animated floating logos - All major skills */}
+                {[
+                  { logo: skillCategories[0].skills[0].logo, color: '#61DAFB', name: 'React' }, // React
+                  { logo: skillCategories[0].skills[1].logo, color: '#F7DF1E', name: 'JavaScript' }, // JavaScript
+                  { logo: skillCategories[0].skills[2].logo, color: '#E34F26', name: 'HTML5' }, // HTML5
+                  { logo: skillCategories[0].skills[3].logo, color: '#1572B6', name: 'CSS3' }, // CSS3
+                  { logo: skillCategories[0].skills[4].logo, color: '#06B6D4', name: 'Tailwind' }, // Tailwind
+                  { logo: skillCategories[0].skills[5].logo, color: '#7952B3', name: 'Bootstrap' }, // Bootstrap
+                  { logo: skillCategories[1].skills[0].logo, color: '#ED8B00', name: 'Java' }, // Java
+                  { logo: skillCategories[1].skills[1].logo, color: '#3776AB', name: 'Python' }, // Python
+                  { logo: skillCategories[1].skills[3].logo, color: '#6DB33F', name: 'Spring' }, // Spring Boot
+                  { logo: skillCategories[1].skills[4].logo, color: '#777BB4', name: 'PHP' }, // PHP
+                  { logo: skillCategories[2].skills[0].logo, color: '#181717', name: 'Git' }, // Git
+                  { logo: skillCategories[2].skills[1].logo, color: '#007ACC', name: 'VSCode' }, // VS Code
+                  { logo: skillCategories[2].skills[2].logo, color: '#646CFF', name: 'Vite' }, // Vite
+                  { logo: skillCategories[2].skills[3].logo, color: '#CB3837', name: 'npm' }, // npm
+                  { logo: skillCategories[3].skills[0].logo, color: '#00979D', name: 'Arduino' }, // Arduino
+                  { logo: skillCategories[3].skills[1].logo, color: '#C51A4A', name: 'Raspberry' }, // Raspberry Pi
+                ].map((item, index) => (
+                  <div
+                    key={index}
+                    className={`absolute w-12 h-12 rounded-xl flex items-center justify-center ${
+                      isDark ? 'bg-gray-800/70' : 'bg-white/90'
+                    } backdrop-blur-sm border ${
+                      isDark ? 'border-gray-700/60' : 'border-gray-200/60'
+                    } shadow-lg hover:shadow-xl transition-all duration-300`}
+                    style={{
+                      animation: `float-skill ${4 + (index % 6) * 0.5}s ease-in-out infinite`,
+                      animationDelay: `${index * 0.3}s`,
+                      left: `${5 + (index % 8) * 11}%`,
+                      top: `${15 + Math.floor(index / 8) * 35}%`,
+                      transform: `rotate(${Math.random() * 20 - 10}deg)`,
+                    }}
+                    title={item.name}
+                  >
+                    {React.cloneElement(item.logo, {
+                      className: 'w-7 h-7',
+                      style: { color: item.color, fill: item.color }
+                    })}
+                  </div>
+                ))}
+              </div>
+              
+              {/* Enhanced floating particles background */}
+              <div className="absolute inset-0">
+                {[...Array(12)].map((_, i) => (
+                  <div
+                    key={i}
+                    className={`absolute w-1.5 h-1.5 rounded-full ${
+                      isDark ? 'bg-cyan-400/20' : 'bg-blue-500/20'
+                    }`}
+                    style={{
+                      animation: `float-particle ${5 + i * 0.4}s linear infinite`,
+                      animationDelay: `${i * 0.6}s`,
+                      left: `${Math.random() * 100}%`,
+                      top: `${Math.random() * 100}%`,
+                    }}
+                  />
+                ))}
+              </div>
+            </div>
+          </Step>
+        </div>
+
         {/* Learning Focus */}
         <div className={`text-center transform transition-all ${getAnimationClass('duration-1000 delay-800')} ${isVisible || isMobile ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
           <Step 
