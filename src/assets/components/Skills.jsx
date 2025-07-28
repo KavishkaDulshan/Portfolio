@@ -436,12 +436,7 @@ const Skills = () => {
 
         {/* Animated Skills Showcase */}
         <div className={`mb-16 transform transition-all ${getAnimationClass('duration-1000 delay-200')} ${isVisible || isMobile ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-          <Step 
-            delay={200}
-            padding="p-8"
-            shadow="shadow-xl"
-            className="w-full"
-          >
+
             <div className="relative h-64 overflow-hidden rounded-lg">
               <div className="absolute inset-0 p-6">
                 {/* Animated floating logos - Adjusted positioning for full visibility */}
@@ -517,7 +512,6 @@ const Skills = () => {
                 ))}
               </div>
             </div>
-          </Step>
         </div>
 
         {/* Skills Grid */}
